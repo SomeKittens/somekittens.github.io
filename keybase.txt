@@ -1,0 +1,73 @@
+==================================================================
+https://keybase.io/rkoutnik
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://rkoutnik.com
+  * I am rkoutnik (https://keybase.io/rkoutnik) on keybase.
+  * I have a public key with fingerprint 0E84 45F0 6104 96C0 F62A  1055 6943 A18A 7088 C932
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "0e8445f0610496c0f62a10556943a18a7088c932",
+            "host": "keybase.io",
+            "key_id": "6943a18a7088c932",
+            "kid": "0101adb2bbe330af00a2e718081c0faaaf90d1eb3976fcda245b6201375e82707d180a",
+            "uid": "a720f0c2e2248b5a4e9e2cdabc19e400",
+            "username": "rkoutnik"
+        },
+        "service": {
+            "hostname": "rkoutnik.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1428042069,
+    "expire_in": 157680000,
+    "prev": "e72e87e4fe03ae26913298a45b5e1eec8b422183c2f7d0a26b14831841eeebe5",
+    "seqno": 5,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.8
+Comment: https://keybase.io/crypto
+
+yMMzAnicbZJ/UFRVFMcXFQqK5IcGJKI+zXLalnvvvp8oiRhoAqEYCczS8t7bu+tr
+cd/y3rKASFaaU1YOrROuOBmJEzj2w2nHQqmGHxoJOCPjTIlNJA7EDweRQMGiqfeY
++qfp/nPnnvP5fs89Z86F8PmGsKC7qcEPf7l5vCeoqzWl1JCbAHMrCUG2VRBJlYQT
+z112yeXAiluRXB4iiQCYJUnKDmgISI4WgZ1GPAQURXOkmYcszwCWFTkzIozETlnV
+FZqNwKvYJMlaTHtYJZsW/R/eOZcAEEDeJiBBwGYz4O0A8AgzkAUs1KrxPG/ngA1i
+wcwxtF208YikBBoBaGYozCIGMDaN5TW70jk7nkHADkSEESJZgeJJzGGkyQQRcpgE
+QAdVrLj4XVijFadc6nFJTqLKSGhRryRifQR6J/8hTKK8S9O6Fdkji3Kxltnp8biT
+dKGnwq2TZViw/uNhFSSXTRujJvBiRZVkF5EENVL0SLopJBELSARozkjgcrekYKuk
+ExRDs0A7ehns1SwxgzDLYNKOgZnHiOagGXEsr02AwhBjkRVIhCBrFpGdsWlzowVI
+smbIkloSC5gi9K5KXDKRRGnf5B2apSo5XLynVMFEVVurZYEhKMwQEjxPXwRDWGjE
+v+vxWefCPx87GVk7f+iCz7eu0HjV9EHPWltQ/MRTk8NPTNn9iWes/tObcx6NvHYp
+Dfcf6V7QzkwvWffeXqU8MyKfProl/vRg0/B3y8Hh9bG/E03Mr79MdgcPMNmFBS3V
+8v708QSyqKFwXvBQ5hXP5x81OH97/9y+0zOBqSPlhwPNcktoT0dMUdyLlr/CDH9U
+zxrHkqWItStg7J7i16eFxirz1tx2xVlTzz0/0IXPZt9Sj28qKemJiwcrhi2+DsT7
+ds/81DH69Y7U2KyslE8y7izbumHRpR8OxR+7x3jzctYHUN3ZNe/0n8i2dPdtA50f
+Zw2qBx3hsx2tgezJk92NG00vP1mU2Dtjy1g5OJZn7B0vq2tn393e3/Jh/cUlxYsH
+/PnX3MOw6PEQa1ppTa2JWuQrXvpAZVtv39SVuhbrWz0jGW2O8/fluOA7LSP5N/P3
+dg83f7Mwc390Q0p9RkFeREjU5aiNb+zxHLtR8dW+pVGmb091/ny/a/ztyDV+x6tn
+2tOaLOqBe6+51BeqD64mC3NvlyhZP9Y8cir5/Nhyentn3/c3r/vD+5TcxkOJGbca
+blxeVTBy96Vl1597aPe5LV3oNlxVObHt6IZoTg5d3bup1ld7wiDOBmBy5/HwocCB
+9Oan37xYpkbuePaLGG+C0Tg6mxM0Ue99Jp1TV9Y/mLo4L8Y/alGioz7lr06/0m91
+/g2xfKN+
+=HYtA
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/rkoutnik
+
+==================================================================
