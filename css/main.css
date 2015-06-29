@@ -768,6 +768,8 @@ header {
     .body .heading a {
       font-size: 28px;
       color: black; }
+  .body img {
+    width: 100%; }
 
 footer {
   text-align: center; }
