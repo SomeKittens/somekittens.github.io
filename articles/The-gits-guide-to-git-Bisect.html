@@ -1,0 +1,59 @@
+<!DOCTYPE html><html ng-app="nbe"><head><title>The git’s guide to git: Bisect Randall Koutnik</title><link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/grupo3" type="text/css"><link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/selena" type="text/css"><link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/news-cycle" type="text/css"><link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/freeuniversal" type="text/css"><link rel="stylesheet" href="/css/main.css"><link rel="shortcut icon" href="/images/rk.jpg" type="image/x-icon"><base href="/"></head><body><header><div class="title"><div class="middle-title"><div class="inner-title"><h1>Randall Koutnik</h1><nav><ul><li><a href="/"><span>Home</span></a></li><li><a href="/contact.html"><span>Contact Me</span></a></li><li><a href="http://github.com/SomeKittens"><span>GitHub</span></a></li></ul></nav></div></div></div></header><div class="container body"><h1 class="heading">The git’s guide to git: Bisect</h1><p><p>Debugging is hard.  Often you’ll be presented with a bug that was introduced “some time ago” without any further information.  Before I learned about <a href="https://git-scm.com/docs/git-bisect"><code>git bisect</code></a>, my primary strategy was to flail around blindly, hoping my fingers would strike the keyboard just right to reveal the bug.  The loud typing showed I was a hard worker and eventually I was promoted to senior architect.  Once I joined the inner circle of the cabal, I was taught the secrets of git.  I was eventually kicked out for my insistence that Wedge Antilles was a better pilot than Luke Skywalker (he <em>is</em> dangit!) and so as revenge, I bring you The Git’s Guide to git - a series on using git to its fullest.</p></p>
+<p><p>Here at Kittenitech, we’ve got a multi-billion-dollar SaaS product: UnicornTopia.  It allows UnicornOps folks to easily manage large herds of distributed unicorns.  Problem is, sometime in the last week, we introduced a really nasty bug.  Paula over in Marketing tells us they’re receiving quite a few reports that setting the header color to blue causes unicorn riots.  Fortunately, this is timeboxed - Paula helpfully says complaints started coming in less than a week ago, so we know the problem was introduced recently.</p></p>
+<p><p>Bill thinks we should use <code>git diff HEAD ‘HEAD@{1 week ago}’</code>.  This’ll give us all of the changes in the past week, in a gigantic, difficult to sift through diff format.  Then again, Bill was talking earlier about how his nifty electric drill double as a hammer if you swing it hard enough.  Let’s look at a better solution - <code>git bisect</code>.</p></p>
+<p><p><code>git bisect</code> works by taking a known <em>good</em> commit and a <em>bad</em> commit and performing a binary search bounded by the two commits to find the exact commit where things went bad.</p></p>
+<p><p>Let’s try it out:</p></p>
+<p><pre><code class="lang-bash"># Start bisecting, passing in a known good commit &amp; HEAD as our bad
+$ git bisect start HEAD f02811f
+Already on &#39;master&#39;
+Your branch is up-to-date with &#39;origin/master&#39;.
+Bisecting: 11 revisions left to test after this (roughly 4 steps)
+[66fee7e22a384d8053167bf93338a6877222463e] Ensure Unicorn Park converts to anti-aircraft batteries upon Godzilla event
+$ git status
+HEAD detached at 66fee7e
+You are currently bisecting, started from branch &#39;master&#39;.
+  (use &quot;git bisect reset&quot; to get back to the original branch)</p>
+<p>nothing to commit, working directory clean
+</code></pre></p>
+<p><p>Good news!  There’s only eleven commits to check (or bad news, we only pushed 11 commits in a week, yipes).  Note that this’ll only take four steps - binary searches are O(log n) - they require a number of steps equal to the natural logarithm of the total items to check (For the math-adverse, this means we only have to check a small amount in order to find the problem commit.  Checking 10,000 commits requires 10 steps).</p></p>
+<p><p>At this point, git has checked out the commit between <code>HEAD</code> and <code>f02811f</code>.  We’re in “Detached HEAD” state: We’re pointing at a specific commit instead of a pointer to “The latest commit of a branch”.  Don’t sweat this - if everything goes kerflooey, we can run <code>git bisect reset</code> to return to our original, pre-bisect state.  Phew.</p></p>
+<p><p>We open up <code>dev.unicorntopia.com</code> and set the header to blue.  Unicorns fly everywhere, rioting in the streets.  Looks like this commit is broken.  We tell git that the current commit is bad through the intuitive <code>git bisect bad</code>.  Once that’s run, git determines that all the commits between <code>66fee7e</code> and <code>HEAD</code> are <em>also</em> bad, leaving us with just under half of our original commits under suspicion.</p></p>
+<p><pre><code class="lang-bash">$ git bisect bad
+Bisecting: 5 revisions left to test after this (roughly 3 steps)
+[ecf9304811a0fd54289a35b9c3b715a1d4447806] Automatically spin up new unicorns when config.carousel is true
+</code></pre></p>
+<p><p>This time, our commit looks good.  Blue header, docile unicorns.  Hurrah!  Git now knows that our malfunctioning code is enclosed by <code>ecf9304</code> and <code>66fee7e</code>.</p></p>
+<p><pre><code class="lang-bash">$ git bisect good
+Bisecting: 2 revisions left to test after this (roughly 2 steps)
+[fd83d3724ad30a93254f08cb82f981eaddb5dbff] Fix edge case where Unicorns gain sentience and demand rights
+</code></pre></p>
+<p><p>Repeating this process a few times gives us the problem commit:</p></p>
+<p><pre><code class="lang-bash">$ git bisect good
+66fee7e22a384d8053167bf93338a6877222463e is the first bad commit
+commit 66fee7e22a384d8053167bf93338a6877222463e
+Author: Jebediah Kerman &lt;jebkerman@kittenitech.co&gt;
+Date:   Sat Aug 8 21:37:46 2015 -0700</p>
+<pre><code>Ensure Unicorn Park converts to anti-aircraft batteries upon Godzilla event
+</code></pre><p>:040000 040000 916d84ec856aead9b37fcd02f747e9f7b4abd057 bffa22c13e621fc14dc5978f900065e701b9ec1d M    src
+</code></pre></p>
+<p><p>D’oh!  It was the first commit we looked at!  At least now we know exactly where the problem commit is.  Let’s look at what changed with <code>git diff 66fee7e^ 66fee7e</code> (compare the commit immediately preceding our problem one and the problem one itself).  Digging through the code there, we find:</p></p>
+<p><pre><code class="lang-javascript">// Don’t riot if blue
+if (header.blue) {
+  unicornMob.riot();
+}
+</code></pre></p>
+<p><p>Welp, there’s our problem.  <code>git bisect</code> saves the day!</p></p>
+<p><h3 id="downsides">Downsides</h3></p>
+<p><p><code>git bisect</code> isn’t perfect - there’s a few scenarios where it isn’t helpful:</p></p>
+<ul>
+<li>The problem is an external source.  I once spent far too long bisecting to discover the database had bad data.</li>
+<li>Your team doesn’t write atomic commits.  If each commit changes multiple things, it’s harder to discern the problem.</li>
+<li>The problem is a race condition.</li>
+</ul>
+</div><footer>&copy; 2015 Randall Koutnik | <a href="https://github.com/SomeKittens/Node-Blog-Engine">View Source</a></footer><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-59570836-1', 'auto');
+ga('send', 'pageview');</script></body></html>
