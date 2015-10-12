@@ -1,4 +1,35 @@
-<!DOCTYPE html><html ng-app="nbe"><head><title>Randall Koutnik</title><link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/grupo3" type="text/css"><link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/selena" type="text/css"><link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/news-cycle" type="text/css"><link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/freeuniversal" type="text/css"><link rel="stylesheet" href="/css/main.css"><link rel="shortcut icon" href="/images/rk.jpg" type="image/x-icon"><base href="/"></head><body><header><div class="title"><div class="middle-title"><div class="inner-title"><h1>Randall Koutnik</h1><nav><ul><li><a href="/"><span>Home</span></a></li><li><a href="/contact.html"><span>Contact Me</span></a></li><li><a href="http://github.com/SomeKittens"><span>GitHub</span></a></li></ul></nav></div></div></div></header><div class="container body"><h3 class="heading"><a href="/articles/The-gits-guide-to-git-Bisect.html">The git’s guide to git: Bisect</a></h3><div><p>Debugging is hard.  Often you’ll be presented with a bug that was introduced “some time ago” without any further information.  Before I learned about <a href="https://git-scm.com/docs/git-bisect"><code>git bisect</code></a>, my primary strategy was to flail around blindly, hoping my fingers would strike the keyboard just right to reveal the bug.  The loud typing showed I was a hard worker and eventually I was promoted to senior architect.  Once I joined the inner circle of the cabal, I was taught the secrets of git.  I was eventually kicked out for my insistence that Wedge Antilles was a better pilot than Luke Skywalker (he <em>is</em> dangit!) and so as revenge, I bring you The Git’s Guide to git - a series on using git to its fullest.</p>
+<!DOCTYPE html>
+<html ng-app="nbe">
+  <head>
+    <title>Randall Koutnik</title>
+    <link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/grupo3" type="text/css">
+    <link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/selena" type="text/css">
+    <link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/news-cycle" type="text/css">
+    <link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/freeuniversal" type="text/css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="shortcut icon" href="/images/rk.jpg" type="image/x-icon">
+    <base href="/">
+  </head>
+  <body>
+    <header>
+      <div class="title">
+        <div class="middle-title">
+          <div class="inner-title">
+            <h1>Randall Koutnik</h1>
+            <nav>
+              <ul>
+                <li><a href="/"><span>Home</span></a></li>
+                <li><a href="/contact.html"><span>Contact Me</span></a></li>
+                <li><a href="http://github.com/SomeKittens"><span>GitHub</span></a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container body">
+      <h3 class="heading"><a href="/articles/The-gits-guide-to-git-Bisect.html">The git’s guide to git: Bisect</a></h3>
+      <div><p>Debugging is hard.  Often you’ll be presented with a bug that was introduced “some time ago” without any further information.  Before I learned about <a href="https://git-scm.com/docs/git-bisect"><code>git bisect</code></a>, my primary strategy was to flail around blindly, hoping my fingers would strike the keyboard just right to reveal the bug.  The loud typing showed I was a hard worker and eventually I was promoted to senior architect.  Once I joined the inner circle of the cabal, I was taught the secrets of git.  I was eventually kicked out for my insistence that Wedge Antilles was a better pilot than Luke Skywalker (he <em>is</em> dangit!) and so as revenge, I bring you The Git’s Guide to git - a series on using git to its fullest.</p>
 <p>Here at Kittenitech, we’ve got a multi-billion-dollar SaaS product: UnicornTopia.  It allows UnicornOps folks to easily manage large herds of distributed unicorns.  Problem is, sometime in the last week, we introduced a really nasty bug.  Paula over in Marketing tells us they’re receiving quite a few reports that setting the header color to blue causes unicorn riots.  Fortunately, this is timeboxed - Paula helpfully says complaints started coming in less than a week ago, so we know the problem was introduced recently.</p>
 <p>Bill thinks we should use <code>git diff HEAD ‘HEAD@{1 week ago}’</code>.  This’ll give us all of the changes in the past week, in a gigantic, difficult to sift through diff format.  Then again, Bill was talking earlier about how his nifty electric drill double as a hammer if you swing it hard enough.  Let’s look at a better solution - <code>git bisect</code>.</p>
 <p><code>git bisect</code> works by taking a known <em>good</em> commit and a <em>bad</em> commit and performing a binary search bounded by the two commits to find the exact commit where things went bad.</p>
@@ -53,7 +84,10 @@ if (header.blue) {
 <li>Your team doesn’t write atomic commits.  If each commit changes multiple things, it’s harder to discern the problem.</li>
 <li>The problem is a race condition.</li>
 </ul>
-</div><hr><h3 class="heading"><a href="/articles/Building-data-warehouses-for-fun-and-profit.html">Building data warehouses for fun and profit</a></h3><div><p>A data warehouse is a way of structuring a database so that it is easy to answer business questions about your data. In a traditional database model, it would be difficult to construct a query that determines how much profit came from credit card sales. In a dimensional data warehouse, it&#39;s a relatively simple JOIN.</p>
+</div>
+      <hr>
+      <h3 class="heading"><a href="/articles/Building-data-warehouses-for-fun-and-profit.html">Building data warehouses for fun and profit</a></h3>
+      <div><p>A data warehouse is a way of structuring a database so that it is easy to answer business questions about your data. In a traditional database model, it would be difficult to construct a query that determines how much profit came from credit card sales. In a dimensional data warehouse, it&#39;s a relatively simple JOIN.</p>
 <p>Unlike a typical database where data objects are modeled based on their relationships, a dimensional data warehouse schema has two table types: Dimension and Fact. Dimension tables are the nouns of the data warehouse world - think <code>users</code> and <code>products</code>. They are largely denormalized. Fact tables are verbs - they represent events happening, and are mostly comprised of foreign keys to the dimension. Think of them as a subject (dimension) and a predicate (fact). If you&#39;re overwhelmed, don&#39;t worry. We&#39;ll get to some practical examples in just a second.</p>
 <p>I <em>highly</em> recommend reading Samson Hu&#39;s excellent article <a href="https://medium.com/@samson_hu/building-analytics-at-500px-92e9a7005c83"><em>Building Analytics At 500px</em></a>, where he describes the analytics pipeline he built at 500px, including comparisons of technologies outside the scope here. It makes BI/Analytics much approachable to the everyday programmer, going into detail about the <em>why</em> of things (whereas this article intends to answer <em>how</em>).</p>
 <h2 id="tools">Tools</h2>
@@ -169,7 +203,10 @@ GROUP BY is_child,
 <p>Plugging in some of those examples, our dashboard starts to look pretty good (astute readers will notice the bug in my random number generator):</p>
 <p><img src="http://i.imgur.com/z5DMsoI.png" alt="re:dash dashboard"></p>
 <p>At this point, go nuts! Play around in re:dash and try to find some more interesting data points. For an added challenge, try and add in a purchase type for entrances.</p>
-</div><hr><h3 class="heading"><a href="/articles/The-Myth-of-Equity-as-Motivation.html">The Myth of Equity as Motivation</a></h3><div><p>Virtually every startup job offers a percentage ownership of the hiring company as part of an employee&#39;s compensation package. According to AngelList, most startup software engineers in San Francisco can expect to receive 0.1%-4% of the company they work for.</p>
+</div>
+      <hr>
+      <h3 class="heading"><a href="/articles/The-Myth-of-Equity-as-Motivation.html">The Myth of Equity as Motivation</a></h3>
+      <div><p>Virtually every startup job offers a percentage ownership of the hiring company as part of an employee&#39;s compensation package. According to AngelList, most startup software engineers in San Francisco can expect to receive 0.1%-4% of the company they work for.</p>
 <p>This equity is provided in order to align incentives. Employees who own a stake in the company are compensated for the company&#39;s success and theoretically will work harder to achieve that success. In this post, I intend to show that this commonly-held belief is a myth. To be exact - equity in a startup does not incentivise an employee to work longer or harder.</p>
 <p>Equity&#39;s largest motivation is at the financial level. There are many other reasons a startup employee might work extra hours (belief in the company&#39;s mission, threats of firing, the enjoyment of challenging puzzles, etc) but none of these are significantly impacted by equity. In order to determine equity&#39;s effect (or lack thereof) on motivation, we need to look at how the financial impact of an equity stake impacts an employee&#39;s motivation.</p>
 <p>I find examples are best to work with, so let&#39;s examine a statistically-average Silicon Valley startup hacker named Bill. He&#39;s employee #7 and has been granted shares worth 0.5% of Wuzz.ly. His boss wants the team to put in extra hours in the coming weeks. Should he?</p>
@@ -185,7 +222,10 @@ GROUP BY is_child,
 <p>This does not mean that we should stop using equity as a form of compensation as this is now standard practice. Lack of equity might cause an employee to feel left out and/or poorly compensated, neither of which is good for motivation or retention. Equity also allows us to feel more involved when the company succeeds.</p>
 <p>Interestingly enough, I did find evidence that equity provides a powerful motivation in <em>public</em> companies. Managers with stock options that went up showed greater motivation at work for a year or more! This was only the case after employees saw a profit made off of their options, which makes it hard to draw correlations with privately-held startups.</p>
 <p>Equity is still an incredibly-useful tool in a compensation package. I doubt a company could woo an engineer without it, despite the common recommendation to value it at nothing. The next time your boss &quot;suggests&quot; you work a weekend, I hope you have a greater understanding of how the numbers work out.</p>
-</div><hr><h3 class="heading"><a href="/articles/Flat-is-weird.html">Flat is weird</a></h3><div><p>Specifically, companies with a flat structure (no managers at all) are weird. Decades of management tradition tell us that Someone must be in charge and make sure everyone&#39;s doing their work. Otherwise, everyone will goof off, right?</p>
+</div>
+      <hr>
+      <h3 class="heading"><a href="/articles/Flat-is-weird.html">Flat is weird</a></h3>
+      <div><p>Specifically, companies with a flat structure (no managers at all) are weird. Decades of management tradition tell us that Someone must be in charge and make sure everyone&#39;s doing their work. Otherwise, everyone will goof off, right?</p>
 <p>And yet, somehow these companies manage to work out. I&#39;m not even talking about the big ones that hog all the attention (looking at you, GitHub). Big, flat companies are wonderful case studies on their own but, much like quantum physics, it&#39;s when things reach the tiny startup scale that they start to get weird. A team of five won&#39;t have a full-time manager (unless something goes drastically wrong). How do things get done? Who decides what to do next? What happens when (gasp) <em>people disagree</em>?</p>
 <p>I am by no means an expert in this topic. Rather, this essay has been written as a letter to my college self, containing what I wish I had known back then about flat management. I hope you learn something!</p>
 <p>Management does not get the attention it deserves in a small startup fighting for its life (much like everything else). I&#39;ve seen startups tear themselves apart like an off-center centrifuge thanks to a lack of focus or unwillingness to Make Tough Decisions. Managing people will be the hardest thing you do as a founder.</p>
@@ -213,7 +253,10 @@ GROUP BY is_child,
 <p>As a field, we&#39;re absolutely rubbish at interviewing. Most of the things we use to evaluate candidates (tricky logic puzzles, reciting algorithms from memory, ambiguous &quot;fit&quot;) either do not judge the candidate on work skills, or worse, depend entirely on the interviewer&#39;s mood. With 100% delegation, each employee selects their own interviewing style, making it difficult to evaluate and compare candidates.</p>
 <p>You&#39;ll need to set a standard for candidate evaluation by ensuring your employees know <em>how</em> to run an objective interview and modeling it yourself. Once things are set in place, it is much easier to maintain momentum. An excellent treatise on the subject can be found here: <a href="http://sockpuppet.org/blog/2015/03/06/the-hiring-post/">http://sockpuppet.org/blog/2015/03/06/the-hiring-post/</a></p>
 <p>You may think otherwise about any of the concepts presented here - if you do, please write about it! I&#39;d love to hear your thoughts.</p>
-</div><hr><h3 class="heading"><a href="/articles/Valley-Talent.html">Valley Talent</a></h3><div><p><em>&quot;Knowledge is knowing a tomato is a fruit. Wisdom is not putting it in a fruit salad&quot; -Anonymous</em></p>
+</div>
+      <hr>
+      <h3 class="heading"><a href="/articles/Valley-Talent.html">Valley Talent</a></h3>
+      <div><p><em>&quot;Knowledge is knowing a tomato is a fruit. Wisdom is not putting it in a fruit salad&quot; -Anonymous</em></p>
 <p>One common refrain from experienced engineers outside of Silicon Valley is that &#39;nothing SV cranks out requires any talent&#39;. Seeing that I&#39;m an engineer turning that very same SV crank, I immediately took offense. What?!? How could anyone say that these amazing new apps put together with generators, Bootstrap and the latest over-hyped database...</p>
 <p>I&#39;ll concede that point. As I&#39;ve thought about this more, I&#39;ve found some truth in the statement - but not as much as those who spout it might want. There&#39;s plenty of evidence that both sides are equally correct, just in different microcosms.</p>
 <p>Before going any further, let&#39;s define a few terms.</p>
@@ -231,7 +274,10 @@ GROUP BY is_child,
 <p>Sometimes startups don&#39;t fail and start growing. The task of scaling technology, revenue or people is complex and can&#39;t be found in a blog. The guys who put this together don&#39;t read the docs - they probably wrote them. They depend upon years of practice finding edge cases, studying the core of a language and hard, non-Googleable work, one detail at a time. These guys are the ones pulling down the seemingly-obscene salaries - and yet they&#39;re worth it. Every single IPO or huge acquisition involved these guys creating a massive amount of value.</p>
 <p>These fantastic coders are where we get the culture of engineering superiority and the idea that some engineers can produce work that&#39;s an order of magnitude better than others. It&#39;s easy to idolize them, pretending that their talent was forged in some mysterious Stanford backroom. For the most part, the high cabal of Silicon Valley engineers started out like everyone else, building simple projects through tutorials. Unfortunately, anyone with half an engineering degree tends to believe that they are these fabled &#39;10xers&#39;, and are nothing short of Torvalds himself. The phrase &#39;Growth Hacker&#39; was briefly used to describe this second group, but was immediately co-opted by everyone who had &#39;growth hacked&#39; their Twitter account to 150 followers. Instead, they continue to run the mobius loop of knowledge and failure, never understanding why they aren&#39;t getting anywhere.</p>
 <p>Is there any hope for someone currently bound by their lack of talent? Absolutely. Find one of many open source projects and start sweating the details. Find code you don&#39;t understand and go through it line-by-line until you&#39;ve grasped all you can. Most of all, understand that playing <em>Mary Had a Little Lamb</em> a million times won&#39;t make it easier for you to write a symphony.</p>
-</div><hr><h3 class="heading"><a href="/articles/Dont-start-a-hosting-company.html">Don't start a hosting company</a></h3><div><p>I talk to a lot of people who are just starting their first startup. An large percentage of them want to know what it&#39;ll take to start a webhosting company. This isn&#39;t surprising, as web hosting companies like GoDaddy are very visible. The first step to any project is some sort of hosting. The technical challenges don&#39;t seem overwhelming to the beginner - chances are, they&#39;ve played with some sort of server already. Most importantly, hosting services seem to make a <em>lot</em> of money. To the uninitiated, this seems like a great area to enter. In this essay, I hope to explain why you shouldn&#39;t start a hosting service, while also explaining more general pitfalls beginners encounter.</p>
+</div>
+      <hr>
+      <h3 class="heading"><a href="/articles/Dont-start-a-hosting-company.html">Don't start a hosting company</a></h3>
+      <div><p>I talk to a lot of people who are just starting their first startup. An large percentage of them want to know what it&#39;ll take to start a webhosting company. This isn&#39;t surprising, as web hosting companies like GoDaddy are very visible. The first step to any project is some sort of hosting. The technical challenges don&#39;t seem overwhelming to the beginner - chances are, they&#39;ve played with some sort of server already. Most importantly, hosting services seem to make a <em>lot</em> of money. To the uninitiated, this seems like a great area to enter. In this essay, I hope to explain why you shouldn&#39;t start a hosting service, while also explaining more general pitfalls beginners encounter.</p>
 <h5 id="current-market-size-rarely-matters">Current market size rarely matters</h5>
 <p>Lots of beginners fall for the <a href="http://successfulsoftware.net/2013/03/11/the-1-percent-fallacy/">1% fallacy</a> (the idea that all they need to succeed is 1% of the market) when selecting what to build. They see large, entrenched players as a good sign - there&#39;s money to be made here. Large companies are particularly keen on not letting an upstart steal their profits. More than likely, they&#39;ll steal whatever makes you special and you&#39;ll lose your customers.</p>
 <p>Every major tech company has had either an entirely new product or one that was ten times as good as the competition. &quot;Yet another hosting company&quot; doesn&#39;t cut it. [0]</p>
@@ -256,10 +302,18 @@ GROUP BY is_child,
 <p>[1] An argument could be made that WP installs <em>are</em> a form of web hosting. If I haven&#39;t convinced you to do something other than hosting, this may be a lucrative way to start.</p>
 <p>[2] The business side of things has been deliberately left out. However, these can be just as hard as the technical stuff.</p>
 <p>[3] If you notice anything particularly annoying across the board, there may be opportunity there to do it <em>right</em> and differentiate yourself.</p>
-</div><hr></div><footer>&copy; 2015 Randall Koutnik | <a href="https://github.com/SomeKittens/Node-Blog-Engine">View Source</a></footer><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-59570836-1', 'auto');
-ga('send', 'pageview');</script></body></html>
+</div>
+      <hr>
+    </div>
+    <footer>&copy; 2015 Randall Koutnik | <a href="https://github.com/SomeKittens/Node-Blog-Engine">View Source</a></footer>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-59570836-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

@@ -1,4 +1,34 @@
-<!DOCTYPE html><html ng-app="nbe"><head><title>The git’s guide to git: Bisect Randall Koutnik</title><link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/grupo3" type="text/css"><link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/selena" type="text/css"><link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/news-cycle" type="text/css"><link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/freeuniversal" type="text/css"><link rel="stylesheet" href="/css/main.css"><link rel="shortcut icon" href="/images/rk.jpg" type="image/x-icon"><base href="/"></head><body><header><div class="title"><div class="middle-title"><div class="inner-title"><h1>Randall Koutnik</h1><nav><ul><li><a href="/"><span>Home</span></a></li><li><a href="/contact.html"><span>Contact Me</span></a></li><li><a href="http://github.com/SomeKittens"><span>GitHub</span></a></li></ul></nav></div></div></div></header><div class="container body"><h1 class="heading">The git’s guide to git: Bisect</h1><p>Debugging is hard.  Often you’ll be presented with a bug that was introduced “some time ago” without any further information.  Before I learned about <a href="https://git-scm.com/docs/git-bisect"><code>git bisect</code></a>, my primary strategy was to flail around blindly, hoping my fingers would strike the keyboard just right to reveal the bug.  The loud typing showed I was a hard worker and eventually I was promoted to senior architect.  Once I joined the inner circle of the cabal, I was taught the secrets of git.  I was eventually kicked out for my insistence that Wedge Antilles was a better pilot than Luke Skywalker (he <em>is</em> dangit!) and so as revenge, I bring you The Git’s Guide to git - a series on using git to its fullest.</p>
+<!DOCTYPE html>
+<html ng-app="nbe">
+  <head>
+    <title>The git’s guide to git: Bisect Randall Koutnik</title>
+    <link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/grupo3" type="text/css">
+    <link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/selena" type="text/css">
+    <link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/news-cycle" type="text/css">
+    <link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/freeuniversal" type="text/css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="shortcut icon" href="/images/rk.jpg" type="image/x-icon">
+    <base href="/">
+  </head>
+  <body>
+    <header>
+      <div class="title">
+        <div class="middle-title">
+          <div class="inner-title">
+            <h1>Randall Koutnik</h1>
+            <nav>
+              <ul>
+                <li><a href="/"><span>Home</span></a></li>
+                <li><a href="/contact.html"><span>Contact Me</span></a></li>
+                <li><a href="http://github.com/SomeKittens"><span>GitHub</span></a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container body">
+      <h1 class="heading">The git’s guide to git: Bisect</h1><p>Debugging is hard.  Often you’ll be presented with a bug that was introduced “some time ago” without any further information.  Before I learned about <a href="https://git-scm.com/docs/git-bisect"><code>git bisect</code></a>, my primary strategy was to flail around blindly, hoping my fingers would strike the keyboard just right to reveal the bug.  The loud typing showed I was a hard worker and eventually I was promoted to senior architect.  Once I joined the inner circle of the cabal, I was taught the secrets of git.  I was eventually kicked out for my insistence that Wedge Antilles was a better pilot than Luke Skywalker (he <em>is</em> dangit!) and so as revenge, I bring you The Git’s Guide to git - a series on using git to its fullest.</p>
 <p>Here at Kittenitech, we’ve got a multi-billion-dollar SaaS product: UnicornTopia.  It allows UnicornOps folks to easily manage large herds of distributed unicorns.  Problem is, sometime in the last week, we introduced a really nasty bug.  Paula over in Marketing tells us they’re receiving quite a few reports that setting the header color to blue causes unicorn riots.  Fortunately, this is timeboxed - Paula helpfully says complaints started coming in less than a week ago, so we know the problem was introduced recently.</p>
 <p>Bill thinks we should use <code>git diff HEAD ‘HEAD@{1 week ago}’</code>.  This’ll give us all of the changes in the past week, in a gigantic, difficult to sift through diff format.  Then again, Bill was talking earlier about how his nifty electric drill double as a hammer if you swing it hard enough.  Let’s look at a better solution - <code>git bisect</code>.</p>
 <p><code>git bisect</code> works by taking a known <em>good</em> commit and a <em>bad</em> commit and performing a binary search bounded by the two commits to find the exact commit where things went bad.</p>
@@ -53,10 +83,17 @@ if (header.blue) {
 <li>Your team doesn’t write atomic commits.  If each commit changes multiple things, it’s harder to discern the problem.</li>
 <li>The problem is a race condition.</li>
 </ul>
-</div><footer>&copy; 2015 Randall Koutnik | <a href="https://github.com/SomeKittens/Node-Blog-Engine">View Source</a></footer><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-ga('create', 'UA-59570836-1', 'auto');
-ga('send', 'pageview');</script></body></html>
+    </div>
+    <footer>&copy; 2015 Randall Koutnik | <a href="https://github.com/SomeKittens/Node-Blog-Engine">View Source</a></footer>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-59570836-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
