@@ -33,7 +33,7 @@
 <p>Bill thinks we should use <code>git diff HEAD ‘HEAD@{1 week ago}’</code>.  This’ll give us all of the changes in the past week, in a gigantic, difficult to sift through diff format.  Then again, Bill was talking earlier about how his nifty electric drill doubles as a hammer if you swing it hard enough.  Let’s look at a better solution - <code>git bisect</code>.</p>
 <p><code>git bisect</code> works by taking a known <em>good</em> commit and a <em>bad</em> commit and performing a binary search bounded by the two commits to find the exact commit where things went bad.</p>
 <p>Let’s try it out:</p>
-<pre><code class="lang-bash"># Start bisecting, passing in a known good commit &amp; HEAD as our bad
+<pre><code class="lang-bash"># Start bisecting, passing in a known good commit and HEAD as our bad
 $ git bisect start HEAD f02811f
 Already on &#39;master&#39;
 Your branch is up-to-date with &#39;origin/master&#39;.
