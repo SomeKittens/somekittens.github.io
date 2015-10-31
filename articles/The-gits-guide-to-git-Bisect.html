@@ -33,7 +33,7 @@
 <p>Bill thinks we should use <code>git diff HEAD &#39;HEAD@{1 week ago}&#39;</code>.  This&#39;ll give us all of the changes in the past week, in a gigantic, difficult to sift through diff format.  Then again, Bill was talking earlier about how his nifty electric drill doubles as a hammer if you swing it hard enough.  Let&#39;s look at a better solution - <code>git bisect</code>.</p>
 <p><code>git bisect</code> works by taking a known <em>good</em> commit and a <em>bad</em> commit and performing a <a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">binary search</a> bounded by the two commits to find the exact commit where things went bad.  It is excellent for situations where you know a bug was introduced in a given time frame.  It&#39;s not used every day but can be a lifesaver when there are reams of commits to dig through.</p>
 <p>There&#39;s only eleven commits to check (or bad news, we only pushed 11 commits in a week, yipes).  Note that this&#39;ll only take four steps - binary searches are <code>O(log n)</code> - they require a number of steps equal to the natural logarithm of the total items to check (For the math-adverse, this means we only have to check a small amount in order to find the problem commit.  Checking 10,000 commits requires 10 steps).  Here are the eleven commits we need to search through (in order from newest to oldest):</p>
-<pre><code>* 40c974a (HEAD)
+<pre><code>* 40c974a (HEAD) Increased alfalfa yields during bumper car festival
 * 06f002b Allow write-in votes during unicorn elections
 * 8226ff8 Turns out that wasn&#39;t a typo at all...
 * d67e999 refix typo fix
@@ -67,33 +67,23 @@ Bisecting: 5 revisions left to test after this (roughly 3 steps)
 [74ed28665dae9c24f43cbafce313baec945a9f5d] Automatically spin up new unicorns when config.carousel is true
 </code></pre>
 <p>Once that&#39;s run, bisect determines that all the commits between <code>6f3e26c</code> and <code>HEAD</code> <em>also</em> contain the bug, leaving us with just under half of our original commits under suspicion.  We then move to the commit halfway between <code>6f3e26c</code> (the one we just marked as bad) and <code>b51dd30</code> (the one we know is good).</p>
-<pre><code>(known bad) * 40c974a (HEAD)
-(assumed bad) * 06f002b Allow write-in votes during unicorn elections
-(assumed bad) * 8226ff8 Turns out that wasn&#39;t a typo at all...
-(assumed bad) * d67e999 refix typo fix
-(assumed bad) * a8e03b3 Tyops: SPeeling wrongs
-(known bad) * 6f3e26c Ensure Unicorn Park converts to anti-aircraft batteries upon Godzilla event
-* 1c75ea6 Correct corner case in round houses
-* c8e1db2 Fix edge case where Unicorns gain sentience and demand rights
-(currently checking) * 74ed286 Automatically spin up new unicorns when config.carousel is true
-* 4ad0ca1 Styling: Add peppermint swirls to unicorn housing
+<pre><code>(Newer commits assumed bad)
+(known bad)  * 6f3e26c Ensure Unicorn Park converts to anti-aircraft batteries upon Godzilla event
+             * 1c75ea6 Correct corner case in round houses
+             * c8e1db2 Fix edge case where Unicorns gain sentience and demand rights
+(checking)   * 74ed286 Automatically spin up new unicorns when config.carousel is true
+             * 4ad0ca1 Styling: Add peppermint swirls to unicorn housing
 (known good) * b51dd30 Race condition: Add checkered flag
 </code></pre><p>This time, our commit looks good.  Blue header, docile unicorns.  Hurrah!  Git now knows that our malfunctioning code is enclosed by <code>74ed286</code> (known bug-free) and <code>6f3e26c</code> (known bugged).  There&#39;s only two commits left to check!.</p>
 <pre><code class="lang-bash">$ git bisect good
 Bisecting: 2 revisions left to test after this (roughly 2 steps)
 [c8e1db20505e16161888f19515137bf113a169dd] Fix edge case where Unicorns gain sentience and demand rights
 </code></pre>
-<pre><code>(known bad) * 40c974a (HEAD)
-(assumed bad) * 06f002b Allow write-in votes during unicorn elections
-(assumed bad) * 8226ff8 Turns out that wasn&#39;t a typo at all...
-(assumed bad) * d67e999 refix typo fix
-(assumed bad) * a8e03b3 Tyops: SPeeling wrongs
+<pre><code>(Newer commits assumed bad)
 (known bad) * 6f3e26c Ensure Unicorn Park converts to anti-aircraft batteries upon Godzilla event
-* 1c75ea6 Correct corner case in round houses
-(currently checking) * c8e1db2 Fix edge case where Unicorns gain sentience and demand rights
-(known good) * 74ed286 Automatically spin up new unicorns when config.carousel is true
-(assumed good) * 4ad0ca1 Styling: Add peppermint swirls to unicorn housing
-(known good) * b51dd30 Race condition: Add checkered flag
+            * 1c75ea6 Correct corner case in round houses
+(checking)  * c8e1db2 Fix edge case where Unicorns gain sentience and demand rights
+(older commits assumed good)
 </code></pre><p>Repeating this process a few times gives us the problem commit:</p>
 <pre><code class="lang-bash">$ git bisect good
 6f3e26c40436f69e9d4bfb4ea518c89bf3b7219a is the first bad commit
