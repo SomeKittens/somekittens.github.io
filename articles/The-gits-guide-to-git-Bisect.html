@@ -28,7 +28,8 @@
       </div>
     </header>
     <div class="container body">
-      <h1 class="heading">The git's guide to git: Bisect</h1><p>Debugging is hard.  Often you&#39;ll be presented with a bug that was introduced &quot;some time ago&quot; without any further information.  Before I learned about <a href="https://git-scm.com/docs/git-bisect"><code>git bisect</code></a>, my primary strategy was to flail around blindly, hoping my fingers would strike the keyboard just right to reveal the bug.  The loud typing showed I was a hard worker and eventually I was promoted to senior architect.  Once I joined the inner circle of the cabal, I was taught the secrets of git.  I was eventually kicked out for my insistence that Wedge Antilles was a better pilot than Luke Skywalker (he <em>is</em> dangit!) and so as revenge, I bring you The Git&#39;s Guide to git - a series on using git to its fullest.</p>
+      <h1 class="heading">The git's guide to git: Bisect</h1><p>#yarhahahahaha</p>
+<p>Debugging is hard.  Often you&#39;ll be presented with a bug that was introduced &quot;some time ago&quot; without any further information.  Before I learned about <a href="https://git-scm.com/docs/git-bisect"><code>git bisect</code></a>, my primary strategy was to flail around blindly, hoping my fingers would strike the keyboard just right to reveal the bug.  The loud typing showed I was a hard worker and eventually I was promoted to senior architect.  Once I joined the inner circle of the cabal, I was taught the secrets of git.  I was eventually kicked out for my insistence that Wedge Antilles was a better pilot than Luke Skywalker (he <em>is</em> dangit!) and so as revenge, I bring you The Git&#39;s Guide to git - a series on using git to its fullest.</p>
 <p>Here at Kittenitech, we&#39;ve got a multi-billion-dollar SaaS product: UnicornTopia.  It allows UnicornOps folks to easily manage large herds of distributed unicorns.  Problem is, sometime in the last week, we introduced a really nasty bug.  Paula over in Marketing tells us they&#39;re receiving quite a few reports that setting the header color to blue causes unicorn riots.  Fortunately, this is timeboxed - Paula helpfully says complaints started coming in less than a week ago, so we know the problem was introduced recently.</p>
 <p>Bill thinks we should use <code>git diff HEAD &#39;HEAD@{1 week ago}&#39;</code>.  This&#39;ll give us all of the changes in the past week, in a gigantic, difficult to sift through diff format.  Then again, Bill was talking earlier about how his nifty electric drill doubles as a hammer if you swing it hard enough.  Let&#39;s look at a better solution - <code>git bisect</code>.</p>
 <p><code>git bisect</code> works by taking a known <em>good</em> commit and a <em>bad</em> commit and performing a <a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">binary search</a> bounded by the two commits to find the exact commit where things went bad.  It is excellent for situations where you know a bug was introduced in a given time frame.  It&#39;s not used every day but can be a lifesaver when there are reams of commits to dig through.</p>
@@ -108,6 +109,13 @@ if (header.blue) {
 <li>The problem is a race condition.  In this case, it&#39;s incredibly difficult to tell if a commit is good or the race worked out in your favor.</li>
 </ul>
 
+      <hr>
+      <div class="share-pl0x">
+        <div>If you liked this article, please share it!<span class="tweet-ask"><a href="https://twitter.com/share" data-via="rkoutnik" data-count="none" class="twitter-share-button">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></span></div>
+        <div>For more like this:<span class="tweet-ask"><a href="https://twitter.com/rkoutnik" data-show-count="false" class="twitter-follow-button">Follow @rkoutnik</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></span></div>
+      </div>
     </div>
     <footer>&copy; 2015 Randall Koutnik | <a href="https://github.com/SomeKittens/Node-Blog-Engine">View Source</a></footer>
     <script>
