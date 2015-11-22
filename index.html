@@ -28,6 +28,53 @@
       </div>
     </header>
     <div class="container body">
+      <h3 class="heading"><a href="/articles/gits-guide-to-git-Stash.html">git's guide to git: Stash</a></h3>
+      <div><p>Last time we checked in with our favorite unicorn management company, we learned about git bisect, a rarely-used tool that can absolutely save your bacon when the time comes.  In this episode, let&#39;s learn about <code>git stash</code>, something I use almost daily.</p>
+<p>Remember the last time you were elbows-deep in some code change and some PM came rushing over with a P0 bug that they&#39;d <em>just</em> discovered (we reported it two weeks ago).  Bob does.  He finally got time to work in the big refactor we&#39;ve all needed for <em>months</em> and this stupid bug crops up.  Welp, someone has to fix it but Bob has a pile of unsaved changes.  How should Bob proceed?  He weighs his options:</p>
+<ul>
+<li>Throw everything into a <code>wip</code> commit</li>
+<li>Use this <code>git stash</code> thing he just read about on some weirdo&#39;s blog</li>
+</ul>
+<p>The wip commit option has some problems - mainly that he&#39;ll need to either clutter the commit history with non-atomic commits or rewrite history.  No one likes having a git history littered with wip - they&#39;re useless at telling you what actually changed in that commit.  Even worse, what if someone pushed a commit to the refactor branch in the interim?  Bob could be stuck for hours in conflict doom.  Bob <em>could</em> keep that wip commit to himself but there&#39;s a better way...</p>
+<h3 id="git-stash">git stash</h3>
+<p>As it turns out, git has a built-in way to save the current state of the index <em>without</em> resorting to misusing commits.  It&#39;s as simple as:</p>
+<pre><code class="lang-bash">$ git stash
+Saved working directory and index state WIP on master: 51eada7 Release KRAK-N
+HEAD is now at 51eada7 Release KRAK-N
+</code></pre>
+<p>Ta-da!  All of our changes to the current working directory are now saved in a special &quot;stash&quot; stack.  Let&#39;s double check to make sure:</p>
+<pre><code class="lang-bash">$ git stash list
+stash@{0}: WIP on master: 51eada7 Release KRAK-N
+</code></pre>
+<p>Our stash stack has a single entry - the one we just saved (as well as the commit hash &amp; message we were working against when we stashed our changes).  We can push more items on top of that in the future, but for now let&#39;s just move on with the other fixes that need fixing.</p>
+<p>A quick digression: The stash will only save the changes against the current index - so new files that haven&#39;t been checked in won&#39;t be part of the stash.  If you want to include new files, add <code>--include-untracked</code> to your stashing.</p>
+<p>We&#39;ve fixed the tyop in the master branch, bringing harmony to the Force (Geez, imagine if Order 66 had been executed before we corrected that.  The Unicorn-Jedi might have been wiped out!).  Back to the refactor!  Our changes are stashed, how do we get them back?</p>
+<p>Remember, the stash is a stack.  We have two different ways of grabbing the top of the stack &amp; bringing our changes back into the current working tree:</p>
+<ul>
+<li><code>git stash apply</code>, which leaves the entry in our stack.</li>
+<li><code>git stash pop</code>, which removes the entry</li>
+</ul>
+<p>Bob likes a nice, clean stash stack, so he pops off the top:</p>
+<pre><code class="lang-bash">$ git stash pop
+On branch master
+Your branch is up-to-date with &#39;origin/master&#39;.
+
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)
+
+    modified:   index.js
+        modified:   homestarmy0.tmp.07.zip.tar.jpg
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+Dropped refs/stash@{0} (da0fcb2ae535f1e23dbf0da8cb120c4045c4cb82)
+</code></pre>
+<p>Boom!  We&#39;re back in business without ever worrying about commits.</p>
+<h3 id="stash-tricks">Stash tricks</h3>
+<p>Use <code>git stash branch &lt;branchname&gt;</code> to create a new branch (Setting the HEAD of the branch is the commit the stash was against) with your changes.  You can also name your stashes with <code>git stash save &lt;stashname&gt;</code> (helpful when you come back after a night of gaming and wonder what on earth you were thinking).</p>
+<p>There&#39;s a bit more to git stash but that should be enough to get you going.  Read about the complete power of stash at <a href="https://git-scm.com/docs/git-stash">the git docs</a></p>
+</div>
+      <hr>
       <h3 class="heading"><a href="/articles/The-gits-guide-to-git-Bisect.html">The git's guide to git: Bisect</a></h3>
       <div><p>Debugging is hard.  Often you&#39;ll be presented with a bug that was introduced &quot;some time ago&quot; without any further information.  Before I learned about <a href="https://git-scm.com/docs/git-bisect"><code>git bisect</code></a>, my primary strategy was to flail around blindly, hoping my fingers would strike the keyboard just right to reveal the bug.  The loud typing showed I was a hard worker and eventually I was promoted to senior architect.  Once I joined the inner circle of the cabal, I was taught the secrets of git.  I was eventually kicked out for my insistence that Wedge Antilles was a better pilot than Luke Skywalker (he <em>is</em> dangit!) and so as revenge, I bring you The Git&#39;s Guide to git - a series on using git to its fullest.</p>
 <p>Here at Kittenitech, we&#39;ve got a multi-billion-dollar SaaS product: UnicornTopia.  It allows UnicornOps folks to easily manage large herds of distributed unicorns.  Problem is, sometime in the last week, we introduced a really nasty bug.  Paula over in Marketing tells us they&#39;re receiving quite a few reports that setting the header color to blue causes unicorn riots.  Fortunately, this is timeboxed - Paula helpfully says complaints started coming in less than a week ago, so we know the problem was introduced recently.</p>
