@@ -14,7 +14,7 @@
       <div class="title">
         <div class="middle-title">
           <div class="inner-title">
-            <h1>Randall Koutnik</h1>
+            <h1 class="author">Randall Koutnik</h1>
             <nav>
               <ul>
                 <li><a href="/"><span>Home</span></a></li>
@@ -26,8 +26,10 @@
         </div>
       </div>
     </header>
-    <div class="container body">
-      <h1 class="heading">Building data warehouses for fun and profit</h1><p>A data warehouse is a way of structuring a database so that it is easy to answer business questions about your data. In a traditional database model, it would be difficult to construct a query that determines how much profit came from credit card sales. In a dimensional data warehouse, it&#39;s a relatively simple JOIN.</p>
+    <div class="container">
+      <div class="body">
+        <h1 class="heading">Building data warehouses for fun and profit</h1>
+        <div class="article"><p>A data warehouse is a way of structuring a database so that it is easy to answer business questions about your data. In a traditional database model, it would be difficult to construct a query that determines how much profit came from credit card sales. In a dimensional data warehouse, it&#39;s a relatively simple JOIN.</p>
 <p>Unlike a typical database where data objects are modeled based on their relationships, a dimensional data warehouse schema has two table types: Dimension and Fact. Dimension tables are the nouns of the data warehouse world - think <code>users</code> and <code>products</code>. They are largely denormalized. Fact tables are verbs - they represent events happening, and are mostly comprised of foreign keys to the dimension. Think of them as a subject (dimension) and a predicate (fact). If you&#39;re overwhelmed, don&#39;t worry. We&#39;ll get to some practical examples in just a second.</p>
 <p>I <em>highly</em> recommend reading Samson Hu&#39;s excellent article <a href="https://medium.com/@samson_hu/building-analytics-at-500px-92e9a7005c83"><em>Building Analytics At 500px</em></a>, where he describes the analytics pipeline he built at 500px, including comparisons of technologies outside the scope here. It makes BI/Analytics much approachable to the everyday programmer, going into detail about the <em>why</em> of things (whereas this article intends to answer <em>how</em>).</p>
 <h2 id="tools">Tools</h2>
@@ -143,14 +145,30 @@ GROUP BY is_child,
 <p>Plugging in some of those examples, our dashboard starts to look pretty good (astute readers will notice the bug in my random number generator):</p>
 <p><img src="//i.imgur.com/z5DMsoI.png" alt="re:dash dashboard"></p>
 <p>At this point, go nuts! Play around in re:dash and try to find some more interesting data points. For an added challenge, try and add in a purchase type for entrances.</p>
-
-      <hr>
-      <div class="share-pl0x">
-        <div>If you liked this article, please share it!<span class="tweet-ask"><a href="https://twitter.com/share" data-via="rkoutnik" data-count="none" class="twitter-share-button">Tweet</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></span></div>
-        <div>Questions?  Comments?  Hate mail?&nbsp;&nbsp;<a href="/contact.html">Let me know!</a></div>
-        <div>For more like this:<span class="tweet-ask"><a href="https://twitter.com/rkoutnik" data-show-count="false" class="twitter-follow-button">Follow @rkoutnik</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></span></div>
+</div>
+        <hr>
+        <div class="share-pl0x">
+          <div>If you liked this article, please share it!<span class="tweet-ask"><a href="https://twitter.com/share" data-via="rkoutnik" data-count="none" class="twitter-share-button">Tweet</a>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></span></div>
+          <div>Questions?  Comments?  Hate mail?&nbsp;&nbsp;<a href="/contact.html">Let me know!</a></div>
+          <div>For more like this:<span class="tweet-ask"><a href="https://twitter.com/rkoutnik" data-show-count="false" class="twitter-follow-button">Follow @rkoutnik</a>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></span></div>
+        </div>
+      </div>
+      <div class="sidebar">
+        <h4 class="sidetitle">Recent Articles</h4>
+        <div class="recent"><a href="/articles/How-I-Interview.html">How I Interview</a></div>
+        <div class="recent"><a href="/articles/gits-guide-to-git-Stash.html">git's guide to git: Stash</a></div>
+        <div class="recent"><a href="/articles/The-gits-guide-to-git-Bisect.html">The git's guide to git: Bisect</a></div>
+        <div class="recent"><a href="/articles/Building-data-warehouses-for-fun-and-profit.html">Building data warehouses for fun and profit</a></div>
+      </div>
+      <div class="sidebar signup">
+        <h4 class="sidetitle">Get Updates</h4>
+        <form action="https://tinyletter.com/rkoutnik" method="post" target="popupwindow" onsubmit="window.open('https://tinyletter.com/rkoutnik', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+          <input type="text" name="email" placeholder="Email" class="email">
+          <input type="hidden" value="1" name="embed">
+          <input type="submit" value="Subscribe" class="sub">
+        </form>
       </div>
     </div>
     <footer>&copy; 2015 Randall Koutnik | <a href="https://github.com/SomeKittens/Node-Blog-Engine">View Source</a></footer>

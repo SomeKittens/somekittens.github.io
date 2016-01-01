@@ -14,7 +14,7 @@
       <div class="title">
         <div class="middle-title">
           <div class="inner-title">
-            <h1>Randall Koutnik</h1>
+            <h1 class="author">Randall Koutnik</h1>
             <nav>
               <ul>
                 <li><a href="/"><span>Home</span></a></li>
@@ -26,8 +26,10 @@
         </div>
       </div>
     </header>
-    <div class="container body">
-      <h1 class="heading">How I Interview</h1><p>Technical interviews are terrible because we don&#39;t know what we&#39;re filtering for.</p>
+    <div class="container">
+      <div class="body">
+        <h1 class="heading">How I Interview</h1>
+        <div class="article"><p>Technical interviews are terrible because we don&#39;t know what we&#39;re filtering for.</p>
 <h2 id="interviews-are-filters">Interviews are filters</h2>
 <p>I think we all can agree that a <em>good</em> interview filter passes those who will do well at work and fails those who won&#39;t.  The trouble arises when we try to come to a common agreement on what &quot;do well at work&quot; means - every company is different. Instead, when we discuss interviews, we should grade them not on conformance to some holy standard but in how effectively they model day-to-day life at the company.  This allows us to remove some of our pre-existing bias and focus on finding candidates who knock it out of the park, not ones that look good on paper &amp; whiteboards.</p>
 <p>Candidates are also reviewing a company.  They&#39;ll be dedicating several years of their lives to this workplace and will be looking at the interview filter to see what it takes to get in.</p>
@@ -87,14 +89,30 @@ You&#39;re not expected to finish!  In fact, no one ever has.  Do your best and 
 <p>Minesweeper determines the interviewee&#39;s ability to take on non-trivial tasks.  A candidate who had just breezed past a handful of fizzbuzz-style questions stumbled badly when handed Minesweeper.  They talked around the problem for a half-hour, never digging into the problem itself.  Questions are good - but you don&#39;t want to thumbs-up a candidate who&#39;s all talk.</p>
 <p>Another candidate surprised me by spending the entire hour silently typing but never running the code.  As they hit their time, they handed me the laptop and asked &quot;Did I get it right?&quot;  Programmers need to know how to check their own work.</p>
 <p>(If you&#39;re interested in trying out this exercise, you can find the JSBin <a href="http://jsbin.com/jucesisaki/2/edit?html,js,output">here</a>.  <a href="http://rkoutnik.com/contact.html">Let me know</a> what you come up with!)</p>
-
-      <hr>
-      <div class="share-pl0x">
-        <div>If you liked this article, please share it!<span class="tweet-ask"><a href="https://twitter.com/share" data-via="rkoutnik" data-count="none" class="twitter-share-button">Tweet</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></span></div>
-        <div>Questions?  Comments?  Hate mail?&nbsp;&nbsp;<a href="/contact.html">Let me know!</a></div>
-        <div>For more like this:<span class="tweet-ask"><a href="https://twitter.com/rkoutnik" data-show-count="false" class="twitter-follow-button">Follow @rkoutnik</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></span></div>
+</div>
+        <hr>
+        <div class="share-pl0x">
+          <div>If you liked this article, please share it!<span class="tweet-ask"><a href="https://twitter.com/share" data-via="rkoutnik" data-count="none" class="twitter-share-button">Tweet</a>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></span></div>
+          <div>Questions?  Comments?  Hate mail?&nbsp;&nbsp;<a href="/contact.html">Let me know!</a></div>
+          <div>For more like this:<span class="tweet-ask"><a href="https://twitter.com/rkoutnik" data-show-count="false" class="twitter-follow-button">Follow @rkoutnik</a>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></span></div>
+        </div>
+      </div>
+      <div class="sidebar">
+        <h4 class="sidetitle">Recent Articles</h4>
+        <div class="recent"><a href="/articles/How-I-Interview.html">How I Interview</a></div>
+        <div class="recent"><a href="/articles/gits-guide-to-git-Stash.html">git's guide to git: Stash</a></div>
+        <div class="recent"><a href="/articles/The-gits-guide-to-git-Bisect.html">The git's guide to git: Bisect</a></div>
+        <div class="recent"><a href="/articles/Building-data-warehouses-for-fun-and-profit.html">Building data warehouses for fun and profit</a></div>
+      </div>
+      <div class="sidebar signup">
+        <h4 class="sidetitle">Get Updates</h4>
+        <form action="https://tinyletter.com/rkoutnik" method="post" target="popupwindow" onsubmit="window.open('https://tinyletter.com/rkoutnik', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+          <input type="text" name="email" placeholder="Email" class="email">
+          <input type="hidden" value="1" name="embed">
+          <input type="submit" value="Subscribe" class="sub">
+        </form>
       </div>
     </div>
     <footer>&copy; 2015 Randall Koutnik | <a href="https://github.com/SomeKittens/Node-Blog-Engine">View Source</a></footer>

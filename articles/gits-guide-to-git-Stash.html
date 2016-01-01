@@ -14,7 +14,7 @@
       <div class="title">
         <div class="middle-title">
           <div class="inner-title">
-            <h1>Randall Koutnik</h1>
+            <h1 class="author">Randall Koutnik</h1>
             <nav>
               <ul>
                 <li><a href="/"><span>Home</span></a></li>
@@ -26,8 +26,10 @@
         </div>
       </div>
     </header>
-    <div class="container body">
-      <h1 class="heading">git's guide to git: Stash</h1><p>Last time we checked in with our favorite unicorn management company, we learned about git bisect, a rarely-used tool that can absolutely save your bacon when the time comes.  In this episode, let&#39;s learn about <code>git stash</code>, something I use almost daily.</p>
+    <div class="container">
+      <div class="body">
+        <h1 class="heading">git's guide to git: Stash</h1>
+        <div class="article"><p>Last time we checked in with our favorite unicorn management company, we learned about git bisect, a rarely-used tool that can absolutely save your bacon when the time comes.  In this episode, let&#39;s learn about <code>git stash</code>, something I use almost daily.</p>
 <p>Remember the last time you were elbows-deep in some code change and some PM came rushing over with a P0 bug that they&#39;d <em>just</em> discovered (we reported it two weeks ago).  Bob does.  He finally got time to work in the big refactor we&#39;ve all needed for <em>months</em> and this stupid bug crops up.  Welp, someone has to fix it but Bob has a pile of unsaved changes.  How should Bob proceed?  He weighs his options:</p>
 <ul>
 <li>Throw everything into a <code>wip</code> commit</li>
@@ -71,14 +73,30 @@ Dropped refs/stash@{0} (da0fcb2ae535f1e23dbf0da8cb120c4045c4cb82)
 <h3 id="stash-tricks">Stash tricks</h3>
 <p>Use <code>git stash branch &lt;branchname&gt;</code> to create a new branch (Setting the HEAD of the branch is the commit the stash was against) with your changes.  You can also name your stashes with <code>git stash save &lt;stashname&gt;</code> (helpful when you come back after a night of gaming and wonder what on earth you were thinking).</p>
 <p>There&#39;s a bit more to git stash but that should be enough to get you going.  Read about the complete power of stash at <a href="https://git-scm.com/docs/git-stash">the git docs</a></p>
-
-      <hr>
-      <div class="share-pl0x">
-        <div>If you liked this article, please share it!<span class="tweet-ask"><a href="https://twitter.com/share" data-via="rkoutnik" data-count="none" class="twitter-share-button">Tweet</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></span></div>
-        <div>Questions?  Comments?  Hate mail?&nbsp;&nbsp;<a href="/contact.html">Let me know!</a></div>
-        <div>For more like this:<span class="tweet-ask"><a href="https://twitter.com/rkoutnik" data-show-count="false" class="twitter-follow-button">Follow @rkoutnik</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></span></div>
+</div>
+        <hr>
+        <div class="share-pl0x">
+          <div>If you liked this article, please share it!<span class="tweet-ask"><a href="https://twitter.com/share" data-via="rkoutnik" data-count="none" class="twitter-share-button">Tweet</a>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></span></div>
+          <div>Questions?  Comments?  Hate mail?&nbsp;&nbsp;<a href="/contact.html">Let me know!</a></div>
+          <div>For more like this:<span class="tweet-ask"><a href="https://twitter.com/rkoutnik" data-show-count="false" class="twitter-follow-button">Follow @rkoutnik</a>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></span></div>
+        </div>
+      </div>
+      <div class="sidebar">
+        <h4 class="sidetitle">Recent Articles</h4>
+        <div class="recent"><a href="/articles/How-I-Interview.html">How I Interview</a></div>
+        <div class="recent"><a href="/articles/gits-guide-to-git-Stash.html">git's guide to git: Stash</a></div>
+        <div class="recent"><a href="/articles/The-gits-guide-to-git-Bisect.html">The git's guide to git: Bisect</a></div>
+        <div class="recent"><a href="/articles/Building-data-warehouses-for-fun-and-profit.html">Building data warehouses for fun and profit</a></div>
+      </div>
+      <div class="sidebar signup">
+        <h4 class="sidetitle">Get Updates</h4>
+        <form action="https://tinyletter.com/rkoutnik" method="post" target="popupwindow" onsubmit="window.open('https://tinyletter.com/rkoutnik', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+          <input type="text" name="email" placeholder="Email" class="email">
+          <input type="hidden" value="1" name="embed">
+          <input type="submit" value="Subscribe" class="sub">
+        </form>
       </div>
     </div>
     <footer>&copy; 2015 Randall Koutnik | <a href="https://github.com/SomeKittens/Node-Blog-Engine">View Source</a></footer>
