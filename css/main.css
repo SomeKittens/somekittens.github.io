@@ -843,10 +843,6 @@ header {
     .title nav ul li {
       display: inline-block;
       margin: 0 0.25rem; }
-      @media screen and (max-width: 1500px) {
-        .title nav ul li {
-          display: block;
-          margin-bottom: 5px; } }
       .title nav ul li a {
         display: block; }
         .title nav ul li a span {
