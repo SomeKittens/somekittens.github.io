@@ -1,0 +1,14 @@
+# My stuff
+data.json
+config.json
+notes
+.env
+
+# Generated
+node_modules/*
+.sass-cache
+npm-debug.log
+.DS_Store
+
+# Output of NBE
+results
