@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html ng-app="nbe">
+  <head>
+    <title>Questions to ask your interviewer</title>
+    <link rel="stylesheet" media="screen" href="//fontlibrary.org/face/grupo3" type="text/css">
+    <link rel="stylesheet" media="screen" href="//fontlibrary.org/face/selena" type="text/css">
+    <link rel="stylesheet" media="screen" href="//fontlibrary.org/face/freeuniversal" type="text/css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="shortcut icon" href="/images/rk.jpg" type="image/x-icon">
+    <base href="/">
+  </head>
+  <body>
+    <header>
+      <div class="title">
+        <div class="middle-title">
+          <div class="inner-title">
+            <h1 class="author">Randall Koutnik</h1>
+            <nav>
+              <ul>
+                <li><a href="/"><span>Home</span></a></li>
+                <li><a href="/contact.html"><span>Contact Me</span></a></li>
+                <li><a href="//github.com/SomeKittens"><span>GitHub</span></a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="body">
+        <h1 class="heading">Questions to ask your interviewer</h1>
+        <div class="article"><p><a href="https://rkoutnik.com/articles/How-I-Interview.html">Last time</a>, we talked about how to design a technical interview as a filter, starting primarily with determining what sort of person is &quot;good&quot;.  This time, I&#39;m turning the tables to look at the other side of things.  Let&#39;s talk about some questions you can use to determine if a company is where you want to work.</p>
+<p>The tech world is a seller&#39;s market for <a href="https://rkoutnik.com/articles/Valley-Talent.html">talent</a>.  It&#39;s difficult to get a good read on a company from the information you have pre-interview.  Companies of all shapes and sizes want to throw you through their gauntlet.  Some interviewers will say whatever it takes to get you to sign, others look at their company with rose-tinted glasses.  Neither will help you find a job you&#39;ll love.  Most questions are easily dodged (&quot;What&#39;s the worst part of this job?&quot;, &quot;There&#39;s too much to do but you&#39;ll fix that!&quot;).</p>
+<p>On the other hand, an attentive interviewer will see these questions as a positive - you&#39;re the sort of person who thinks things through and knows what they&#39;re after.  This also helps the interviewer determine what you&#39;re looking for and tailor the rest of the interview to that.</p>
+<h3 id="why-general-questions-fail">Why general questions fail</h3>
+<p>Many traditional questions fall short because the interviewer isn&#39;t incentivised to provide a candid answer.  Consider: &quot;Do you trust management?&quot;  &quot;Trust&quot; is a strong word with some emotional charge.  If the interviewer expresses doubts, that may be enough to kill the candidate&#39;s interest altogether.  No one wants to be the person who lost a promising candidate, so a little white lie emerges.  &quot;Sure!&quot; they say.  Two months into the job you realize they <em>actually</em> meant you could trust management to get paychecks in on time (and not much else).</p>
+<p>Instead, use a specific question or ask something general and drill down for details.  In the above example we could instead ask &quot;What is your management&#39;s vision?&quot;  This doesn&#39;t cover all of the bases we had previously but the answer is more likely to be actionable.  It tells us how good leaders are at communicating where they want to go.  It gives a window into the future of the company - do they just want to get bought?  Is there just vague &quot;Change the world&quot; promises?</p>
+<p>Many engineers can optimistically gloss over problems.</p>
+<p>Q: How does your team overcome challenges?</p>
+<p>A: I believe in clear, open communication and have noticed that in general everyone at Initech seems to as well. Transparency has helped my team overcome obstacles and move forward together.</p>
+<p>Q: Can you give me an example of your team overcoming a difficult obstacle recently?</p>
+<p>A: Well, I guess we talk about blockers at our daily standups.</p>
+<p>Getting concrete examples means you get past the marketing fluff to a company&#39;s real values.</p>
+<h2 id="finding-red-flags">Finding red flags</h2>
+<blockquote>
+<p>What are you hoping I&#39;ll change?</p>
+</blockquote>
+<p>There are two things I&#39;m looking for in this question: another angle on the job description and wishful thinking.</p>
+<p>Job descriptions tell part of the story.  Now that you&#39;re in for an interview, it&#39;s time to get the other half.  This is a great time to talk about potential projects, advancement, and how you in particular will fit in.  If the interview seems tense, asking this question can lighten the mood a bit.</p>
+<p>On the other hand, I&#39;ve often heard things like &quot;Tests are important but we don&#39;t have them.  We&#39;re hoping you&#39;ll be able to help out with that.&quot;  Did you catch the wishful thinking there?  If tests are important then the team should already have a test suite.  The interviewer is expecting you to change the company culture without any power to do so.  The interviewer isn&#39;t twirling their moustache Snidely Whiplash-style, expecting massive change from a new hire - it&#39;s just the optimism that curses every engineer.</p>
+<blockquote>
+<p>How often are you pulled off your primary task?</p>
+</blockquote>
+<p>It seems obvious that someone with the title of &quot;Software Engineer&quot; would spend most of their time engineering software.  In some places, a more accurate title would be &quot;meeting attender who writes code on occasion.&quot;  Other places expect developers to expand beyond their role, creating their own wireframes or deployment strategies.  Even worse, your job requirements could change dramatically.  A startup hired one of my friends as a full-stack engineer and he spent most of his time managing ad campaigns on social networks.</p>
+<h2 id="technical">Technical</h2>
+<blockquote>
+<p>How does your development process work?</p>
+</blockquote>
+<p>This question is essentially a simple <a href="http://www.joelonsoftware.com/articles/fog0000000043.html">Joel test</a>.  Lack of source control, tests &amp; code review are all smells that shouldn&#39;t nix the company altogether but will need consideration.</p>
+<blockquote>
+<p>How does your deployment process work?</p>
+</blockquote>
+<p>I once joined a company without asking this question and to my dismay discovered the answer was &quot;ssh into all of our servers (one by one) and manually copy/paste the files&quot;.  This should be a gimme for any modern company.</p>
+<p>A basic deployment process should be:</p>
+<ul>
+<li>able to roll back</li>
+<li>easy to see what changed</li>
+<li>deterministic</li>
+</ul>
+<p>Even <code>git pull</code> suffices here (though only as a bare minimum).</p>
+<blockquote>
+<p>The last person who was fired - why did that happen?  Do you think it was for a reason other than the official one?</p>
+</blockquote>
+<p>This is tricky and I wouldn&#39;t ask it at every interview (in fact, I received pushback on it from almost every reviewer).  Often there&#39;s some difference between the official reason for a firing (if management provides one at all) and what the rank and file suspect.  Other times it&#39;s &quot;This guy was a total jackhole&quot; - a great sign that management is willing to prune a branch for the benefit of the tree.</p>
+<p>If &quot;firing&quot; seems a step too far, substitute &quot;disciplined&quot; or the like.</p>
+<blockquote>
+<p>What tools does your team use to communicate?</p>
+</blockquote>
+<p>For virtually all information, async communication methods trump synchronous ones.  Async tools like chat, bug trackers, email and the like send information so that the receiver can pick it up on their own time.  Synchronous communication (face-to-face) means that someone&#39;s going to get interrupted.  It also means that remote workers often <a href="http://randsinrepose.com/archives/the-pond/">get pulled out of the loop</a>.</p>
+<p>A good follow up is &quot;How was the last big announcement handled?&quot;  It&#39;s common for upper management to flub communication and expect the telephone line to make sure everyone&#39;s properly informed.  Big events where everyone gets the same info (or heck, even an email blast) are important.</p>
+<h2 id="culture">Culture</h2>
+<blockquote>
+<p>Imagine a realm where we&#39;re expected to make decisions on a daily or weekly basis.  Let’s say you and I disagree on an important decision.  We can’t reach a consensus and have to agree to disagree. What then? Whose approach wins?</p>
+</blockquote>
+<p>Here we&#39;re measuring how autocratic our potential employer is.  <a href="https://rkoutnik.com/articles/Flat-is-weird.html">Flatness</a> is the hip thing to be these days and companies want to show off how much autonomy their engineers get.  You want to dig beyond the dazzle.  If the answer seems flaky, ask for a real-life example.  It&#39;s a red flag if the interviewer has trouble coming up with an example that fits the company&#39;s claims.</p>
+<blockquote>
+<p>What does it take to succeed at this company beyond &quot;hard work&quot;?</p>
+</blockquote>
+<p>We&#39;re trying to separate the marketing from the real culture.  Virtually every interviewer will start their answer with chaff like &quot;hard work, being smart, writing good code&quot;.  Go deeper and find the difference between &quot;general expectations&quot; and what this company uniquely wants from you.</p>
+<p>Good answers will be specific.  Great answers will be tailored to you as a candidate.</p>
+<blockquote>
+<p>If I&#39;m not meeting expectations, how will I know?</p>
+</blockquote>
+<p>You can&#39;t improve without feedback of both kinds.  I&#39;ve worked at companies that would rather an engineer drag along, closing tickets than dare to ask them to improve and risk them leaving.  Others can be sudden - quick firings without much warning.</p>
+<p>You&#39;re looking for a company with a culture of <a href="http://firstround.com/review/radical-candor-the-surprising-secret-to-being-a-good-boss/">candid feedback</a>.  Everything works better when people are honest with each other.  A workplace that values consistent, high-quality feedback means you&#39;ll improve your technical skillset and be surrounded by constantly-improving folks.</p>
+<blockquote>
+<p>How will I get better at my job?</p>
+</blockquote>
+<p>There&#39;s a lot of great answers to this question: training budget, conferences, Friday tech talks, mentoring program (and more!).  A good answer is anything beyond a shrug or minor platitudes.  In those cases it&#39;s very likely you&#39;ll be left to your own devices in improving.</p>
+<p>Finally, the most important question of all:</p>
+<blockquote>
+<p>The tortoise lays on its back, its belly baking in the hot sun, beating its legs trying to turn itself over. But it can&#39;t. Not without your help. But you&#39;re not helping.</p>
+</blockquote>
+<p>It&#39;s important to work with empathetic people who aren&#39;t <a href="https://en.wikipedia.org/wiki/Replicant">murderous replicants</a>.</p>
+<p>You probably don&#39;t want to use all of these questions at every interview.  I hope I&#39;ve helped you re-think how to interview a company.  Think I missed something?  <a href="mailto:blog@rkoutnik.com">Let me know!</a>.</p>
+</div>
+        <hr>
+        <div class="share-pl0x">
+          <div>If you liked this article, please share it!<span class="tweet-ask"><a href="https://twitter.com/share" data-via="rkoutnik" data-count="none" class="twitter-share-button">Tweet</a>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></span></div>
+          <div>Questions?  Comments?  Hate mail?&nbsp;&nbsp;<a href="/contact.html">Let me know!</a></div>
+          <div>For more like this:<span class="tweet-ask"><a href="https://twitter.com/rkoutnik" data-show-count="false" class="twitter-follow-button">Follow @rkoutnik</a>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></span></div>
+        </div>
+      </div>
+      <div class="sidebar">
+        <h4 class="sidetitle">Recent Articles</h4>
+        <div class="recent"><a href="/articles/Questions-to-ask-your-interviewer.html">Questions to ask your interviewer</a></div>
+        <div class="recent"><a href="/articles/How-I-Interview.html">How I Interview</a></div>
+        <div class="recent"><a href="/articles/gits-guide-to-git-Stash.html">git's guide to git: Stash</a></div>
+        <div class="recent"><a href="/articles/The-gits-guide-to-git-Bisect.html">The git's guide to git: Bisect</a></div>
+      </div>
+      <div class="sidebar signup">
+        <h4 class="sidetitle">Get Updates</h4>
+        <form action="https://tinyletter.com/rkoutnik" method="post" target="popupwindow" onsubmit="window.open('https://tinyletter.com/rkoutnik', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+          <input type="text" name="email" placeholder="Email" class="email">
+          <input type="hidden" value="1" name="embed">
+          <input type="submit" value="Subscribe" class="sub">
+        </form>
+      </div>
+    </div>
+    <footer>&copy; 2015 Randall Koutnik | <a href="https://github.com/SomeKittens/Node-Blog-Engine">View Source</a></footer>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-59570836-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
