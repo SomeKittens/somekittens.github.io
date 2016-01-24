@@ -1,0 +1,362 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>ECMAScript 6 v2</title><meta name="description" content="A second round of ES6 knowledge"><meta name="author" content="Randall Koutnik"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"><link rel="icon" href="images/rk.jpg" type="image/x-icon"><link rel="stylesheet" media="screen" href="//fontlibrary.org/face/grupo3" type="text/css"><link rel="stylesheet" href="css/reveal.css"><link id="theme" rel="stylesheet" href="css/slides.css"><!-- Code syntax highlighting--><link rel="stylesheet" href="lib/css/monokai_sublime.css"><!-- Printing and PDF exports--><script>var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--if lt IE 9script(src='lib/js/html5shiv.js')--></head><body><div class="reveal"><!-- Any section element inside of this container is displayed as a slide--><div class="slides"><section><h1>ECMAScript 6 v2</h1><p>meta-meta-programming?</p><small>&copy; 2016 Last Minute Panic Productions</small><aside class="notes">Who's done ES6 before?  What parts?  Any favorites?
+</aside></section><section><img src="images/headshot.jpg" height="400px"><p>Tech Lead at Norse Corp</p><p>Angularhead, stream processing hacker</p><aside class="notes">Seen the map?  Yeah, that's what I do
+</aside></section><section><h2>We do this!</h2><iframe data-src="http://map.norsecorp.com" class="norseframe"></iframe></section><section><section><h3>What's with all the numbers?</h3></section><aside class="notes">And what's an ecma?  Some Australian burrowing rodent?</aside><section><h3>ES through the ages</h3><table><thead><tr><td>Version</td><td>Year</td></tr></thead><tbody><tr><td>1</td><td>1997</td></tr><tr><td>2</td><td>1998</td></tr><tr><td>3</td><td>1999</td></tr><tr><td>5</td><td>2009</td></tr><tr><td>5.1</td><td>2011</td></tr><tr><td>6</td><td>2015</td></tr></tbody></table></section><aside class="notes">What's missing (version 4)
+ES6 is correct, but ES1015 is correcter
+</aside></section><section><h2>Sugary Treats!</h2><small>(and you didn't even need to wear a costume)</small><aside class="notes">ES6 has a lot of syntactic sugar (what's that?)
+Though there's a lot more than "less typing" hiding here
+Cool stuff that lets us be clearer in our intent and reduce errors
+</aside></section><section><section><h3>Arrows:</h3><div class="left"><pre><code data-trim class="javascript">// ES5
+Randall.on('stress', function () { 
+    // handle stress (badly);
+});
+['Odin', 'Thor', 'Bob'].map(function () {
+    // ...
+});
+fetch('https://rkoutnik.com')
+.then(function (data) {
+    // Brilliant programming articles!
+})
+.catch(function (error) {
+    // Works on my machine
+});</code></pre></div><div class="right"><pre><code data-trim class="javascript">// ES6
+Randall.on('stress', () =&gt; {
+    // handle stress (badly);
+});
+['Odin', 'Thor', 'Bob'].map(() =&gt; {
+    // ...
+});
+fetch('https://rkoutnik.com')
+.then((data) =&gt; {
+    // Brilliant programming articles!
+})
+.catch((error) =&gt; {
+    // Works on my machine
+});</code></pre></div><aside class="notes">Already, there's less typing.  Huzzah!</aside></section><section><div>No more<div class="striker">funciton</div><div class="striker">funtion</div><div class="striker">functoin</div></div><div>┻━┻ ヘ╰( •̀ε•́ ╰)</div></section><section><img src="images/funcion.png"><aside class="notes">My favorite was the JS particle: The funcion
+</aside></section><section><h2>What's this?<img src="images/jack.jpg" class="inline"></h2><div class="left"><pre><code data-trim class="javascript">var that = this;
+var _this = this;
+var that_or_this = this;
+
+this.on('stress', function () {
+  that.handleStress();
+});
+</code></pre></div><div class="right"><pre><code data-trim class="javascript">this.on('stress', () =&gt; {
+  this.handleStress();
+});
+</code></pre></div><aside class="notes">"this" is anything but what you expect it to be at that moment
+Arrow funcs keep the this value of the parent function
+This (heh) will be important when we get to classes
+</aside></section><section><h2>More neat arrow tricks</h2><pre><code data-trim class="javascript javascript">// You can omit the parens when you have a single arg
+['bill', 'bob', 'jeb', 'valentina'].map(kerb =&gt; {
+  return kerb.intoSpace();
+});
+
+// Heck, with a single instruction, you can drop the brackets
+['bill', 'bob', 'jeb', 'valentina'].map(kerb =&gt; kerb.intoSpace());
+
+// Noop
+() =&gt; {}
+
+// Constant function
+() =&gt; 42</code></pre><aside class="notes">When there aren't any brackets, there's an implict return
+
+</aside></section></section><section><section><h2>Template strings</h2></section><section><div class="left"><pre><code data-trim class="javascript">let str = 'Hello, ' + person.name + '!';
+</code></pre></div><div class="right"><pre><code data-trim class="javascript">let str = `Hello, ${person.name}!`;</code></pre></div><aside class="notes">#1 use of template strings: ${}
+Can execute arbitrary code there
+</aside></section><section><pre><code data-trim class="javascript">let str = `----- PERSON -----
+name: ${person.name}
+hobby: ${person.hobby}
+salary: $${person.salary.toLocaleString()}`;</code></pre><aside class="notes">Yeah, multiline!
+also note .toLocalString
+
+What if we have LOTS of numbers toLocaleString?
+</aside></section><section><h2>Tagged template strings</h2><pre><code data-trim class="javascript">console.log(`
+ ----- ${name.toUpperCase()} RESULTS -----
+ ${MESSAGES} messages sent in ${(time / 1000).toLocaleString()} seconds
+ ${(MESSAGES / (time / 1000)).toLocaleString()} messages/sec
+`);</code></pre><pre><code data-trim class="javascript">let myTag = (strings, ...values) =&gt; {
+  return strings.reduce((prev, next, idx) =&gt; {
+    let val = values[idx];
+    if (val &amp;&amp; Number(val) === val) {
+      val = val.toLocaleString();
+    }
+    return prev + next + val;
+  }, '');
+}
+
+console.log(myTag`
+ ----- ${name.toUpperCase()} RESULTS -----
+ ${MESSAGES} messages sent in ${time / 1000} seconds
+ ${MESSAGES / (time / 1000)} messages/sec
+`);</code></pre><aside class="notes">What's that funny ellipsis doing there?  Don't be hasty!
+What's going on in myTag?
+</aside></section></section><section><section><h2>Classes</h2><p>We're all grown up like Java</p><aside class="notes">We've already had classes in the form of constructor functions and prototype attachments
+</aside></section><section><div class="left"><pre><code data-trim class="javascript">function Cat (name) {
+  this.name = name;
+}
+Cat.prototype.introduce = function () {
+  return 'Hi everyone! I\'m'
+      + this.name;
+};
+function Fuzz () {
+  Cat.call(this, 'Fuzz');
+}
+Fuzz.prototype = Object.create(Cat.prototype);
+Fuzz.prototype.sayHi = function sayHi() {
+  return Cat.prototype.sayHi.call(this)
+      + ', and I'd like some food';
+};
+var fuzz = new Fuzz();
+fuzz.sayHi();</code></pre></div><div class="right"><pre><code data-trim class="javascript">class Cat {
+  constructor (name) {
+    this.name = name;
+  }
+
+  sayHi () {
+    return `Hi everyone. I'm ${this.name}`
+  }
+}
+class Fuzz extends Cat {
+  constructor () {
+    super('Fuzz');
+  }
+  sayHi () {
+    return `${super.sayHi()} and I'd like some food!`;
+  }
+}
+let fuzz = new Fuzz;
+fuzz.sayHi();</code></pre></div><aside class="notes">Everything's a lot cleaner!  It's essentially the same thing going on behind the scenes.
+No arrow functions in method declarations, sadly.  Still don't have to type function
+</aside></section><section><h2>Getters &amp; Setters</h2><p><small>(Even more Java-like)</small></p><div class="left"><pre><code data-trim class="javascript">function Cat (name) {
+  this._name = name;
+  Object.defineProperty(this, 'name', {
+    get: function () {
+      return this._name;
+    },
+    set: function (newName) {
+      this._name = newName;
+    }
+  });
+}</code></pre></div><div class="right"><pre><code data-trim class="javascript">class Cat {
+  constructor (name) {
+    this._name = name;
+  }
+  get name () {
+    return this._name;
+  }
+  set name (newName) {
+    this._name = newName;
+  }
+}</code></pre></div><aside class="notes">needs the underscore so it's a separate value.
+Did anyone know this was even possible?
+</aside></section></section><section><section><h2>Object destructuring</h2></section><section><div class="left"><pre><code data-trim class="javascript">var id = getNextId();
+var employee = getEmployeeById(id);
+var employeeOptions = {
+  id: id
+};
+employeeOptions[employee.name] = employee;
+</code></pre></div><div class="right"><pre><code data-trim class="javascript">var id = getNextId();
+var employee = getEmployeeById(id);
+var employeeOptions = {
+  id,
+  [employee.name]: employee
+};
+</code></pre></div></section><section><h2>Multiple return!</h2><p><small>(I can haz Python)</small></p><pre><code data-trim class="javascript">var getThings = () =&gt; {
+  // Some data munging
+  return [thing1, thing2];
+};
+
+var [myThing1, myThing2] = getThings();
+console.log(myThing1);
+</code></pre><aside class="notes">We've skipped past Java and are now cribbing ideas from Python!
+Destructuring allows us to grab mutliple values from a function
+</aside></section></section><section><section><h2>let &amp; const</h2><p>...back to Java</p></section><section><div class="left"><pre><code data-trim class="javascript">function example() {
+  if (exampleIsFunny) {
+    var meta = true;
+  }
+  console.log(meta); // true
+}</code></pre></div><div class="right"><pre><code data-trim class="javascript">function example() {
+  if (exampleIsFunny) {
+    let meta = true;
+  }
+  console.log(meta); // error
+}</code></pre></div><aside class="notes">How many understand functional scope?
+Explain the term "block scoping"
+
+var is functional scope
+let is block scope
+</aside></section><section><div class="left"><pre><code data-trim class="javascript">for(var i = 0; i &lt; 10; i++) {
+  setTimeout(() =&gt; console.log(i), 10);
+}</code></pre><div class="fragment">9, 9, 9, 9, 9, 9, 9, 9, 9, 9</div></div><div class="right fragment"><pre><code data-trim class="javascript">for(let i = 0; i &lt; 10; i++) {
+  setTimeout(() =&gt; console.log(i), 10);
+}</code></pre><div class="fragment">0, 1, 2, 3, 4, 5, 6, 7, 8, 9</div></div></section><section><h2>Temporal dead zone</h2><div class="left"><pre><code data-trim class="javascript">(function () {
+  'use strict';
+
+  console.log(bill); // undefined
+  var bill = 'llama';
+})();</code></pre></div><div class="right"><pre><code data-trim class="javascript">(function () {
+  'use strict';
+
+  console.log(bill); // error
+  let bill = 'llama';
+})();</code></pre></div><aside class="notes">TDZ means that var declarations aren't hoisted anymore
+need to declare your variables *before* using them
+</aside></section><section><pre><code data-trim class="javascript">const name = 'Randall';
+
+name = 'hackerman';  // throws</code></pre><aside class="notes">const throws whenever an attempt to change the *value* happens
+</aside></section><section><pre><code data-trim class="javascript">const person = {
+  name: 'Randall'
+};
+
+person.name = 'hackerman';  // throws?</code></pre><aside class="notes">Does this throw?  What is being changed?
+</aside></section><section><pre><code data-trim class="javascript">if (youShouldNotDoThis) {
+  function agh() {}
+}
+agh(); // throws</code></pre><aside class="notes">Functions have block scope
+Most linters consider function declaration in if statements an error already
+</aside></section></section><section><section><h2>Fun with Functions</h2><p>JavaScript goes "splat"</p><aside class="notes">Splat operator from Ruby
+</aside></section><section><h2>Default arguments</h2><div class="left"><pre><code data-trim class="javascript">function build (what) {
+  what = what || 'presentation';
+  return what; // Say 'what' again
+}
+build(); // 'presentation'</code></pre></div><div class="right"><pre><code data-trim class="javascript">function build (what = 'presentation') {
+  return what;
+}
+build(); // 'presentation'
+</code></pre></div></section><section><h2>Spread operator</h2><div class="left"><pre><code data-trim class="javascript">let f = () =&gt; {
+  console.log(arguments); // error!
+});
+f(1,2,3);</code></pre></div><div class="right"><pre><code data-trim class="javascript">let f = (...args) =&gt; {
+  console.log(args); // [1,2,3]
+});
+f(1,2,3);</code></pre></div><aside class="notes">Arrow functions also don't have the `arguments` variable
+instead, we get spread, which takes all arguments and passes them as an array
+(yes, a *real* array!)
+</aside></section><section><h2>Spread pt 2</h2><pre><code data-trim class="javascript">let f = (firstName, lastName) =&gt; {
+  console.log(firstName, lastName); // 'Randall', 'Koutnik'
+});
+
+let nameArr = ['Randall', 'Koutnik'];
+
+f(...nameArr);</code></pre><aside class="notes">Spread works both ways, so no need to use .apply anymore!
+Yes, I have had instances where I needed to unspread and respread
+</aside></section></section><section><h2>TRANSPILING</h2><aside class="notes">What/why transpile?
+Coffeescript is another version of this
+More pedantry!  Transpiling vs compiling
+</aside></section><section><section><h2>Babel</h2><p>A tower of code!</p><aside class="notes">Originally 6to5
+</aside></section><section><img src="images/aferny.png"></section><section><h2>How?</h2><aside class="notes">Go to shell
+Install Babel
+show off an ES6 file
+Babel to stdout
+To another file
+briefly discuss require hacking
+Polyfills as well (can only replace syntax with transpiling)
+
+Typically part of build process
+</aside></section></section><section><section><h2>TypeScript</h2><p>Because JS needs types!</p></section><section><pre><code data-trim class="typescript">let register = (type: string, name: string, factory): INodeFactory =&gt; {</code></pre><pre><code data-trim class="typescript">export interface INodeFactory {
+  (...config: any[]): symbol;
+}</code></pre><aside class="notes">Look at "signature" of function, params, return
+Type-optional, don't need to define everything
+Interface is a defined type
+
+Not nearly as comprehensive ES6 support (not that purpose)
+</aside></section><section><h2>TypeScript in action</h2><aside class="notes">In shell, go through Gustav compilation, tsconfig.json
+</aside></section></section><section><h2>INTERLUDE</h2><h4>npm scripts</h4><aside class="notes">importance of npm build
+npm scripts can access stuff in node_modules
+everyone knows how to build the project, no globals needed
+
+npm build:watch
+</aside></section><section><h2>Wow, that was a lot</h2><p>Any questions before we move on?</p><img src="images/my-brain-is-full.jpg"></section><section><section><h2>Proxies</h2><p>No, not the kind that get you past the firewall</p><aside class="notes">Proxies let us redefine how a given object works by defining "traps" in between the executing environment and the target object.
+</aside></section><section><h2>World's simplest proxy</h2><pre><code data-trim class="javascript">let target = {};
+let handler = {};
+let prox = new Proxy(target, handler);
+prox.world = 'hello';
+
+console.log(target.world); // Hello</code></pre><aside class="notes">No traps here.  We can see how the Proxy object "wraps" around the target, so any change to the proxy also impacts the target (reverse isn't true)
+</aside></section><section><pre><code data-trim class="javascript tinycode">let handler = {
+  get (target, key) {
+    return target[key] + '!';
+  }
+}
+let target = {};
+let proxy = new Proxy(target, handler);
+
+proxy.world = 'hello';
+console.log(proxy.world); // 'hello!'</code></pre><aside class="notes">This only works if all of our properties are strings.  How do we ensure that?
+</aside></section><section><pre><code data-trim class="javascript tinycode">let handler = {
+  get (target, key) {
+    return target[key] + '!';
+  }
+  set (target, key, value) {
+    if (typeof key !== 'string') {
+      throw new Error(`Tried to set ${key} to non-string value ${value}`);
+    }
+    target[key] = value;
+    return true;
+  }
+}
+let target = {};
+let proxy = new Proxy(target, handler);
+
+proxy.world = 'hello';
+console.log(proxy.world); // 'hello!'
+
+proxy.bad = {}; // Throws!</code></pre><aside class="notes">Proxies let us do schema validation (mind blown)
+return true -&gt; we can return false if bad &amp; it'll throw (but only in strict mode)
+</aside></section><section><pre><code data-trim class="javascript tinycode">let ng = (function () {
+  let handler = {
+    get (target, key) {
+      if (key.indexOf('$$') === 0) {
+        throw new Error(`Don't go touching the internals!`);
+      }
+      return target[key];
+    }
+    set (target, key, value) {
+      if (key.indexOf('$') === 0) {
+        throw new Error(`Don't go touching the internals!`);
+      }
+      target[key] = value;
+      return true;
+    }
+
+  }
+  let target = angular;
+
+  return new Proxy(target, handler);
+})();</code></pre><aside class="notes">In Angular internals, two dollar signs means "Do not touch"
+Throw if something tries to access $$ method
+throw if something tries to overwrite $ or $$
+Remember, if you expose the target object in some way, that can be modified directly.
+</aside></section><section><img src="images/prox.png"><aside class="notes">Can't transpile this because it changes how language works
+Proxy compat FF &amp; Edge
+Landing in Chrome Stable (canary now) end of Feb
+
+
+</aside></section></section><section><h2>Me</h2><p class="me">questions<span class="twit">@</span><span class="twit site">rkoutnik</span><span class="site">.com</span></p><p class="fragment">github.com/SomeKittens</p><aside class="notes">Full is email for contact after the talk
+underline is Twitter
+italic is my site
+anyone want to guess as to my GitHub?
+(tell story about interview)
+</aside></section><section><h2>Awesome folks &amp; more reading</h2><ul><li><a href="https://kangax.github.io/compat-table/es6/">ES6 compatibility table</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy">MDN Proxy</a></li><li><a href="https://ponyfoo.com/articles/es6-proxies-in-depth">PonyFoo on Proxies</a></li></ul></section></div></div><script src="lib/js/head.min.js"></script><script src="js/reveal.js"></script><script>// Full list of configuration options available at:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+  controls: true,
+  progress: true,
+  history: true,
+  center: true,
+  transition: 'fade', // none/fade/slide/convex/concave/zoom
+  viewDistance: 1, // Only load data-iframes when we reach that page
+  slideNumber: true,
+  // Optional reveal.js plugins
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+    { src: 'plugin/zoom-js/zoom.js', async: true },
+    // Set dir to root here so express server picks it up
+    { src: '/socket.io/socket.io.js', async: true },
+    { src: 'plugin/notes-server/client.js', async: true }
+  ]
+});</script><script>Reveal.configure({ showNotes: true });</script></body></html>
