@@ -901,6 +901,12 @@ header {
   .body .article h4 {
     font-size: 18px;
     text-decoration: underline; }
+  .body .nextLast {
+    display: flex;
+    justify-content: space-between; }
+    .body .nextLast .end-link {
+      width: 30%;
+      text-align: left; }
   .body .share-pl0x div {
     text-align: center;
     margin: 10px; }
