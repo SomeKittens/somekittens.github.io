@@ -32,8 +32,6 @@ io.on( 'connection', function( socket ) {
 
 });
 
-// Router that generates a new thing for each dir?
-
 [ 'css', 'js', 'images', 'plugin', 'lib' ].forEach( function( dir ) {
 	app.use( '/' + dir, staticDir( opts.baseDir + dir ) );
 });

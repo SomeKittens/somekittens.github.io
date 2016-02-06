@@ -1,0 +1,55 @@
+.typeahead .typeahead-center {
+  margin: auto;
+  width: 700px;
+}
+
+.sosearch {
+  width: 100%;
+  margin: auto;
+  font-size: 36px;
+}
+
+.typeahead .typeahead-results {
+  font-size: 24px;
+  text-align: left;
+}
+
+/*div.lyrics {
+  background-color: rgba(0,0,0,0.7);
+  border-radius: 15%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}*/
+
+section p .kilroy {
+  height: 1.3em;
+  margin: 0;
+  padding: 0;
+}
+
+/* Wiki charts */
+
+div.chart-container {
+  width: 100%;
+}
+
+#chartContainer {
+  height: 300px;
+  width: 100%;
+}
+
+#chart2Container {
+  height: 300px;
+  width: 100%;
+}
+
+/* Self-promo */
+
+.me .twit {
+  text-decoration: underline;
+}
+
+.me .site {
+  font-style: italic;
+}
+
