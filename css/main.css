@@ -901,10 +901,10 @@ header {
   .body .article h4 {
     font-size: 18px;
     text-decoration: underline; }
-  .body .nextLast {
+  .body .next-last {
     display: flex;
     justify-content: space-between; }
-    .body .nextLast .end-link {
+    .body .next-last .end-link {
       width: 30%;
       text-align: left; }
   .body .share-pl0x div {
