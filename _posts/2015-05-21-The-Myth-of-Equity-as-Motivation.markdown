@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The Myth of Equity as Motivation
-permalink: The-Myth-of-Equity-as-Motivation.html
+permalink: /articles/The-Myth-of-Equity-as-Motivation.html
 ---
 Virtually every startup job offers a percentage ownership of the hiring company as part of an employee's compensation package. According to AngelList, most startup software engineers in San Francisco can expect to receive 0.1%-4% of the company they work for.
 

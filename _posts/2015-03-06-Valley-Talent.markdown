@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Valley Talent
-permalink: Valley-Talent.html
+permalink: /articles/Valley-Talent.html
 ---
 _"Knowledge is knowing a tomato is a fruit. Wisdom is not putting it in a fruit salad" -Anonymous_
 

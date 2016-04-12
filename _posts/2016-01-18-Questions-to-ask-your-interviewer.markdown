@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Questions to ask your interviewer
-permalink: Questions-to-ask-your-interviewer.html
+permalink: /articles/Questions-to-ask-your-interviewer.html
 ---
 [Last time](https://rkoutnik.com/articles/How-I-Interview.html), we talked about how to design a technical interview as a filter, starting primarily with determining what sort of person is "good".  This time, I'm turning the tables to look at the other side of things.  Let's talk about some questions you can use to determine if a company is where you want to work.
 <!--jump-->

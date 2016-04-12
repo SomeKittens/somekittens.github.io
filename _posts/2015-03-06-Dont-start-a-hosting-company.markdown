@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Don't start a hosting company
+permalink: /articles/Dont-start-a-hosting-company.html
 ---
 
 I talk to a lot of people who are just starting their first startup. A large percentage of them want to know what it'll take to start a webhosting company. This isn't surprising, as web hosting companies like GoDaddy are very visible. The first step to any project is some sort of hosting. The technical challenges don't seem overwhelming to the beginner - chances are, they've played with some sort of server already. Most importantly, hosting services seem to make a _lot_ of money. To the uninitiated, this seems like a great area to enter. In this essay, I hope to explain why you shouldn't start a hosting service, while also explaining more general pitfalls beginners encounter.

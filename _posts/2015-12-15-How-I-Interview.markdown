@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How I Interview
-permalink: How-I-Interview.html
+permalink: /articles/How-I-Interview.html
 ---
 Technical interviews are terrible because we don't know what we're filtering for.
 

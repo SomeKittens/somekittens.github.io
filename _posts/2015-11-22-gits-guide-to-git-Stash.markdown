@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'git''s guide to git: Stash'
-permalink: gits-guide-to-git-Stash.html
+permalink: /articles/gits-guide-to-git-Stash.html
 ---
 Last time we checked in with our favorite unicorn management company, we learned about git bisect, a rarely-used tool that can absolutely save your bacon when the time comes.  In this episode, let's learn about `git stash`, something I use almost daily.
 <!--jump-->

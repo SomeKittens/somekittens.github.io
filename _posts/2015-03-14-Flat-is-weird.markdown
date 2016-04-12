@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Flat is weird
-permalink: Flat-is-weird.html
+permalink: /articles/Flat-is-weird.html
 ---
 Specifically, companies with a flat structure (no managers at all) are weird. Decades of management tradition tell us that Someone must be in charge and make sure everyone's doing their work. Otherwise, everyone will goof off, right?
 <!--jump-->

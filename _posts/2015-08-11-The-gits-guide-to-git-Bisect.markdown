@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'The git''s guide to git: Bisect'
-permalink: The-gits-guide-to-git-Bisect.html
+permalink: /articles/The-gits-guide-to-git-Bisect.html
 ---
 Debugging is hard.  Often you'll be presented with a bug that was introduced "some time ago" without any further information.  Before I learned about [`git bisect`](https://git-scm.com/docs/git-bisect), my primary strategy was to flail around blindly, hoping my fingers would strike the keyboard just right to reveal the bug.  The loud typing showed I was a hard worker and eventually I was promoted to senior architect.  Once I joined the inner circle of the cabal, I was taught the secrets of git.  I was eventually kicked out for my insistence that Wedge Antilles was a better pilot than Luke Skywalker (he *is* dangit!) and so as revenge, I bring you The Git's Guide to git - a series on using git to its fullest.
 <!--jump-->

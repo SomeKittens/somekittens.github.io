@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Building data warehouses for fun and profit
-permalink: Building-data-warehouses-for-fun-and-profit.html
+permalink: /articles/Building-data-warehouses-for-fun-and-profit.html
 ---
 A data warehouse is a way of structuring a database so that it is easy to answer business questions about your data. In a traditional database model, it would be difficult to construct a query that determines how much profit came from credit card sales. In a dimensional data warehouse, it's a relatively simple JOIN.
 <!--jump-->
