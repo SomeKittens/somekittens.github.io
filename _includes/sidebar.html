@@ -1,0 +1,23 @@
+<div class="sidebar-wrapper">
+  <div class="sidebar-fixed">
+    <div class="sidebar">
+      <div class="sidetitle-container">
+        <h3 class="sidetitle">Recent Articles</h3>
+      </div>
+      {% for post in site.posts limit:4 %}
+        <div class="recent"><a href="{{post.url | prepend: site.baseurl }}">{{ post.title }}</a></div>
+      {% endfor %}
+    </div>
+    <div class="sidebar signup">
+      <div class="signup-social">
+        {% include icon-twitter.html username=site.twitter_username %}
+        {% include icon-rss.html %}
+      </div>
+      <form action="https://tinyletter.com/rkoutnik" method="post" target="popupwindow" onsubmit="window.open('https://tinyletter.com/rkoutnik', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+        <input type="text" name="email" placeholder="Email address" class="email">
+        <input type="hidden" value="1" name="embed">
+        <input type="submit" value="Subscribe" class="sub">
+      </form>
+    </div>
+  </div>
+</div>

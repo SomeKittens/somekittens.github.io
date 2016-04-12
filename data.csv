@@ -1,0 +1,681 @@
+Don't start a hosting company,Dont-start-a-hosting-company.html,"I talk to a lot of people who are just starting their first startup. An large percentage of them want to know what it'll take to start a webhosting company. This isn't surprising, as web hosting companies like GoDaddy are very visible. The first step to any project is some sort of hosting. The technical challenges don't seem overwhelming to the beginner - chances are, they've played with some sort of server already. Most importantly, hosting services seem to make a _lot_ of money. To the uninitiated, this seems like a great area to enter. In this essay, I hope to explain why you shouldn't start a hosting service, while also explaining more general pitfalls beginners encounter.
+
+##### Current market size rarely matters
+
+Lots of beginners fall for the [1% fallacy](http://successfulsoftware.net/2013/03/11/the-1-percent-fallacy/) (the idea that all they need to succeed is 1% of the market) when selecting what to build. They see large, entrenched players as a good sign - there's money to be made here. Large companies are particularly keen on not letting an upstart steal their profits. More than likely, they'll steal whatever makes you special and you'll lose your customers.
+
+Every major tech company has had either an entirely new product or one that was ten times as good as the competition. ""Yet another hosting company"" doesn't cut it. [0]
+
+Speaking of that...
+
+##### You're not special
+
+You'll need to do something to differentiate yourself from other companies - it's called a competitive advantage. It'll be hard to compete on price with the big guys and their massive scale. Most other factors are just as difficult - bandwidth, server power and uptime are all costly. Ease of use may be one option. Heroku made it incredibly easy for developers to get an app online and keep it updated. Digital Ocean has won many customers based on their easy-to-use administration panel. You'd need to find a target demographic that doesn't have their particular interests served and build something for them. The trouble is finding a niche in between developer-friendly solutions like DO and Heroku and non-technical people that just need a Wordpress install [1].
+
+##### It's not easy
+
+I remember setting up my first server and finally coaxing Ubuntu 8.10 to life. It's a wonderful experience seeing a web page you wrote load, and fairly easy to repeat once the basic steps are learned. Selling web hosting space is _much_ more difficult. You'll need to consider how to:
+
+*   Isolate different servers (cheaply!) so that users can only access their own data?
+*   Give everyone a fair share of the server's resources?
+*   Determine how much you bill for what?
+*   Prevent hardware failure (and what do you do when the inevitable happens?)
+*   Design a dashboard that people want to use (i.e. not cPanel)
+*   Send email!
+*   Deal with spammers using your service
+*   Deal with the FBI when they accuse you of assisting software pirates (or worse!)
+
+This last section is not an explicit reason to not start a web hosting company, but as an example of how difficult starting anything is [2]. Most who want found web hosting companies chose hosting because ""I know what I'm doing"" - even though they couldn't answer the above questions. This shouldn't be insulting, everyone was a novice at some point. A good exercise to learn more in this area is to use a competitor's product. Go through the process slowly. Think about what it will take to copy each of their features [3].
+
+This being said, there are still plenty of opportunities to find in the startup space. Your first, tenth or even hundredth idea doesn't have to be the one. Keep building new things, learn from your mistakes, and eventually something will stick.
+
+[0] It should be noted that while Google started in an already-crowded market, they had a product that was orders of magnitude better than the others. For more on this, see: [https://www.youtube.com/watch?v=5_0dVHMpJlo](https://www.youtube.com/watch?v=5_0dVHMpJlo)
+
+[1] An argument could be made that WP installs _are_ a form of web hosting. If I haven't convinced you to do something other than hosting, this may be a lucrative way to start.
+
+[2] The business side of things has been deliberately left out. However, these can be just as hard as the technical stuff.
+
+[3] If you notice anything particularly annoying across the board, there may be opportunity there to do it _right_ and differentiate yourself.",Wed Mar 23 2016 22:21:27 GMT-0700 (PDT),markdown
+Valley Talent,Valley-Talent.html,"_""Knowledge is knowing a tomato is a fruit. Wisdom is not putting it in a fruit salad"" -Anonymous_
+
+One common refrain from experienced engineers outside of Silicon Valley is that 'nothing SV cranks out requires any talent'. Seeing that I'm an engineer turning that very same SV crank, I immediately took offense. What?!? How could anyone say that these amazing new apps put together with generators, Bootstrap and the latest over-hyped database...
+
+I'll concede that point. As I've thought about this more, I've found some truth in the statement - but not as much as those who spout it might want. There's plenty of evidence that both sides are equally correct, just in different microcosms.
+
+Before going any further, let's define a few terms.
+
+*   Knowledge is anything you can look up.
+*   Talent is anything you can't look up.
+
+Gluing together a MVP calendar app with Bootstrap, Angular and a Mongo wrapper takes knowledge. There might be a few APIs and libraries to install but all of those can be condensed to a few StackOverflow questions. Building something people can love and use for years takes talent.
+
+With that in mind, does anything produced in the Bay Area require talent?
+
+##### Absolutely not
+
+The startup culture of Silicon Valley is all about getting things off the ground. If there's one thing I've noticed while writing my wild array of scatterbrained projects, it's that the most tedious thing is getting it off of the ground. Setting up a basic page, site structure and plan are all basic evils that must be addressed before any of the fun work can be done. Us coders have a glut of frameworks and libraries offering to do the heavy lifting for us. Early on, nothing more than knowledge is needed to put things together. Grab some templates and a generator or two and you're good to go. You don't even need to be aware of server administration, as deployment is nothing more than `git push heroku master`.
+
+Naturally, many of these fail. As is the nature of the Valley, most of the team will either be [acquihired](http://en.wikipedia.org/wiki/Acqui-hiring) or move on to other new projects, repeating the same cycles, building the same-but-just-different-enough CRUD applications to disrupt something or other. Continually running through the same starting procedures means that knowledge is built up, but talent is never accrued [0]. Often, the engineers won't realize that their career is on a treadmill - moving fast but going nowhere. Rarely will anyone in this cycle wonder why companies founded by those who've never grown beyond CRUD continue failing when talent beyond CRUD is required, a mistake that can kill a career.
+
+If this is the endless cycle of no talent, where are all the 'talented' engineers? Well, they're a little further south.
+
+##### Absolutely
+
+Sometimes startups don't fail and start growing. The task of scaling technology, revenue or people is complex and can't be found in a blog. The guys who put this together don't read the docs - they probably wrote them. They depend upon years of practice finding edge cases, studying the core of a language and hard, non-Googleable work, one detail at a time. These guys are the ones pulling down the seemingly-obscene salaries - and yet they're worth it. Every single IPO or huge acquisition involved these guys creating a massive amount of value.
+
+These fantastic coders are where we get the culture of engineering superiority and the idea that some engineers can produce work that's an order of magnitude better than others. It's easy to idolize them, pretending that their talent was forged in some mysterious Stanford backroom. For the most part, the high cabal of Silicon Valley engineers started out like everyone else, building simple projects through tutorials. Unfortunately, anyone with half an engineering degree tends to believe that they are these fabled '10xers', and are nothing short of Torvalds himself. The phrase 'Growth Hacker' was briefly used to describe this second group, but was immediately co-opted by everyone who had 'growth hacked' their Twitter account to 150 followers. Instead, they continue to run the mobius loop of knowledge and failure, never understanding why they aren't getting anywhere.
+
+Is there any hope for someone currently bound by their lack of talent? Absolutely. Find one of many open source projects and start sweating the details. Find code you don't understand and go through it line-by-line until you've grasped all you can. Most of all, understand that playing _Mary Had a Little Lamb_ a million times won't make it easier for you to write a symphony.",Wed Mar 23 2016 22:21:27 GMT-0700 (PDT),markdown
+Flat is weird,Flat-is-weird.html,"Specifically, companies with a flat structure (no managers at all) are weird. Decades of management tradition tell us that Someone must be in charge and make sure everyone's doing their work. Otherwise, everyone will goof off, right?
+
+And yet, somehow these companies manage to work out. I'm not even talking about the big ones that hog all the attention (looking at you, GitHub). Big, flat companies are wonderful case studies on their own but, much like quantum physics, it's when things reach the tiny startup scale that they start to get weird. A team of five won't have a full-time manager (unless something goes drastically wrong). How do things get done? Who decides what to do next? What happens when (gasp) _people disagree_?
+
+I am by no means an expert in this topic. Rather, this essay has been written as a letter to my college self, containing what I wish I had known back then about flat management. I hope you learn something!
+
+Management does not get the attention it deserves in a small startup fighting for its life (much like everything else). I've seen startups tear themselves apart like an off-center centrifuge thanks to a lack of focus or unwillingness to Make Tough Decisions. Managing people will be the hardest thing you do as a founder.
+
+This is why we see the default for companies at this stage to be declaring themselves ""flat"". At the surface, it seems like a good idea. ""I've hired smart people"" you, the founder, might think. ""They can take care of themselves while I focus on the many other things that are currently on fire.""
+
+To a certain extent, you're absolutely right. If you haven't hired smart people, stop reading this and go fix that situation by any means necessary. If you have hired smart people, congrats! Step one completed. On to steps two through eight bazillion! For argument's sake, let's define flat as ""Delegation of 100% of management tasks"" (excluding administrative things like paperwork and talking to lawyers). This is in contrast to a hybrid model where long-term decisions are passed down but employees are largely free to implement as they see fit.
+
+Let's try and answer the three questions from the opening paragraph with the ""100% delegation"" model:
+
+#### How do things get done?
+
+You've hired smart, motivated people who enjoy what they do. Getting good programmers to program is not a hard task (in fact, _stopping_ them from programming might be harder). No problems here.
+
+#### Who decides what to do next?
+
+Ah, here's where things start getting tricky. One of the main troubles with hackers is that we tend to dive into a rabbit hole and keep exploring. Getting to 100% coverage or utilizing that nifty new tool might feel awesome but it's not propelling the product forward. We're delegating all the things, so we can't create a TODO list and tell everyone to follow that. What do we do?
+
+Remember the dozens of articles talking about the importance of ""culture"" and ""mission"" that hit HN every week? You can't throw a rock in San Francisco without hitting someone talking about how important mission and culture are (speaking of, try and create a culture of not throwing rocks at people - it does wonders for recruiting). If you create a setting where things get done in a given style, others will follow. Your team members can weigh their next action on ""Does it follow the mission?"" without any additional input from you. 100% delegation achieved. Well, 99.9% delegation; you'll still need to decide on a mission, but it scales after that.
+
+A practical example of this is how an employee deals with a problem they can't overcome. They could continue attacking the problem, take a short break, or interrupt a coworker and ask for help. All of these are reasonable options but the one that's selected depends on the priorities of the company. Is uninterrupted work time more valuable than a fast answer? Is it acceptable to browse Facebook while you shunt the problem to a mental background process?
+
+Other critical questions in day-to-day work include:
+
+*   How are teams formed?
+*   How important are tests?
+*   What frameworks/plugins/etc should we use?
+
+Creating a culture that answers these problems is outside the scope of this essay. If you're interested, check out the two culture talks from Sam Altman's Startup Class: [part 1](https://www.youtube.com/watch?v=RfWgVWGEuGE) [part 2](https://www.youtube.com/watch?v=H8Dl8rZ6qwE)
+
+#### What happens when people disagree?
+
+Most of the time, disagreements are amicable and resolve themselves without external intervention. I've had cases where, after 15 minutes of fruitless discussion on what pattern was best, we put it to the gods of `Math.random()` to decide for us. These are cases where 100% delegation works out fine.
+
+We are still human, despite Kurzweil's best efforts, and there will still be times when we just don't get along. The worst thing you can do here is to remain vigilantly neutral. When conflict flares up, you can't delegate the task of making sure everyone gets along. Sometimes things get so bad you have to step in. It's important to remember that those involved in the scuffle honestly do believe they're in the right - coming down with the hammer of ""You were in the wrong, so stop it"" will not encourage a healthy workplace. Building rapport through empathy ([https://getlighthouse.com/blog/building-rapport/](https://getlighthouse.com/blog/building-rapport/)) will be an incredibly powerful tool in the rare situations when you have to drop out of 100% mode. I promise - it'll make everyone's lives easier.
+
+#### Hiring
+
+Deciding which potential employees to bring on is bit trickier. I believe that the only rational hiring process is a centralized one. Without a centralized, objective process, the selection criteria chosen by the typical engineer is too variable for hiring to be performed in an objective manner. This centralization breaks the 100% model.
+
+As a field, we're absolutely rubbish at interviewing. Most of the things we use to evaluate candidates (tricky logic puzzles, reciting algorithms from memory, ambiguous ""fit"") either do not judge the candidate on work skills, or worse, depend entirely on the interviewer's mood. With 100% delegation, each employee selects their own interviewing style, making it difficult to evaluate and compare candidates.
+
+You'll need to set a standard for candidate evaluation by ensuring your employees know _how_ to run an objective interview and modeling it yourself. Once things are set in place, it is much easier to maintain momentum. An excellent treatise on the subject can be found here: [http://sockpuppet.org/blog/2015/03/06/the-hiring-post/](http://sockpuppet.org/blog/2015/03/06/the-hiring-post/)
+
+You may think otherwise about any of the concepts presented here - if you do, please write about it! I'd love to hear your thoughts.",Wed Mar 23 2016 22:21:27 GMT-0700 (PDT),markdown
+The Myth of Equity as Motivation,The-Myth-of-Equity-as-Motivation.html,"Virtually every startup job offers a percentage ownership of the hiring company as part of an employee's compensation package. According to AngelList, most startup software engineers in San Francisco can expect to receive 0.1%-4% of the company they work for.
+
+This equity is provided in order to align incentives. Employees who own a stake in the company are compensated for the company's success and theoretically will work harder to achieve that success. In this post, I intend to show that this commonly-held belief is a myth. To be exact - equity in a startup does not incentivise an employee to work longer or harder.
+
+Equity's largest motivation is at the financial level. There are many other reasons a startup employee might work extra hours (belief in the company's mission, threats of firing, the enjoyment of challenging puzzles, etc) but none of these are significantly impacted by equity. In order to determine equity's effect (or lack thereof) on motivation, we need to look at how the financial impact of an equity stake impacts an employee's motivation.
+
+I find examples are best to work with, so let's examine a statistically-average Silicon Valley startup hacker named Bill. He's employee #7 and has been granted shares worth 0.5% of Wuzz.ly. His boss wants the team to put in extra hours in the coming weeks. Should he?
+
+The [average hourly freelancing rate](http://grouptalent.com/blog/how-much-developers-make-per-city/) for developers in San Francisco is $100\. For the sake of argument, let's say Bill is fairly new to the freelancing world and (only being able to work nights & weekends) has to lower his rate to $75/hr in order to remain fully booked.
+
+If Bill freelances full-time over a weekend (sourcing clients through something like gun.io), he'll make a tidy 75 _16 = $1,200\. In order to add $1,200 to his pocket equity-wise, Bill would need to add_ $240,000* to Wuzz.ly's value in that same weekend. This assumes:
+
+*   Wuzz.ly is successful enough that employees actually see cash for their equity (i.e. liquidation prefrences and debt financing don't take it all)
+*   We don't discount the future value of Wuzz.ly stock (Bill can earn interest on freelancing income while he waits for the Wuzz.ly sale)
+*   Wuzz.ly never takes on additional venture capital and dilutes Bill's position
+*   Bill's employers have not threatened to fire anyone for not working over the weekend
+
+Engineers that can add a quarter of a million dollars to a company's value in a weekend don't charge $75/hr. World-class engineers like that usually end up charging $300+/hr, meaning Bill would need to create nearly a million dollars worth of value in one weekend (this has happened before, Facebook's Like button was [concieved at a company hackathon](http://www.quora.com/Whats-the-history-of-the-Awesome-Button-that-eventually-became-the-Like-button-on-Facebook)).
+
+This does not mean that we should stop using equity as a form of compensation as this is now standard practice. Lack of equity might cause an employee to feel left out and/or poorly compensated, neither of which is good for motivation or retention. Equity also allows us to feel more involved when the company succeeds.
+
+Interestingly enough, I did find evidence that equity provides a powerful motivation in _public_ companies. Managers with stock options that went up showed greater motivation at work for a year or more! This was only the case after employees saw a profit made off of their options, which makes it hard to draw correlations with privately-held startups.
+
+Equity is still an incredibly-useful tool in a compensation package. I doubt a company could woo an engineer without it, despite the common recommendation to value it at nothing. The next time your boss ""suggests"" you work a weekend, I hope you have a greater understanding of how the numbers work out.",Wed Mar 23 2016 22:21:27 GMT-0700 (PDT),markdown
+Building data warehouses for fun and profit,Building-data-warehouses-for-fun-and-profit.html,"A data warehouse is a way of structuring a database so that it is easy to answer business questions about your data. In a traditional database model, it would be difficult to construct a query that determines how much profit came from credit card sales. In a dimensional data warehouse, it's a relatively simple JOIN.
+
+Unlike a typical database where data objects are modeled based on their relationships, a dimensional data warehouse schema has two table types: Dimension and Fact. Dimension tables are the nouns of the data warehouse world - think `users` and `products`. They are largely denormalized. Fact tables are verbs - they represent events happening, and are mostly comprised of foreign keys to the dimension. Think of them as a subject (dimension) and a predicate (fact). If you're overwhelmed, don't worry. We'll get to some practical examples in just a second.
+
+I _highly_ recommend reading Samson Hu's excellent article [_Building Analytics At 500px_](https://medium.com/@samson_hu/building-analytics-at-500px-92e9a7005c83), where he describes the analytics pipeline he built at 500px, including comparisons of technologies outside the scope here. It makes BI/Analytics much approachable to the everyday programmer, going into detail about the _why_ of things (whereas this article intends to answer _how_).
+
+## Tools
+
+The two major tools we'll be using are [Luigi](http://luigi.readthedocs.org/en/latest/index.html) and [re:dash](http://redash.io/).
+
+Luigi manages all three phases of our ETL transforms. ETL means ""Extract-Transform-Load"", and is the process by which our regular data finds its way into our data warehouse. The Extract phase pulls down data from many different sources (regular databases, redis, log files, even external APIs). Luigi shines brightest at this phase, easily aggregating data from multiple sources but I only used it to consume postgres data. The transform phase takes this data and denormalizes it into the fact and dimension tables (thought at this point they're still in-memory data structures). The Load phase is the simplest, taking those data structures and inserting them into our database (typically a RDBMS like postgres).
+
+re:dash is our dashboard, giving us shareable insights into the data. re:dash has three main advantages:
+
+*   We use plain ol' SQL queries
+*   Queries are easily shareable among teams
+*   Auto-population of graphs from our SQL data
+
+Before we can use either of these, we'll need some data.
+
+## Generating the data
+
+Our dummy business is Gustav Park (""Gustav"" being Norse for ""Staff of the Gods""), a small theme park. Our generation script needs to create a sizeable amount of data, including some weighting so we'll be able to ""discover"" trends in our re:dash boards. The schema needs to be fairly naive (not that hard!) so Luigi has something to do.
+
+My data generation script ended up being an impressive mishmash of various ways to call `Math.random()` in knotted promises. Several changes during the Luigi phase of things meant my data generation script became a series of hacks.
+
+Were I to do this again, I'd generate the data in a more declarative style, instead of the procedural way it is now. I originally wrote the code to simulate interactions throughout the day (step-by-step) but I now realize how silly that is (No need to generate entirely fake data in order).
+
+I planted three trends in the data to find later:
+
+*   Patrons who use the app to buy things are more likely to spend money at the park
+*   Most entry tickets are sold before 9, and the transaction is most likely processed through a credit card.
+*   Valentina's Wacky Funhaus is unusually good at converting card users to install the app
+
+(Unintentionally, it's possible for a customer to buy something before they've entered the park. Whoops!)
+
+## It's a me, Luigi!
+
+Now we've got some data and want to shuffle it around. Luigi lets us define a series of atomic tasks, defined as a directed, acyclic graph. Each of these performs a single action (say, pulling all of the customer data from postgres).
+
+Each task can depend on other tasks:
+
+![Luigi Dependency Graph](//i.imgur.com/nAtCIR3.png)
+
+In this case, I have two categories of tasks: Gets and Inserts. Each Get pulls a category of data from postgres, applying a few transforms along the way and outputting the tab-separated data into a file in the `data` directory. Once the Get is complete, the Insert task uses Luigi's built in `postgres.CopyToTable` task to insert the consumed data into our database.
+
+Finally, there's the task [`AllData`](https://github.com/SomeKittens/Data-Warehouse/blob/master/luigi/gustav_park.py#L247), which requires every Insert task. This is done so I only have to trigger a single task to cause everything to cascade. If something fails along the way, Luigi will only re-run failed tasks, which is both a blessing and a curse. The trouble starts when there's a task that technically succeeded but outputted incorrect data. I wrote a quick cleanup script ([`reset.py`](https://github.com/SomeKittens/Data-Warehouse/blob/master/luigi/gustav_park.py)) for when things go haywire.
+
+## Our Schema
+
+We can't go further without describing the data warehouse schema. There are three dimensions (customers, stores, products) and two facts (purchases, entrances). One glaring omission is that it is not possible to track what payment type was used to purchase an entry ticket.
+
+Let's look at the difference between the main `customers` table and the dimension. (aside from the `d_` prefix)
+
+The main table:
+
+```sql
+CREATE TABLE customers (
+    id SERIAL PRIMARY KEY,
+    paymentId int REFERENCES paymentTypes,
+    customerName VARCHAR(100),
+    hasNewsletter bool
+);
+```
+
+The dimension:
+
+```sql
+CREATE TABLE D_customers (
+    id SERIAL PRIMARY KEY,
+    has_app bool,
+    has_newsletter bool,
+    is_child bool
+);
+```
+
+Aside from my egregious abuse of camel_case and underScore, only one property survives unscathed - `has_newsletter`. `paymentId` and `customerName` just aren't useful for the customers dimension. `paymentId` gets attached to the `purchases` fact and we can glean no useful data from knowing our 1,895th entrant is named Dave.
+
+On the other hand, we now have `has_app` and `is_child` - both procured during the transform process. These are very useful for analytics, we will see that app users end up spending more (and making us more of a profit). Children are more likely to go after cotton candy than a soft pretzel.
+
+On the other hand, let's look at `f_purchases`:
+
+```sql
+CREATE TABLE f_purchases (
+    id SERIAL PRIMARY KEY,
+    customerId int REFERENCES D_customers,
+    productId int REFERENCES D_products,
+    storeId int REFERENCES D_stores,
+    paymentType VARCHAR(100),
+    timeOfPurchase time,
+    profit int
+);
+```
+
+It's mostly foreign keys to dimension tables. There are three denormalized data which are explicitly related to the _fact_ and not any dimension.
+
+## re:dash
+
+Finally, it's time to see all this wonderful data we've created! The install process for re:dash is pretty straightforward but creating your first query can be a bit tricky (protip: Sometimes the data gets out of sync and nothing shows up - just refresh the page). Create a query from the menu: `Queries -> New Queries`. A query will remain in draft form until you edit the title by clicking on it.
+
+Let's try and prove one of our original assertions - customers who use the app spend more than customers who just pay by plastic. We won't even need a join -this is a simple query:
+
+```sql
+SELECT paymenttype AS payment_type,
+       AVG(profit/ 100) AS profit
+FROM f_purchases AS pur
+GROUP BY paymenttype
+ORDER BY profit DESC
+```
+
+This gives us:
+
+<table>
+<thead>
+<tr>
+<th>payment_type</th>
+<th>profit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>iOS app</td>
+<td>3.61</td>
+</tr>
+<tr>
+<td>Android app</td>
+<td>3.59</td>
+</tr>
+<tr>
+<td>Credit Card</td>
+<td>3.51</td>
+</tr>
+<tr>
+<td>Debit Card</td>
+<td>3.43</td>
+</tr>
+</tbody>
+</table>
+
+Not a huge difference but it's certainly there. Our efforts are bearing fruit! Let's try a more complicated question: Are there any age differences in product preference? This would be incredibly complicated in any database but only requires two joins for us:
+
+```sql
+SELECT COUNT(*) AS nums,
+       c.is_child AS is_child,
+       pro.productname AS product_name
+FROM f_purchases AS pur
+LEFT JOIN d_customers AS c ON c.id = pur.customerid
+LEFT JOIN d_products AS pro ON pro.id = pur.productid
+GROUP BY is_child,
+         product_name
+```
+
+re:dash also provies some excellent graph support. Some fiddling around with the graph options gives us:
+
+![re:dash graph for products sold by age](//i.imgur.com/RgOHcyQ.png)
+
+Excellent! We can see that children prefer sugary things like cotton candy and soda and adults go for the carb-loaded soft pretzels. There's many more queries that can be run against the data - you can find them [here](https://github.com/SomeKittens/Data-Warehouse/blob/master/redash/examples.sql).
+
+Plugging in some of those examples, our dashboard starts to look pretty good (astute readers will notice the bug in my random number generator):
+
+![re:dash dashboard](//i.imgur.com/z5DMsoI.png)
+
+At this point, go nuts! Play around in re:dash and try to find some more interesting data points. For an added challenge, try and add in a purchase type for entrances.",Wed Mar 23 2016 22:21:27 GMT-0700 (PDT),markdown
+The git's guide to git: Bisect,The-gits-guide-to-git-Bisect.html,"Debugging is hard.  Often you'll be presented with a bug that was introduced ""some time ago"" without any further information.  Before I learned about [`git bisect`](https://git-scm.com/docs/git-bisect), my primary strategy was to flail around blindly, hoping my fingers would strike the keyboard just right to reveal the bug.  The loud typing showed I was a hard worker and eventually I was promoted to senior architect.  Once I joined the inner circle of the cabal, I was taught the secrets of git.  I was eventually kicked out for my insistence that Wedge Antilles was a better pilot than Luke Skywalker (he *is* dangit!) and so as revenge, I bring you The Git's Guide to git - a series on using git to its fullest.
+
+Here at Kittenitech, we've got a multi-billion-dollar SaaS product: UnicornTopia.  It allows UnicornOps folks to easily manage large herds of distributed unicorns.  Problem is, sometime in the last week, we introduced a really nasty bug.  Paula over in Marketing tells us they're receiving quite a few reports that setting the header color to blue causes unicorn riots.  Fortunately, this is timeboxed - Paula helpfully says complaints started coming in less than a week ago, so we know the problem was introduced recently.
+
+Bill thinks we should use `git diff HEAD 'HEAD@{1 week ago}'`.  This'll give us all of the changes in the past week, in a gigantic, difficult to sift through diff format.  Then again, Bill was talking earlier about how his nifty electric drill doubles as a hammer if you swing it hard enough.  Let's look at a better solution - `git bisect`.
+
+`git bisect` works by taking a known *good* commit and a *bad* commit and performing a [binary search](https://en.wikipedia.org/wiki/Binary_search_algorithm) bounded by the two commits to find the exact commit where things went bad.  It is excellent for situations where you know a bug was introduced in a given time frame.  It's not used every day but can be a lifesaver when there are reams of commits to dig through.
+
+There's only eleven commits to check (or bad news, we only pushed 11 commits in a week, yipes).  Note that this'll only take four steps - binary searches are `O(log n)` - they require a number of steps equal to the natural logarithm of the total items to check (For the math-adverse, this means we only have to check a small amount in order to find the problem commit.  Checking 10,000 commits requires 10 steps).  Here are the eleven commits we need to search through (in order from newest to oldest):
+
+```
+* 40c974a (HEAD) Increased alfalfa yields during bumper car festival
+* 06f002b Allow write-in votes during unicorn elections
+* 8226ff8 Turns out that wasn't a typo at all...
+* d67e999 refix typo fix
+* a8e03b3 Tyops: SPeeling wrongs
+* 6f3e26c Ensure Unicorn Park converts to anti-aircraft batteries upon Godzilla event
+* 1c75ea6 Correct corner case in round houses
+* c8e1db2 Fix edge case where Unicorns gain sentience and demand rights
+* 74ed286 Automatically spin up new unicorns when config.carousel is true
+* 4ad0ca1 Styling: Add peppermint swirls to unicorn housing
+* b51dd30 Race condition: Add checkered flag
+```
+
+Let's try it out.  We have a known *bad* commit (QA has verified that the unicorns riot when we're running the latest code, which is known in git land as  `HEAD`).  We also know that the commit with the sha `b51dd30` is *good* - the unicorns don't riot at all!  We tell bisect all this information:
+
+```bash
+# Start bisecting, passing in a HEAD as the buggy commit and then a known good commit
+$ git bisect start HEAD b51dd30
+Already on 'master'
+Your branch is up-to-date with 'origin/master'.
+Bisecting: 11 revisions left to test after this (roughly 4 steps)
+[6f3e26c40436f69e9d4bfb4ea518c89bf3b7219a] Ensure Unicorn Park converts to anti-aircraft batteries upon Godzilla event
+
+$ git status
+HEAD detached at 6f3e26c
+You are currently bisecting, started from branch 'master'.
+  (use ""git bisect reset"" to get back to the original branch)
+
+nothing to commit, working directory clean
+
+```
+
+At this point, git has checked out the commit at the middle between `HEAD` and `b51dd30`.  We're in ""Detached HEAD"" state: We're pointing at a specific commit instead of a pointer to ""The latest commit of a branch"".  Don't sweat this - if everything goes kerflooey, we can run `git bisect reset` to return to our original, pre-bisect state.  Phew.
+
+Our next step is to check if the bug exists on this commit.  If it does, bisect knows all commits *after* this commit also contain the bug - we need to search through older commits for the bad code.  If this commit is bug-free, then the offending code was added *later* and bisect will search through *newer* commits.
+
+We open up `dev.unicorntopia.com` and set the header to blue.  Unicorns fly everywhere, rioting in the streets.  Looks like this commit is broken.  We tell git that the current commit contains bad code through the command `git bisect bad` (finally, something about git that's intuitive).
+
+```bash
+$ git bisect bad
+Bisecting: 5 revisions left to test after this (roughly 3 steps)
+[74ed28665dae9c24f43cbafce313baec945a9f5d] Automatically spin up new unicorns when config.carousel is true
+```
+
+Once that's run, bisect determines that all the commits between `6f3e26c` and `HEAD` *also* contain the bug, leaving us with just under half of our original commits under suspicion.  We then move to the commit halfway between `6f3e26c` (the one we just marked as bad) and `b51dd30` (the one we know is good).
+
+```
+(Newer commits assumed bad)
+(known bad)  * 6f3e26c Ensure Unicorn Park converts to anti-aircraft batteries upon Godzilla event
+             * 1c75ea6 Correct corner case in round houses
+             * c8e1db2 Fix edge case where Unicorns gain sentience and demand rights
+(checking)   * 74ed286 Automatically spin up new unicorns when config.carousel is true
+             * 4ad0ca1 Styling: Add peppermint swirls to unicorn housing
+(known good) * b51dd30 Race condition: Add checkered flag
+```
+
+This time, our commit looks good.  Blue header, docile unicorns.  Hurrah!  Git now knows that our malfunctioning code is enclosed by `74ed286` (known bug-free) and `6f3e26c` (known bugged).  There's only two commits left to check!.
+
+```bash
+$ git bisect good
+Bisecting: 2 revisions left to test after this (roughly 2 steps)
+[c8e1db20505e16161888f19515137bf113a169dd] Fix edge case where Unicorns gain sentience and demand rights
+```
+
+```
+(Newer commits assumed bad)
+(known bad) * 6f3e26c Ensure Unicorn Park converts to anti-aircraft batteries upon Godzilla event
+            * 1c75ea6 Correct corner case in round houses
+(checking)  * c8e1db2 Fix edge case where Unicorns gain sentience and demand rights
+(older commits assumed good)
+```
+
+Repeating this process a few times gives us the problem commit:
+
+```bash
+$ git bisect good
+6f3e26c40436f69e9d4bfb4ea518c89bf3b7219a is the first bad commit
+commit 6f3e26c40436f69e9d4bfb4ea518c89bf3b7219a
+Author: Jebediah Kerman <jebkerman@kittenitech.co>
+Date:   Sat Aug 8 21:37:46 2015 -0700
+
+    Ensure Unicorn Park converts to anti-aircraft batteries upon Godzilla event
+```
+
+D'oh!  It was the first commit we looked at!  At least now we know exactly where the problem commit is.  Let's look at what changed with `git diff 6f3e26c^ 6f3e26c` (compare the commit immediately preceding our problem one and the problem one itself).  Digging through the code there, we find:
+
+```javascript
+// Don't riot if blue
+if (header.blue) {
+  unicornMob.riot();
+}
+```
+
+Welp, there's our problem.  `git bisect` saves the day!  Imagine how much work it would have been to dig through a week's worth of code instead of a single commit.
+
+### Downsides
+
+`git bisect` isn't perfect - there's a few scenarios where it isn't helpful:
+
+ - The problem is an external source.  I once spent far too long bisecting to discover the database had bad data.  If bisect says your last known good commit is the only good one, this may be something to look into.
+ - Your team doesn't write atomic commits.  If each commit changes multiple things, it's harder to discern the problem.  Each commit should only do one thing.
+ - The problem is a race condition.  In this case, it's incredibly difficult to tell if a commit is good or the race worked out in your favor.",Wed Mar 23 2016 22:21:27 GMT-0700 (PDT),markdown
+git's guide to git: Stash,gits-guide-to-git-Stash.html,"Last time we checked in with our favorite unicorn management company, we learned about git bisect, a rarely-used tool that can absolutely save your bacon when the time comes.  In this episode, let's learn about `git stash`, something I use almost daily.
+
+Remember the last time you were elbows-deep in some code change and some PM came rushing over with a P0 bug that they'd *just* discovered (we reported it two weeks ago).  Bob does.  He finally got time to work in the big refactor we've all needed for *months* and this stupid bug crops up.  Welp, someone has to fix it but Bob has a pile of unsaved changes.  How should Bob proceed?  He weighs his options:
+
+ - Throw everything into a `wip` commit
+ - Use this `git stash` thing he just read about on some weirdo's blog
+
+The wip commit option has some problems - mainly that he'll need to either clutter the commit history with non-atomic commits or rewrite history.  No one likes having a git history littered with wip - they're useless at telling you what actually changed in that commit.  Even worse, what if someone pushed a commit to the refactor branch in the interim?  Bob could be stuck for hours in conflict doom.  Bob *could* keep that wip commit to himself but there's a better way...
+
+### git stash
+
+As it turns out, git has a built-in way to save the current state of the index *without* resorting to misusing commits.  It's as simple as:
+
+```bash
+$ git stash
+Saved working directory and index state WIP on master: 51eada7 Release KRAK-N
+HEAD is now at 51eada7 Release KRAK-N
+```
+
+Ta-da!  All of our changes to the current working directory are now saved in a special ""stash"" stack.  Let's double check to make sure:
+
+```bash
+$ git stash list
+stash@{0}: WIP on master: 51eada7 Release KRAK-N
+```
+
+Our stash stack has a single entry - the one we just saved (as well as the commit hash & message we were working against when we stashed our changes).  We can push more items on top of that in the future, but for now let's just move on with the other fixes that need fixing.
+
+A quick digression: The stash will only save the changes against the current index - so new files that haven't been checked in won't be part of the stash.  If you want to include new files, add `--include-untracked` to your stashing.
+
+We've fixed the tyop in the master branch, bringing harmony to the Force (Geez, imagine if Order 66 had been executed before we corrected that.  The Unicorn-Jedi might have been wiped out!).  Back to the refactor!  Our changes are stashed, how do we get them back?
+
+Remember, the stash is a stack.  We have two different ways of grabbing the top of the stack & bringing our changes back into the current working tree:
+
+ - `git stash apply`, which leaves the entry in our stack.
+ - `git stash pop`, which removes the entry
+
+Bob likes a nice, clean stash stack, so he pops off the top:
+
+```bash
+$ git stash pop
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+  (use ""git add <file>..."" to update what will be committed)
+  (use ""git checkout -- <file>..."" to discard changes in working directory)
+
+	modified:   index.js
+        modified:   homestarmy0.tmp.07.zip.tar.jpg
+
+no changes added to commit (use ""git add"" and/or ""git commit -a"")
+Dropped refs/stash@{0} (da0fcb2ae535f1e23dbf0da8cb120c4045c4cb82)
+```
+
+Boom!  We're back in business without ever worrying about commits.
+
+### Stash tricks
+
+Use `git stash branch <branchname>` to create a new branch (Setting the HEAD of the branch is the commit the stash was against) with your changes.  You can also name your stashes with `git stash save <stashname>` (helpful when you come back after a night of gaming and wonder what on earth you were thinking).
+
+
+There's a bit more to git stash but that should be enough to get you going.  Read about the complete power of stash at [the git docs](https://git-scm.com/docs/git-stash)",Wed Mar 23 2016 22:21:27 GMT-0700 (PDT),markdown
+How I Interview,How-I-Interview.html,"Technical interviews are terrible because we don't know what we're filtering for.
+
+## Interviews are filters
+
+I think we all can agree that a *good* interview filter passes those who will do well at work and fails those who won't.  The trouble arises when we try to come to a common agreement on what ""do well at work"" means - every company is different. Instead, when we discuss interviews, we should grade them not on conformance to some holy standard but in how effectively they model day-to-day life at the company.  This allows us to remove some of our pre-existing bias and focus on finding candidates who knock it out of the park, not ones that look good on paper & whiteboards.
+
+Candidates are also reviewing a company.  They'll be dedicating several years of their lives to this workplace and will be looking at the interview filter to see what it takes to get in.
+
+After running lots of my own interviews and talking with industry vets, I've found three things an interview needs in order to accurately evaluate a candidate's performance.
+
+#### Easy access to Google/StackOverflow/etc
+
+I once had a conversation with a newcomer to programming who was ashamed of how often they needed to look something up.  We compared notes and it turns out I looked things up *more* often than they did!  The internet is a vital source of knowledge essential to programming.  You wouldn't evaluate a chef's ability to cook by depriving them of saucepans, why cut off Google?
+
+#### Comfortable situation (IDE, keyboard, OS)
+
+Programmers are *notoriously* nitpicky about our environment.  Imagine if you arrived at work and found a memo dictating that employees have freedom in choosing their text editor but must run it vanilla.  No custom config, no plugins and absolutely no [absurd themes](https://github.com/SomeKittens/ST-Hot-Dog-Stand).  Oh, and if you don't perform up to spec, you're fired.  How would you do?
+
+Speaking of coding with your job at stake...
+
+#### (Relatively) low stress!
+
+I hope you don't have to prove yourself every day to stay employed.  Bugs pop up, servers crash, schedules slip.  It happens.  We pride ourselves on building systems that catch the plethora of mistakes we make every day and then refuse to permit any whatsoever in an interview.
+
+By definition, an interview is stressful.  The interviewee is coding for a job.  *No one* performs their best under stress.  A good filter puts the candidate at ease to get a better read on their abilities.  A bad filter cranks the stress up with combative interviewers and trick questions, failing qualified candidates that your competitors will gladly pick up.
+
+""But Randall"" one might interject ""programming is a high-stress environment.  Wouldn't it be prudent to test people to see how they perform under the gun?""
+
+Didja miss the bit above about people not doing their best under stress?  If the average day in the life of your team is stressful enough that you think ""Can survive immense pressure"" is a prerequisite for joining, putting your current employees at ease should be your priority, never mind hiring.
+
+
+### Common interview antipatterns
+
+On the other hand, somehow we've collected a whole pile of interview styles that provide information that's orthogonal to the candidate at best and actively blinds the interviewer to the interviewee's skill at worse.
+
+#### Algorithm analysis
+
+Conventional wisdom says that those who can dig through traditional CS topics - big O notation, sorts, n-queens - are also skilled programmers.  This antipattern persists because it is true to an extent.  People who can candidly discuss such topics usually also have experience writing production code (we should remember that correlation does not imply causation).  Two exceptions:
+
+ - False positive: CS students coming from programs that veer towards academic topics over writing code will appear more skilled than they are.
+ - False negative: Self-taught programmers don't do much in-depth study of CS topics.  To turn a stereotype, they're more concerned with getting things done (and you should be too).
+
+These false negatives should worry you.  Every good programmer is, to some extent, self-taught.  Why bias your interviews against that?  Filter for people who are good at doing their job, not someone else's.
+
+This antipattern is also easily gameable.  Most questions in this vein are alike - it takes a night or two of study to get up to speed.  I want to find [talent, not knowledge](http://rkoutnik.com/articles/Valley-Talent.html), so I skip anything that's a quick Google away.
+
+#### FizzBuzz & Whiteboard coding
+
+Asking the candidate to write code on a whiteboard fails two of our three options above - they're outside of their environment and can't look anything up.  No one codes on a whiteboard outside of interviews (though I wouldn't be surprised if someone has figured out how to compile dry-erase to LLVM).  This goes double for the fizzbuzz-like questions that accompany a whiteboarding session - I ensure I know a candidate can code before we bring them on site.  Otherwise we're wasting everyone's time.  Asking trivial questions to people who have shown they can code is insulting (and how you miss out on [stellar engineers](https://twitter.com/mxcl/status/608682016205344768)).
+
+(Sidenote: Working with the candidate to talk design & architecture is a different matter.  Whiteboards are a great medium to design a system, just not implement it).
+
+#### Trick questions
+
+There's a category of programming trivia where it's difficult to find the answer without a brilliant flash of insight.  Some interviewers have deluded themselves into thinking that memorizing answers to an array of trivia is an indication of a good developer.
+
+Google tried these and [failed miserably](http://www.deathandtaxesmag.com/200732/google-admits-its-famous-job-interview-questions-were-a-complete-waste-of-time/).  Turns out knowledge of trivia (programming or not) has little to do with *actually programming*.  I'm not Google but I will gladly learn from their mistakes.
+
+#### ""See how you think""
+
+There is a (fortunately) rare form of interview question that starts out as a trivial task for the interviewee to implement.  Once the candidate solves the task, the interviewer bans the method used to solve the problem.  The interviewee must complete the task again, using another, more unorthodox technique.  This repeats until the interviewee is out of ideas.
+
+Unless your company has some moral argument against if statements, this technique only provides a good signal on the candidate's tolerance for mindless bureaucracy.
+
+Alright, enough of the bad stuff.  Time to talk turkey about how I run things.
+
+When I run in-person interviews, I'm usually interviewing someone with at least moderate experience in JavaScript.  Here's the problem I give interviewees:
+
+> You have one hour to implement as much of Minesweeper as possible.  I've provided a JSBin for you though you're free to use whatever development tools/libraries/frameworks you're most comfortable with.  You're allowed to use whatever internet resources you need, excluding plagiarism.  I'll be available to answer any questions you may have.
+> You're not expected to finish!  In fact, no one ever has.  Do your best and we'll chat about how things went afterward.
+
+The work conditions fulfill our three criteria above:
+
+ - The interviewee has full access to any resources they may need for the task (just like any decent dayjob).
+ - A candidate can use whatever tools they need.  Most tend to use the laptop & JSBin provided - though there's a large variety in the libraries and frameworks used to put things together, from jQuery to canvas to React.  I also provide links to the icons, it'd be silly to rank a candidate based on their icon search abilities. 
+ - I try to take the first five minutes and joke around with the candidate, get them talking about what they like (technical or not).  They're also not required to finish - Dropping the deadline relieves some of the pressure a candidate may feel.  I like to mention no one's finished so they don't come up with an imaginary super-hacker opponent.
+
+Some say that using real code over whiteboards makes it harder for the candidate to explain as they go along.  Good!  I've _never_ had to explain code as I've been writing it in my roles as a software engineer.  I talk about my work *after* I've written it.  This interview mimics that behavior.  Don't you hate it when you're interrupted while coding?  Why put interviewees under the same strain?
+
+### Why Minesweeper?
+
+Minesweeper offers a host of interesting challenges for the candidate to select.  A good solution has three challenges: determine bomb placement, maintain cell state and render it all to the screen.  Most candidates touched on all parts but focused on one, showing off where they did best.  The code review afterward sends a strong signal - good candidates are eager to show off their work.
+
+Having a consistent test also allows me to compare candidates easily and without bias.  It's important to have an understanding of what is ""good"" so you're not making pass/fail calls on your fallible gut (For instance, [judges tend to be more lenient after they've eaten lunch](http://blogs.discovermagazine.com/notrocketscience/2011/04/11/justice-is-served-but-more-so-after-lunch-how-food-breaks-sway-the-decisions-of-judges/).  Anecdotal evidence shows the same is true for interviews.)
+
+Finally, I assumed that most everyone played Minesweeper at one point and I wouldn't need to explain the rules.  I was wrong on this one, I needed to review the rules about half the time.  This did give an opportunity for the candidate to show off their skills at extracting requirements from an ill-formed spec.
+
+As an added bonus, if the candidate took the JSBin I was able to read it over on my own time & share the code they'd written with the rest of the team.  Take that, whiteboards!
+
+I modeled this interview as a take-home task that took place at the office.  Take-home tests pass our three criteria above with flying colors though they have a fatal weakness - they take lot of our candidate's time when they're job hunting.  I'd love to see more companies use a 4-6 hour *instead* of an on-site rather than augmenting the interview.
+
+### Critical success!
+
+I consider it a success when a candidate is able to sketch out a game plan to tackle the problem at hand, execute against that plan and deal with difficulties that come up during the hour they spend coding.  Good questions impress me, as well as the ability to frankly discuss tradeoffs during the code review session.  One candidate who did not get as far talked about how they had designed the code to be flexible for a future settings menu.
+
+I have not noticed any correlation between tools and success - of the two best performances, one eschewed frameworks entirely, using the browser's built-in canvas while the other depended on a large framework.
+
+### Failure
+
+Minesweeper determines the interviewee's ability to take on non-trivial tasks.  A candidate who had just breezed past a handful of fizzbuzz-style questions stumbled badly when handed Minesweeper.  They talked around the problem for a half-hour, never digging into the problem itself.  Questions are good - but you don't want to thumbs-up a candidate who's all talk.
+
+Another candidate surprised me by spending the entire hour silently typing but never running the code.  As they hit their time, they handed me the laptop and asked ""Did I get it right?""  Programmers need to know how to check their own work.
+
+(If you're interested in trying out this exercise, you can find the JSBin [here](http://jsbin.com/jucesisaki/2/edit?html,js,output).  [Let me know](http://rkoutnik.com/contact.html) what you come up with!)",Wed Mar 23 2016 22:21:27 GMT-0700 (PDT),markdown
+Questions to ask your interviewer,Questions-to-ask-your-interviewer.html,"[Last time](https://rkoutnik.com/articles/How-I-Interview.html), we talked about how to design a technical interview as a filter, starting primarily with determining what sort of person is ""good"".  This time, I'm turning the tables to look at the other side of things.  Let's talk about some questions you can use to determine if a company is where you want to work.
+
+The tech world is a seller's market for [talent](https://rkoutnik.com/articles/Valley-Talent.html).  It's difficult to get a good read on a company from the information you have pre-interview.  Companies of all shapes and sizes want to throw you through their gauntlet.  Some interviewers will say whatever it takes to get you to sign, others look at their company with rose-tinted glasses.  Neither will help you find a job you'll love.  Most questions are easily dodged (""What's the worst part of this job?"", ""There's too much to do but you'll fix that!"").
+
+On the other hand, an attentive interviewer will see these questions as a positive - you're the sort of person who thinks things through and knows what they're after.  This also helps the interviewer determine what you're looking for and tailor the rest of the interview to that.
+
+### Why general questions fail 
+
+Many traditional questions fall short because the interviewer isn't incentivised to provide a candid answer.  Consider: ""Do you trust management?""  ""Trust"" is a strong word with some emotional charge.  If the interviewer expresses doubts, that may be enough to kill the candidate's interest altogether.  No one wants to be the person who lost a promising candidate, so a little white lie emerges.  ""Sure!"" they say.  Two months into the job you realize they *actually* meant you could trust management to get paychecks in on time (and not much else).
+
+Instead, use a specific question or ask something general and drill down for details.  In the above example we could instead ask ""What is your management's vision?""  This doesn't cover all of the bases we had previously but the answer is more likely to be actionable.  It tells us how good leaders are at communicating where they want to go.  It gives a window into the future of the company - do they just want to get bought?  Is there just vague ""Change the world"" promises?
+
+Many engineers can optimistically gloss over problems.
+
+Q: How does your team overcome challenges?
+
+A: I believe in clear, open communication and have noticed that in general everyone at Initech seems to as well. Transparency has helped my team overcome obstacles and move forward together.
+
+Q: Can you give me an example of your team overcoming a difficult obstacle recently?
+
+A: Well, I guess we talk about blockers at our daily standups.
+
+Getting concrete examples means you get past the marketing fluff to a company's real values.
+
+## Finding red flags
+
+> What are you hoping I'll change?
+
+There are two things I'm looking for in this question: another angle on the job description and wishful thinking.
+
+Job descriptions tell part of the story.  Now that you're in for an interview, it's time to get the other half.  This is a great time to talk about potential projects, advancement, and how you in particular will fit in.  If the interview seems tense, asking this question can lighten the mood a bit.
+
+On the other hand, I've often heard things like ""Tests are important but we don't have them.  We're hoping you'll be able to help out with that.""  Did you catch the wishful thinking there?  If tests are important then the team should already have a test suite.  The interviewer is expecting you to change the company culture without any power to do so.  The interviewer isn't twirling their moustache Snidely Whiplash-style, expecting massive change from a new hire - it's just the optimism that curses every engineer.
+
+> How often are you pulled off your primary task?
+
+It seems obvious that someone with the title of ""Software Engineer"" would spend most of their time engineering software.  In some places, a more accurate title would be ""meeting attender who writes code on occasion.""  Other places expect developers to expand beyond their role, creating their own wireframes or deployment strategies.  Even worse, your job requirements could change dramatically.  A startup hired one of my friends as a full-stack engineer and he spent most of his time managing ad campaigns on social networks.
+
+## Technical
+
+> How does your development process work?
+
+This question is essentially a simple [Joel test](http://www.joelonsoftware.com/articles/fog0000000043.html).  Lack of source control, tests & code review are all smells that shouldn't nix the company altogether but will need consideration.
+
+> How does your deployment process work?
+
+I once joined a company without asking this question and to my dismay discovered the answer was ""ssh into all of our servers (one by one) and manually copy/paste the files"".  This should be a gimme for any modern company.
+
+A basic deployment process should be:
+
+ - able to roll back
+ - easy to see what changed
+ - deterministic
+
+Even `git pull` suffices here (though only as a bare minimum).
+
+> The last person who was fired - why did that happen?  Do you think it was for a reason other than the official one?
+
+This is tricky and I wouldn't ask it at every interview (in fact, I received pushback on it from almost every reviewer).  Often there's some difference between the official reason for a firing (if management provides one at all) and what the rank and file suspect.  Other times it's ""This guy was a total jackhole"" - a great sign that management is willing to prune a branch for the benefit of the tree.
+
+If ""firing"" seems a step too far, substitute ""disciplined"" or the like.
+
+> What tools does your team use to communicate?
+
+For virtually all information, async communication methods trump synchronous ones.  Async tools like chat, bug trackers, email and the like send information so that the receiver can pick it up on their own time.  Synchronous communication (face-to-face) means that someone's going to get interrupted.  It also means that remote workers often [get pulled out of the loop](http://randsinrepose.com/archives/the-pond/).
+
+A good follow up is ""How was the last big announcement handled?""  It's common for upper management to flub communication and expect the telephone line to make sure everyone's properly informed.  Big events where everyone gets the same info (or heck, even an email blast) are important.
+
+## Culture
+
+> Imagine a realm where we're expected to make decisions on a daily or weekly basis.  Let’s say you and I disagree on an important decision.  We can’t reach a consensus and have to agree to disagree. What then? Whose approach wins?
+
+Here we're measuring how autocratic our potential employer is.  [Flatness](https://rkoutnik.com/articles/Flat-is-weird.html) is the hip thing to be these days and companies want to show off how much autonomy their engineers get.  You want to dig beyond the dazzle.  If the answer seems flaky, ask for a real-life example.  It's a red flag if the interviewer has trouble coming up with an example that fits the company's claims.
+
+> What does it take to succeed at this company beyond ""hard work""?
+
+We're trying to separate the marketing from the real culture.  Virtually every interviewer will start their answer with chaff like ""hard work, being smart, writing good code"".  Go deeper and find the difference between ""general expectations"" and what this company uniquely wants from you.
+
+Good answers will be specific.  Great answers will be tailored to you as a candidate.
+
+> If I'm not meeting expectations, how will I know?
+
+You can't improve without feedback of both kinds.  I've worked at companies that would rather an engineer drag along, closing tickets than dare to ask them to improve and risk them leaving.  Others can be sudden - quick firings without much warning.
+
+You're looking for a company with a culture of [candid feedback](http://firstround.com/review/radical-candor-the-surprising-secret-to-being-a-good-boss/).  Everything works better when people are honest with each other.  A workplace that values consistent, high-quality feedback means you'll improve your technical skillset and be surrounded by constantly-improving folks.
+
+> How will I get better at my job?
+
+There's a lot of great answers to this question: training budget, conferences, Friday tech talks, mentoring program (and more!).  A good answer is anything beyond a shrug or minor platitudes.  In those cases it's very likely you'll be left to your own devices in improving.
+
+Finally, the most important question of all:
+
+> The tortoise lays on its back, its belly baking in the hot sun, beating its legs trying to turn itself over. But it can't. Not without your help. But you're not helping.
+
+It's important to work with empathetic people who aren't [murderous replicants](https://en.wikipedia.org/wiki/Replicant).
+
+You probably don't want to use all of these questions at every interview.  I hope I've helped you re-think how to interview a company.  Think I missed something?  [Let me know!](mailto:blog@rkoutnik.com)",Wed Mar 23 2016 22:21:27 GMT-0700 (PDT),markdown

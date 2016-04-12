@@ -1,0 +1,35 @@
+---
+layout: default
+title: Talks
+permalink: /talks/
+---
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Talks</h1>
+    <p>Here's some talks I've presented.  Contact me at <a href="mailto:talks@rkoutnik.com">talks@rkoutnik.com</a> if you're interested in having me give a talk at your place!</p>
+  </header>
+
+  <div class="post-content talk-list">
+      {% for talk in site.talks %}
+      <div class="talk">
+        <div class="talk-title">
+          <h3>{{ talk.title }}</h3>
+          <div class="slides-link">
+            <a href="{{talk.slides}}">(slides)</a>
+          </div>
+        </div>
+        <div class="talk-stuff">
+          <div class="video">
+            {% if talk.video %}
+              <iframe height="315" src="{{talk.video}}&origin={{ site.url }}" frameborder="0" allowfullscreen></iframe>
+            {% else %}
+              <a href="{{talk.slides}}"><img src="/images/{{talk.img}}"></a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+  </div>
+
+</article>

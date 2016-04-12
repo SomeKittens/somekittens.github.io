@@ -1,14 +1,4 @@
-# My stuff
-data.json
-config.json
-notes
-.env
-
-# Generated
-node_modules/*
+_site
 .sass-cache
-npm-debug.log
+.jekyll-metadata
 .DS_Store
-
-# Output of NBE
-results
