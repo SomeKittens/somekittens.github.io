@@ -1,0 +1,35 @@
+.observables-talk {
+  /*div.lyrics {
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 15%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }*/
+  /* Wiki charts */
+  /* Self-promo */ }
+  .observables-talk .typeahead .typeahead-center {
+    margin: auto;
+    width: 700px; }
+  .observables-talk .sosearch {
+    width: 100%;
+    margin: auto;
+    font-size: 36px; }
+  .observables-talk .typeahead .typeahead-results {
+    font-size: 24px;
+    text-align: left; }
+  .observables-talk section p .kilroy {
+    height: 1.3em;
+    margin: 0;
+    padding: 0; }
+  .observables-talk div.chart-container {
+    width: 100%; }
+  .observables-talk #chartContainer {
+    height: 300px;
+    width: 100%; }
+  .observables-talk #chart2Container {
+    height: 300px;
+    width: 100%; }
+  .observables-talk .me .twit {
+    text-decoration: underline; }
+  .observables-talk .me .site {
+    font-style: italic; }

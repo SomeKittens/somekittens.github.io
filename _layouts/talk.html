@@ -44,7 +44,7 @@
     <![endif]-->
   </head>
 
-  <body>
+  <body class="{{ page.keyword }}-talk">
 
     <div class="reveal">
 
@@ -79,7 +79,7 @@
 
 
           {% for jsFile in page.js %}
-            { src: 'js/{{page.keyword}}/{{jsFile}}.js' },
+            { src: '/js/{{page.keyword}}/{{jsFile}}.js' },
           {% endfor %}
           // // Libs
           // { src: 'js/rx.min.js' },  // Rx v4, to use 5 uncomment the following line, also change all the codez
