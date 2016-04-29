@@ -9,6 +9,12 @@ layout: default
   </header>
 
   <div class="post-content" itemprop="articleBody">
+    {% if page.ed %}
+      <div class="ed-note">
+        {{ page.ed }}
+      </div>
+      <br>
+    {% endif %}
     {{ content }}
   </div>
   <hr>
