@@ -1,6 +1,7 @@
 ---
 layout: post
 title: The Origin of Wheatley
+ed: "For those who missed the joke, Wheatly is a character from Portal 2, deliberately designed to generate an endless stream of terrible ideas and generally muck up everything around him."
 ---
 
 The alarm bells rang as the call went out: "Prod is down!"  Our site had been felled by the Red Dragon of 500's.  I lept into action, logging in to see the foul beast face to face:
