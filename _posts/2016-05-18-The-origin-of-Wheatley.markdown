@@ -30,7 +30,7 @@ At this point, you're probably pulling your hair out, screaming "CI?!?  Tests?!?
 
 (This is the glamorous startup life you keep hearing about!)
 
-Knowing Dale's prelediction for attempting to be a jedi and force-pushing, I had snuck over to his desk when he was "at lunch" and added in a few git hooks to run tests locally.  Fortunately two wrongs made a right, as he was too protective of his ego to ask why all of these tests were running (and failing).  For a while, all was calm.  Then came the crisis mentioned above.
+Knowing Dale's predilection for attempting to be a jedi and force-pushing, I had snuck over to his desk when he was "at lunch" and added in a few git hooks to run tests locally.  Fortunately two wrongs made a right, as he was too protective of his ego to ask why all of these tests were running (and failing).  For a while, all was calm.  Then came the crisis mentioned above.
 
 Once the truant bracket/paren combo had been added, I went through the five whys:
 
