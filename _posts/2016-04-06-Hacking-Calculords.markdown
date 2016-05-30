@@ -154,5 +154,6 @@ These few lines of code reduce the search space - by _four orders of magnitude_.
 
 Tune in next time when I go completely overboard and build an OCR system in JS that can teach itself how to play the game so I'm not needed at all.
 
-You can find the solver here: https://rkoutnik.com/calculords-solver/
-Source code: https://github.com/SomeKittens/calculords-solver
+You can find the solver here: [https://rkoutnik.com/calculords-solver/](https://rkoutnik.com/calculords-solver/)
+
+Source code: [https://github.com/SomeKittens/calculords-solver](https://github.com/SomeKittens/calculords-solver)
