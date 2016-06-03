@@ -71,7 +71,7 @@
   });
 
   let wikiEvents$ = Rx.Observable.create(o => {
-    let socket = io.connect('http://stream.wikimedia.org:80/rc');
+    let socket = io.connect('//stream.wikimedia.org:80/rc');
     socket.on('connect_error', (objData) => o.onError(objData));
     socket.on('connect', () => socket.emit('subscribe', '*'));
 
