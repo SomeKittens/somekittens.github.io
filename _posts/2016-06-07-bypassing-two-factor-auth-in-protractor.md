@@ -7,11 +7,11 @@ Two-Factor authentication is practically mandatory in today's world.  The attack
 
 Additional security comes at a cost and part of this cost is paid in the complexity of testing - now that we've added an external provider, we no longer control the entire process.  End to End (e2e) testing can still work with OAuth, though this means we need to add our passwords everywhere.  Hopefully you're not checking them in to git but you'll need to enter it somewhere if you want the test to be completely automated.  Once two-factor auth enters the picture, the test cannot both go through the OAuth login flow _and_ be fully automated.
 
-In this tutorial, I'll walk through the process of writing testable Angular code that allows fully-automated tests to bypass the OAuth login flow.  We'll be using [Protractor](angular.github.io/protractor/#/) the de facto Angular e2e tool.
+In this tutorial, I'll walk through the process of writing testable Angular code that allows fully-automated tests to bypass the OAuth login flow.  We'll be using [Protractor](angular.github.io/protractor/#/), the de facto Angular e2e tool.
 
-On to the code!
+### On to the code!
 
-The first thing we need to do is write testable code.  We need a service that will handle the login process for us.  This service returns a promise that resolves into our user data:
+The first order of business is to write testable code.  We need a service that will handle the login process for us.  This service returns a promise that resolves into our user data:
 
 ```javascript
 
@@ -23,7 +23,7 @@ The first thing we need to do is write testable code.  We need a service that wi
 });
 ```
 
-This service should communicate with an API (either a third-party like [Google's JS API]() or your own) and redirect to the OAuth login page when needed.  So long as you're doing all the fetching/redirecting inside this service (no side effects), you're good so far.
+This service should communicate with an API (either a third-party like [Google's JS API](https://developers.google.com/api-client-library/javascript/start/start-js#how-it-looks-in-javascript) or your own) and redirect to the OAuth login page when needed.  So long as you're doing all the fetching/redirecting inside this service (no side effects), you're good so far.
 
 Now we need to write a second service with the _same name_, this time in our Protractor configuration file.  This will be the `onPrepare` property, as we want to run this code _after_ Protractor has loaded all of its globals in.  Specifically, we want `browser.addMockModule`.  Contrary to what the docs imply, this function can be used to retrieve existing modules.  Let's take a look at the code:
 
