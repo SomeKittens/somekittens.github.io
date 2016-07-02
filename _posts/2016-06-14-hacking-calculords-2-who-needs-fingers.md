@@ -193,62 +193,6 @@ On the other hand, I still have to type in the numbers.
 
 Stay tuned for the thrilling conclusion wherein we'll build a neural network to recognize digits to save us from all that tedious typing.
 
-I wish I were kidding....com/widgets.js" charset="utf-8"></script>
-
-![Picture of JS memory crash](http://i.imgur.com/bsTNb71.png)
-
-I had been looking for an excuse to try Rust out (Slogan: "We're on HN often, so we must be good!").  Rust is the complete opposite of JavaScript - it's incredibly strict about who has access to what value when.  It's a systems level language, which means it doesn't compile.  A lesser-known secret of the Rust community is that the compiler just picks a random compile-time error and throws it.  No one has ever successfully compiled Rust code.
-
-There have been plenty of articles discussing Rust, so I'll just stick to one particular problem I encountered.  In the previous episode, we used dynamic programming (a single var containing all of the paths we've been to) in order to cut down on the overall number of calculations.  This was accomplished in JavaScript by having a variable in the parent function's scope keep track, while a child function recursed:
-
-```javascript
-function parent() {
-  let placesWeHaveBeen = {};
-  function child() {
-    // check placesWeHaveBeen
-    child();
-  }
-}
-```
-
-This let us build out our wide tree of recursion while still keeping the number of calculations relatively low.  Rust, on the other hand was stubborn.  Rust allows nested functions, but the coder must make a choice between accessing variables in the parent scope (via a closure) XOR recursing.
-
-I'm sure [steveklabnik](https://news.ycombinator.com/user?id=steveklabnik) will appear in the HN comments with some wizardy trick to fix this but it was quite a problem for mortal me.  I ended up creating a `CalcEnv` struct and passing that along to my recursing function (hurrah pointing):
-
-```rust
-struct CalcEnv {
-  cards: Vec<i32>,
-  solutions: HashMap<Vec<i32>, Vec<String>>,
-  paths: HashSet<Vec<i32>>
-}
-```
-
-```rust
-fn explore (stack: &Vec<String>, ints: &Vec<i32>, mut env: &mut CalcEnv) {
-  // Various code-type things
-  explore(&new_stack, &new_ints, &mut env);
-}
-```
-
-This allowed me to have a global dictionary of visited paths, albeit a slightly strange one.  This may be standard practice in the general Rust community-- I'm just a newcomer.  One advantage of Rust is that converting this code to use multiple threads was fairly simple (though I still needed a global mutex, which meant that multithreading didn't help much).
-
-Enough whining; here are the numbers (run on a MBP, using `time` command).  Sometimes I lucked out and JS didn't choke on a `n=9` solution:
-
-| `n` | JS | Rust |
-|---|---|---|
-| 8 | 10.537s | 5.883s |
-| 9 | 3m 13s | 1m 32.30s |
-
-Phew - not only are we _not_ dying on `n=9` but it's running ~2x faster!  Memory consumption also drops by a massive amount, with Rust using about 12MB where JS chewed up over a gigabyte.
-
-### Now what?
-
-When we started, we had a neat algorithm.  Now there's a solid UI around it, programmatic interfacing with the device, and significant speed boosts from a lower-level language.
-
-On the other hand, I still have to type in the numbers.
-
-Stay tuned for the thrilling conclusion wherein we'll build a neural network to recognize digits to save us from all that tedious typing.
-
-I wish I were kidding...
+I wish I were kidding....
 
 You can check out Calculords for yourself [here](http://www.calculords.com/).
