@@ -38,7 +38,7 @@ List of devices attached
 
 Why, you may ask, do we need to take a screenshot of a device that's _right in front of us?!?_  Dear reader, you underestimate my ability to screw things up.  During manual input, I need to rapidly glance back and forth between phone and computer.  There is an abundance of things in between, such as a keyboard, pizza, and occasionally my cat.  Any one of these things could momentarily distract me—flipping bits in my brain—and I'd enter the wrong number, causing _minutes_ of lost 'productivity'.  The obvious answer is to double-check my work but then we'd run into the infamous [Two Generals Problem](https://en.wikipedia.org/wiki/Two_Generals%27_Problem), where two generals were having a nice lunch but the waiter got lost & the kitchen never received their order, so they decided to give up the whole war thing and become distributed systems experts.
 
-In any case, a screenshot allows us to place the numbers we're inputting as close to the inputs as possible, greatly reducing errors and neck strain:
+In any case, a screenshot allows us to show the phone's screen as close to the inputs as possible, greatly reducing errors and neck strain:
 
 ![Picture of the new UI](http://i.imgur.com/whXTNkH.png)
 
