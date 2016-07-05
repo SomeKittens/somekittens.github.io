@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Hacking Calculords 2: Who needs fingers?"
+title: "Hacking Calculords part 2: Who needs fingers?"
 ---
 
 [When we last left off](https://rkoutnik.com/2016/04/06/Hacking-Calculords.html), we had a handy-dandy algorithm that used dynamic programming to find the optimal solution to a Calculords level in a sane amount of time.
