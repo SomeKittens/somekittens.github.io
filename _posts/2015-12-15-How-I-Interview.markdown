@@ -108,4 +108,4 @@ Minesweeper determines the interviewee's ability to take on non-trivial tasks.  
 
 Another candidate surprised me by spending the entire hour silently typing but never running the code.  As they hit their time, they handed me the laptop and asked "Did I get it right?"  Programmers need to know how to check their own work.
 
-(If you're interested in trying out this exercise, you can find the JSBin [here](http://jsbin.com/jucesisaki/2/edit?html,js,output).  [Let me know](http://rkoutnik.com/contact.html) what you come up with!)
+(If you're interested in trying out this exercise, you can find the JSBin [here](http://jsbin.com/jucesisaki/2/edit?html,js,output).  [Let me know](http://rkoutnik.com/contact) what you come up with!)
