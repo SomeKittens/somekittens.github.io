@@ -1,0 +1,423 @@
+---
+layout: talk
+title: "The git's guide to git"
+slides: https://rkoutnik.com/talks/gits-guide-to-git/
+img: gits-guide.png
+keyword: gits-guide-to-git
+---
+
+<!-- <style type="text/css">
+  video {
+  transform: rotateY(180deg);
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 12;
+  width: 15%;
+  height: auto;
+  transition: width ease 1s, height ease 1s;
+}
+
+video.big {
+  width: 90%;
+  max-height: 90%;
+}
+</style>
+ -->
+<!--
+This is displayed when the speaker is introducing me, since the title isn't first
+<section>
+  <small>placeholder text, please wait</small>
+</section> -->
+
+<section>
+  <h3>The Problem:</h3>
+  <p>git has a tremendous learning curve</p>
+  <p>Everyone learns commit/push/pull/branch and stops</p>
+  <p>Documentation is incredibly complex</p>
+</section>
+
+<section>
+  <img src="http://i.imgur.com/PKRa5mV.jpg">
+</section>
+
+<section>
+  <h3 class="fragment">git push</h3>
+  <p>Updates remote refs using local refs, while sending objects necessary to complete the given refs.</p>
+</section>
+
+<section>
+  <h1>The git's guide to git</h1>
+  <p>git (n): British slang for "A stupid person"</p>
+  <small>"I've invented two things: Linux and git.  Both were named after me" -- Linus Torvalds</small>
+</section>
+
+<!-- <section>
+  <h3>What this talk is <i>not</i></h3>
+  <ul>
+    <li>Not an intro to git</li>
+    <li>Not a dive into git internals</li>
+    <li>Not a theoretical overview of git's concepts</li>
+  </ul>
+</section> -->
+<section>
+  <h3>What this talk is</h3>
+  <ul>
+    <li>Practical git advice</li>
+    <li class="fragment">How to work with git on a team</li>
+    <li class="fragment">Digging through git tools</li>
+  </ul>
+</section>
+
+<section>
+  <div>
+    <small>(narcissistic self-promotion)</small>
+  </div>
+  <div class="left"><a href="https://rkoutnik.com">rkoutnik.com</a></div>
+  <div class="right"><a href="https://twitter.com/rkoutnik">@rkoutnik</a></div>
+</section>
+
+<section>
+  <h3>Terminology</h3>
+  <ul>
+    <li>SHA: the 'key' of a commit.  Looks like <pre><code>ac31a31ca5b899f848aca4791cbca49fcbaa9a17</code></pre></li>
+    <li>HEAD: The commit that you're currently looking at</li>
+  </ul>
+</section>
+<section>
+  <h3>Teamwork</h3>
+  <p>Turns out programming is a team sport</p>
+  <!-- <aside class="notes">
+    TODO: ...Why is this important?  What advantages will the following section bring to these newbs?
+  </aside> -->
+</section>
+<section>
+  <h3>Commit messages should:</h3>
+  <ul>
+    <li class="">Explain the <i>how &amp; why</i></li>
+    <li class="fragment">Provide missing context</li>
+    <li class="fragment">Point to external details</li>
+    <li class="fragment">Encapsulate a single change</li>
+  </ul>
+  <aside class="notes">
+    Calc textbook "excercise for the reader" (not helpful)
+    The commit diff is the "what"
+  </aside>
+</section>
+<section>
+  <h3>A Bad Commit Message</h3>
+  <div>
+    <pre><code data-trim>
+      commit 32f4410abb2a901016c4a8b23c4b487e36be9916
+Author: Randall Koutnik &lt;rkoutnik@netflix.com&gt;
+Date:   Tue Jun 14 15:05:51 2016 -0700
+
+    Fix error on alert page
+    </code></pre>
+  </div>
+  <aside class="notes">
+    What error?  Where's the details?  How'd we fix it?
+  </aside>
+</section>
+<section>
+  <h3>A Good Commit Message</h3>
+  <div>
+    <pre><code data-trim>commit 6280ec89e3884e91da5c30faf8b4a55218bcac8b
+Author: Igor Zhukov &lt;igor.beatle@gmail.com&gt;
+Date:   Thu Jun 30 00:46:43 2016 +0300
+
+  fix(copy): fix handling of typed subarrays
+
+  Previously, it would return a copy of the whole original typed array, not its slice.
+  Now, the `byteOffset` and `length` are also preserved.
+
+  Fixes #14842
+
+  Closes #14845</code></pre>
+  </div>
+  <aside class="notes">
+    General overview in short commit message
+    Longer details in the expanded section
+    two links to tickets I can look at to get more details.
+    A good commit means I can skip reading the diff (code is hard to read)
+  </aside>
+</section>
+<section>
+  <h3>Branching</h3>
+  <ul>
+    <li>Use <small>small</small> feature branches</li>
+    <li class="fragment">Keep feature branches up-to-date</li>
+    <li class="fragment">Never rewrite history on a pushed branch</li>
+  </ul>
+  <aside class="notes">
+    Zaption story (git push -f origin master because he was tired of dealing with all those tedious conflicts)
+    Of course, if you're joining a team, do what the Romans do
+  </aside>
+</section>
+<section>
+  <h3>Feature branches</h3>
+  <img style="max-width: 70%;" src="http://i.imgur.com/i3emjZe.jpg?1">
+</section>
+<section>
+  <h3>Feature branches</h3>
+  <img style="max-width: 70%;" src="http://i.imgur.com/h1KSvgP.jpg?1">
+</section>
+<section>
+  <h3>Feature branches</h3>
+  <img style="max-width: 70%;" src="http://i.imgur.com/LdGxva2.jpg?1">
+</section>
+
+
+
+<section>
+  <h3>Git Tools</h3>
+</section>
+<section>
+  <h3><pre><code>git rebase</code></pre></h3>
+  <p>Allows you to mess with history in various exciting ways</p>
+  <p>Two main scenarios:</p>
+  <ul>
+    <li>Bringing in new commits from master into your feature branch</li>
+    <li>Squashing multiple commits into a single commit</li>
+  </ul>
+  <aside class="notes">
+    Here we go!  Now things are exciting!
+  </aside>
+</section>
+<section>
+  <h3>Merging</h3>
+  <img src="http://i.imgur.com/h4dLdjT.png">
+  <aside class="notes">
+    Creates merge commit
+    Requires more merging on the other side
+    Doesn't rewrite history
+  </aside>
+</section>
+<section>
+  <h3>Rebasing</h3>
+  <img src="http://i.imgur.com/u5xjH2c.png">
+</section>
+<section>
+  <h3>What's the big deal with history?</h3>
+  <p>"Those without write access to history are doomed if they rebase it"</p>
+  <ul>
+    <li>Rewriting history that's already on the remote <i>breaks other dev's repos</i></li>
+    <li>Rewriting history that's only local is 'fine'</li>
+  </ul>
+  <aside class="notes">
+    of course, make sure that history you think is local really is local.
+    rewriting history is a useful tool for keeping history clean
+    Merges can rarely cause regressions
+    Rebasing requires dicipline across dev team
+  </aside>
+</section>
+<section>
+  <h3><pre><code>git log</code></pre></h3>
+  <p>Displays a list of all of the commits on the current branch</p>
+</section>
+<section>
+  <h3>To the CLI!</h3>
+  <img src="https://67.media.tumblr.com/1fc81a5126cad41b6b4c7738598b0228/tumblr_nerwu3jiu11sgl0ajo1_500.gif">
+</section>
+
+<!-- <section>
+  <h3><pre><code>git reflog</code></pre></h3>
+  <p>Reference logs, or "reflogs", record when the tips of branches and other references were updated in the local repository. Reflogs are useful in various Git commands, to specify the old value of a reference.</p>
+  <p>(bleh, let's try that again)</p>
+</section> -->
+<section>
+  <h3><pre><code>git reflog</code></pre></h3>
+  <p>Lists all the commits you've looked at</p>
+  <p>Saves the day when a commit has been overridden and is no longer in regular history.</p>
+  <aside class="notes">
+    pronounced ref-log but funnier to think of as re-flog, as in "If I have to bust out ref-log, I'm gonna re-flog you"
+  </aside>
+</section>
+<section>
+  <h3><pre><code>git reset</code></pre></h3>
+  <p>Updates the branch and/or code to another commit</p>
+  <p>Useful when you want to remove an accidental commit or when you realize you've been digging in the wrong rabbit hole</p>
+</section>
+<section>
+  <h3><pre><code>git cherry-pick</code></pre></h3>
+  <p>Takes a commit that exists somewhere locally and adds it to the current branch.</p>
+  <p>Great for pulling in a single commit from another branch without needing to do a full merge/rebase.  Also nice for pulling things from reflog</p>
+  <pre><code>git cherry-pick abc123</code></pre>
+</section>
+<section>
+  <h3>To the CLI!</h3>
+  <img src="https://media.giphy.com/media/pALw8LdftuqAw/giphy.gif">
+</section>
+
+<!-- <section>
+  <h2>Questions?</h2>
+</section>
+ -->
+<!-- <section>
+  <h3><pre><code>git bisect</code></pre></h3>
+  <p>Performs a binary search through git history</p>
+  <p>Useful when you know a bug was introduced in a previous commit, but not which one.</p>
+  <aside class="notes">
+    ...speaking of keeping history clean!
+  </aside>
+</section>
+<section>
+  <h3>To the CLI!</h3>
+</section> -->
+
+<!-- <section>
+  <h3><pre><code>git hooks</code></pre></h3>
+  <p>Script files that run at given points during git commands</p>
+  <ul>
+    <li>Run a linter on pre-commit</li>
+    <li>Run unit tests before pushing</li>
+    <li>Verify a commit message meets project guidelines</li>
+  </ul>
+</section>
+<section>
+  <h3>To the CLI!</h3>
+</section> -->
+
+<section>
+  <h3><pre><code>git stash</code></pre></h3>
+  <p>Stores your current work without making a commit</p>
+  <p>Nice to have when you need to switch to another branch for some reason.</p>
+</section>
+<section>
+  <h3>To the CLI!</h3>
+  <img src="http://i.giphy.com/LHZyixOnHwDDy.gif">
+</section>
+
+
+<section>
+  <img src="http://i.imgur.com/79AvpEt.jpg">
+  <aside class="notes">
+    You are here
+    (but you're moving in the right direction)
+    You've been given the push and should take that velocity and keep learning!
+  </aside>
+</section>
+<section>
+  <h3>Ok, now questions!</h3>
+  <small>(I'm sure you have plenty)</small>
+</section>
+
+<!-- <section>
+  <h3><pre><code>patch adding</code></pre></h3>
+  <p>Allows you to selectively add parts of a file to a commit</p>
+  <p>Nice when you're working in a file, find &amp; fix a bug unrelated to the current task</p>
+</section>
+<section>
+  <h3>To the CLI!</h3>
+</section> -->
+
+<!-- <section>
+  <h3><pre><code>git revert</code></pre></h3>
+  <p>Creates a new commit that undoes a previous commit (or series of commits)</p>
+  <p>Useful for times where you need to <i>revert</i> a problem quickly and can do root cause analysis later.</p>
+  <pre><code>git revert abc123</code></pre>
+</section>
+<section>
+  <h3>To the CLI!</h3>
+</section> -->
+
+
+<!-- git blame -->
+
+<!--
+<script type="text/javascript">
+
+
+(function() {
+  'use strict';
+    function stopVideo(video) {
+        video.removeAttribute('src');
+        video.className = 'blank';
+        video.load();
+    }
+
+    function startVideo(newClass, video, videoStream) {
+        video.src = videoStream;
+        video.className = newClass;
+        video.play();
+    }
+
+    function slideChanged(previous, current, video, stream) {
+        var oldVideoClass = previous && previous.getAttribute('data-video');
+        var newVideoClass = current.getAttribute('data-video');
+
+        if (oldVideoClass && !newVideoClass) {
+            stopVideo(video);
+        }
+
+        if (newVideoClass) {
+            startVideo(newVideoClass, video, stream);
+        }
+    }
+
+    function setup(stream) {
+        var video = document.createElement('video');
+        var top   = document.getElementsByClassName('reveal');
+
+        startVideo('video', video, stream);
+        top[0].appendChild(video);
+
+
+        // Reveal.addEventListener('slidechanged', function(event){
+        //     slideChanged(event.previousSlide,
+        //                  event.currentSlide,
+        //                  video,
+        //                  stream);
+        // });
+
+        // var current = Reveal.getCurrentSlide();
+        // slideChanged(false, current, video, stream);
+    }
+
+
+    // function linkIntoReveal(stream) {
+    //     if (Reveal.isReady()) {
+    //         setup(stream);
+    //     }
+    //     else {
+    //         Reveal.addEventListener('ready', function(){
+    //             setup(stream);
+    //         });
+    //     }
+    // }
+
+
+    navigator.getUserMedia =
+        navigator.getUserMedia       ||
+        navigator.webkitGetUserMedia ||
+        navigator.mozGetUserMedia;
+
+    var constraints = {
+        audio: false,
+        video: true
+    };
+
+    function gotStream(stream) {
+        var videoStream = null;
+        // window.stream = stream; // stream available to console
+        if (window.URL) {
+            videoStream = window.URL.createObjectURL(stream);
+        } else {
+            videoStream = stream;
+        }
+        setup(videoStream);
+    }
+
+    function mediaError(error) {
+        console.log('navigator.getUserMedia error: ', error);
+        throw(error);
+    }
+
+    navigator
+        // .mediaDevices
+        .getUserMedia(constraints, gotStream, mediaError);
+        // .then(gotStream)
+        // .catch(mediaError);
+
+})();
+</script> -->
