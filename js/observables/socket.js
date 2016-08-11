@@ -122,11 +122,11 @@
           let tds = [document.createElement('td'), document.createElement('td')];
           tds[0].innerText = isPage ? item[0].split('/wiki/')[1] : item[0];
           tds[1].innerText = item[1];
-          tr.appendChild(tds[0]);
           tr.appendChild(tds[1]);
+          tr.appendChild(tds[0]);
           el.appendChild(tr);
         });
-    }
+    };
 
     // Find most prolific users
     makeTable(objStats.stats.ips.values, editorTable);

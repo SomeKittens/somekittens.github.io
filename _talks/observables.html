@@ -8,65 +8,100 @@ js:
  - rx.min
  - d3.min
  - canvasjs.min
- - socketio-client
  - util
  - SuddenStats
- - simple
+ - stopwatch
  - benji
- - socket
 css:
  - observables
 ---
 
+<!-- Norse Map -->
+
 <section>
-  <h1>What are Observables and why should I care?</h1>
-  <p>Who observes the Observable?<img src="images/kilroy.jpg" class="kilroy"></p>
+  <div>
+    <div class="left">
+      <h4>Malicious emails</h4>
+    </div>
+    <div class="right">
+      <h4>Web Crawls</h4>
+    </div>
+  </div>
+  <div>
+    <div class="left">
+      <h4>Honeypot hits</h4>
+    </div>
+    <div class="right">
+      <h4>Malware</h4>
+    </div>
+  </div>
   <aside class="notes">
-    <br>Batarang team, fun geeking out. Lotta bugs almost no one understands
-    <br>You can tell the other speakers are superior developers because they have way more stickers on their laptop
-    <br>Tonight I'm going to talk about *yet another* way to abstract out async stuff.
-    <br>Yes, I know, there's already a billion.
-    <br>Poll the room - Node users, stream users, Rx users</aside>
+    <br>Check to make sure mic is recording
+    <br>Describe the four categories of 'stuff'
+    <br>
+    <br>4,000 emails per second
+    <br>map is one-tenth of one percent of hits
+    <br>crawling both light and dark web
+
+    <br>Had to connect all of these
+    <br>Cover what could be pushed into what
+  </aside>
 </section>
+
 <section>
-  <h3>Everything wants your attention</h3>
-  <aside class="notes">Think about all the things you have to do in a day
-    <ul>
-      <li>Learn whatever framework got released this week (or should I say whatever wheel was reinvented this week)</li>
-      <li>Explaining why Node.js is at version 5 already</li>
-      <li>Getting in internet fights about tabs vs emacs</li>
-      <li>Actually getting to those tickets on GH for that project you maintain that were submitted six months ago</li>
-      <li>...work?</li>
-    </ul> So why should you care about Observables? Well...</aside>
+  <!-- netflix typeahead -->
+  <img src="http://i.imgur.com/6yptiwK.jpg">
+  <aside class="notes">
+    <br>Norse crashed and burned
+    <br>turns out you can't run a company without money
+    <br>Any Stranger Things fans?
+    <br>So now I work for Netflix, where we tackle equally complicated problems
+    <br>Typeahead
+  </aside>
 </section>
+
 <section>
-  <h3>Do you work with async data?</h3>
-  <p>(sing along time)</p>
-  <aside class="notes">Then you probably know this song...</aside>
+  <img src="/images/observables/netflix.jpg">
 </section>
-<section data-background="images/stream.jpg">
-  <div class="lyrics">
-    <h3>Stream with me</h3>
-    <h3>Stream for the year</h3>
-    <h3>Stream for the laughter</h3>
-    <h3>Stream for the tear</h3>
-    <hr>
-    <h3>Stream with me</h3>
-    <h3>Stream for today</h3>
-    <h3>Maybe tomorrow...</h3></div>
-  <aside class="notes">maybe tomorrow good lord will introduce a new abstraction for async data and we'll all have to learn *that* one</aside>
+
+<section>
+  What do these have in common?
+  <p class="fragment">Both deal with collections values delivered over time</p>
+  <aside class="notes">
+    Is there any part of your job that _isn't_ collections values over time?
+  </aside>
 </section>
-<section>How do you .map a stream?
-  <aside class="notes">It's tough. You need to split up your stream into parts, manipulate that part and pass it on. There's concrete way to do this with streams - you have to duct tape a lot of things together.
+
+<section>
+  <p>Collection of values</p>
+  <p class="fragment">An Array!</p>
+</section>
+
+<section>
+  <p>
+    We know how to work with arrays
+    .map/.filter/.reduce/.etc
+  </p>
+</section>
+
+<section>
+  <p>We also have a term for "values delivered over time"</p>
+  <p class="fragment">A Stream!</p>
+</section>
+
+<section>
+  <p>How do you .map a stream?</p>
+  <aside class="notes">
+    It's tough. You need to split up your stream into parts, manipulate that part and pass it on. There's concrete way to do this with streams - you have to duct tape a lot of things together.
     <br> What's the delimiter? Who's going where?
     <br>
     <br>A stream is a continuous flow of data. We need to build things on top to handle chunkifiying
     <br>Makes forEach much harder
-    <br>Best of both streams & arrays
-    <br>we know how to forEach/map/etc an array - these are the tools of our trade
-    <br>How do you map a stream?</aside>
+  </aside>
 </section>
-<section><pre><code data-trim>liner._transform = function (chunk, encoding, done) {
+
+<section>
+  <pre><code data-trim class="javascript">liner._transform = function (chunk, encoding, done) {
  var data = chunk.toString();
  if (this._lastLineData) { data = this._lastLineData + data; }
 
@@ -78,18 +113,544 @@ css:
 };</code></pre>
   <aside class="notes">
     <br>I ripped this off the internet, so it may not work at all
-    <br>How do you map an array?</aside>
+  </aside>
 </section>
-<section><pre><code data-trim>myArray.map(myFunc)</code></pre>
-  <aside class="notes">How do you .map an Observable?</aside>
+
+<section>
+  <img src="/images/observables/better-way.gif">
+  <h3>There has to be a better way!</h3>
 </section>
-<section><pre><code data-trim>myObservable.map(myFunc)</code></pre>
-  <aside class="notes">An observable is an array delivered asynchronously, which means you can do some funky stuff like
+
+<section>
+  Observables!
+</section>
+
+<section>
+  <h3>You found a key point!</h3>
+  <div class="key-point">
+    <img src="/images/observables/key.gif">
+    <img src="/images/observables/key.gif">
+    <img src="/images/observables/key.gif">
+    <img src="/images/observables/key.gif">
+    <img src="/images/observables/key.gif">
+  </div>
+  <p>Observables represent a collection of values delivered over time.</p>
+  <aside class="notes">
+    An observable is an array delivered asynchronously
+    <br>(Possibly _infinite_ values)
+    <br>which means you can do some funky stuff like
     <br>.bufferUntilTheUserClicksAButton?
     <br>.mergeTwoStreamsButOnlyPassOnDataFromOneFilteredByTheOther?
-    <br> Ok, so some nut thinks these are good
-    <br> Is anyone actually using Observables in production?</aside>
+    <br> That brings us to the title of this talk
+  </aside>
 </section>
+
+<section>
+  <h1>What are Observables and why should I care?</h1>
+  <!-- <p>Who observes the Observable?<img src="images/kilroy.jpg" class="kilroy"></p> -->
+  <aside class="notes">
+    tada!  Now we've answered both questions!  We can all leave now, right?
+    <!-- <br>I have stickers: You can tell superior developers because they have way more stickers on their laptop -->
+    <br>Today I'm going to talk about *yet another* way to abstract out async stuff.
+    <br>Yes, I know, there's already a billion.
+    <br>Poll the room - Node users, stream users, Rx users
+    <br>Rx vs Observables
+  </aside>
+</section>
+
+<section>
+  <h3>Everything wants your attention</h3>
+  <img src="/images/observables/tired_kitten.jpg">
+  <aside class="notes">Think about all the things you have to do in a day
+    <ul>
+      <li>Learn whatever framework got released this week (or should I say whatever wheel was reinvented this week)</li>
+      <li>Explaining why Node.js is at version 6 already (had to update that joke)</li>
+      <li>Getting in internet fights about tabs vs emacs</li>
+      <li>Actually getting to those tickets on GH for that project you maintain that were submitted six months ago</li>
+      <li>...work?</li>
+    </ul>
+    so that was the why care, now the what!
+    </aside>
+</section>
+
+<section>
+  <div class="left">
+    <h3>Promise</h3>
+    <pre><code data-trim>
+url => fetch(url);
+    </code></pre>
+  </div>
+  <div class="right">
+    <h3>Observable</h3>
+    <pre><code data-trim>
+url => someObservableHTTPGet(url);
+    </code></pre>
+  </div>
+  <aside class="notes">
+    <br>What happens when you call the promise function?
+    <br>Is an AJAX request made
+    <br>What about the Observable?
+    <br>
+    <br>Also: Can't cancel a promise
+  </aside>
+</section>
+
+<section>
+  <h3>You found a key point!</h3>
+  <div class="key-point">
+    <img src="/images/observables/key.gif">
+    <img src="/images/observables/key.gif">
+    <img src="/images/observables/key.gif">
+    <img src="/images/observables/key.gif">
+    <img src="/images/observables/key.gif">
+  </div>
+  <p>Observables only execute once someone's subscribed to them.  A new instance is created for each subscription.</p>
+  <aside class="notes">
+    Big diff: promises go when created, observables (well, cold ones) wait for subscribe
+  </aside>
+</section>
+
+<section>
+  Let's make a stopwatch
+</section>
+
+<section>
+  <h4>Constructor</h4>
+  <pre><code data-trim class="javascript">
+let tenthSecond$ = new Rx.Observable(o => {
+  let i = 0;
+  let interv = setInterval(() => o.next(++i), 100);
+  o.next(i++);
+
+  return () => clearInterval(interv);
+});
+  </code></pre>
+</section>
+
+<section>
+  <h4>Constructor v2</h4>
+  <pre><code data-trim class="javascript">
+let tenthSecond$ = Rx.Observable.interval(100);
+  </code></pre>
+</section>
+
+<section>
+  <h4>Convert</h4>
+  <pre class="fragment"><code data-trim class="javascript">
+tenthSecond$
+.map(item => (item / 10).toFixed(1));
+  </code></pre>
+</section>
+
+<section>
+  <h4>Results</h4>
+  <pre><code data-trim class="javascript">
+let resultsArea = document.querySelector('.output');
+
+tenthSecond$
+.map(item => (item / 10).toFixed(1))
+.subscribe((int) => resultsArea.innerText = int);
+  </code></pre>
+  <aside class="notes">
+    What happens when we subscribe (actually creates everything);
+
+    <br>What's an event handler other than a way to deal with a collection of events delivered async?
+  </aside>
+</section>
+
+<section>
+  <h4>Handle events</h4>
+  <pre><code data-trim class="javascript">
+let startButton = document.querySelector('#start-button');
+let stopButton = document.querySelector('#stop-button');
+
+let startClick$ = Rx.Observable.fromEvent(startButton, 'click');
+let stopClick$ = Rx.Observable.fromEvent(stopButton, 'click');
+  </code></pre>
+</section>
+
+<section>
+  <h4>All together now!</h4>
+  <div>
+    <pre><code data-trim class="javascript">
+let startButton = document.querySelector('#start-button');
+let stopButton = document.querySelector('#stop-button');
+let resultsArea = document.querySelector('.output');
+let startClick$ = Rx.Observable.fromEvent(startButton, 'click');
+let stopClick$ = Rx.Observable.fromEvent(stopButton, 'click');
+let tenthSecond$ = Rx.Observable.interval(100);
+
+startClick$.subscribe(() => {
+  tenthSecond$
+  .map(item => (item / 10).toFixed(1))
+  .takeUntil(stopClick$)
+  .subscribe((int) => resultsArea.innerText = int);
+});
+    </code></pre>
+  </div>
+  <div>
+    <div class="output"></div>
+    <button class="button start-button">Start</button>
+    <button class="button stop-button">Stop</button>
+  </div>
+  <aside class="notes">
+    <br>six lines of variable declaration, and half a dozen of business logic
+    <br>what is takeUntil?
+    <br>Think about how many times you've reimplemented this pattern.  "Do something until something else happens".
+    <br>mousemove, data processing, sockets
+  </aside>
+</section>
+
+<section>
+  <!-- Who observes the observable? -->
+  <img src="http://i.imgur.com/6lM4QkF.png">
+  <aside class="notes">
+    Reason for this section: vocab
+    - obserable
+    - observer/subscriber
+    - subject
+    - subscription
+    - etc
+  </aside>
+</section>
+
+<section>
+  <h4>Observer</h4>
+  <pre><code data-trim class="javascript">
+{
+  next: (datum) => {/*...*/},
+  err: (err) => {/*...*/},
+  done: () => {/*...*/}
+}
+  </code></pre>
+  <aside class="notes">
+    <br>all of these are optional!
+  </aside>
+</section>
+
+<section>
+  <h4>Subscription</h4>
+  <pre><code data-trim class="javascript">
+let subscription = Rx.Observable.interval(100)
+.subscribe(datum => console.log(datum));
+
+subscription.unsubscribe();
+  </code></pre>
+  <aside class="notes">
+    <br>basically it
+
+    <br>So, remember how I said observables were 1:1 with subscriptions
+    <br>(and didn't trigger until you subscribed?)
+  </aside>
+</section>
+
+<section>
+  <!-- Well, actually kitten -->
+  <!-- GUH SUBJECTS -->
+  <img src="http://i.imgur.com/lAKNxlO.png">
+</section>
+
+<section>
+  <h4>Subject</h4>
+  <pre><code data-trim class="javascript">
+let subj = new Rx.Subject();
+
+let observer1 = subj.subscribe(datum => {
+  console.log('observer 1', datum);
+});
+let observer2 = subj.subscribe(datum => {
+  console.log('observer 2', datum);
+});
+
+subj.next(4);
+subj.next(17);
+
+observer1.unsubscribe();
+
+subj.next(42);
+
+observer2.unsubscribe();
+  </code></pre>
+  <aside class="notes">
+    a Subject is a superset of an observable that multicasts
+  </aside>
+</section>
+
+<section>
+  <h4>I heard you liked subscribing</h4>
+  <pre><code data-trim class="javascript">
+let subject = new Rx.Subject();
+
+subject.subscribe(datum => console.log('observer 1', datum));
+subject.subscribe(datum => console.log('observer 2', datum));
+
+let observable = Rx.Observable.from([4, 17, 42]);
+
+observable.subscribe(subject);
+  </code></pre>
+</section>
+
+<section>
+  <h4>A brief mention of refcount</h4>
+  <div>
+    <pre><code data-trim class="javascript">
+let source = Rx.Observable.interval(100);
+let subject = new Rx.Subject();
+let refCounted$ = source.multicast(subject).refCount();
+let observer1, observer2;
+
+// interval starts now
+let observer1 = refCounted$.subscribe(
+  datum => console.log('observer 1', datum)
+);
+
+setTimeout(() => {
+  // still operating off a single stream
+  observer2 = refCounted$.subscribe(
+    datum => console.log('observer 2', datum)
+  );
+}, 500);
+
+// still around!
+setTimeout(() => observer1.unsubscribe(), 1000);
+
+// finally dispose of observable
+setTimeout(() => observer2.unsubscribe(), 1500);
+    </code></pre>
+  </div>
+  <aside class="notes">
+    Key points:
+    <br>- creates parent observable when first subscriber happens
+    <br>- disposes parent on last unsubscribe
+  </aside>
+</section>
+
+<section>
+  <!-- Hot/Cold observables -->
+  <img src="/images/observables/icyhot.jpg">
+  <aside class="notes">
+    Hard to say when to use
+    <br>Use hot for initial load?
+    <br>Cold is retryable though
+    <br>Describe the bits of emails that could be pulled apart, and why hot
+  </aside>
+</section>
+
+<section>
+  <h3>You found a key point!</h3>
+  <div class="key-point">
+    <img src="/images/observables/key.gif">
+    <img src="/images/observables/key.gif">
+    <img src="/images/observables/key.gif">
+    <img src="/images/observables/key.gif">
+    <img src="/images/observables/key.gif">
+  </div>
+  <p>There are multiple ways to multiplex an Observable.  They're all complicated.</p>
+  <aside class="notes">
+    they are all confusing
+    <br>(also Observables can be merged!)
+  </aside>
+</section>
+
+<!--
+<section data-state="basic">
+  <div><pre><code data-trim>let subscription = new Rx.Observable(o => {
+  let myInterval = setInterval(() => o.onNext('hello'), 1000);
+  return () => clearInterval(myInterval);
+})
+.map((val, idx) => val + ' #' + idx)
+.subscribe(val => console.log(val));</code></pre></div>
+  <div><pre class="basic-result"><code data-trim></code></pre></div>
+  <aside class="notes">- creating observable
+    <br> - onNext
+    <br> - map
+    <br> - subscribe
+    <br>
+    <br> - What is the use of subscription (unsubscribe)
+    <br> - Where's the bug (never clearing interval, give away hat)
+    <br>
+  </aside>
+</section> -->
+<!-- 
+<section><pre><code data-trim>let subscription = new Rx.Observable(o => {
+  let myInterval = setInterval(() => o.onNext('hello'), 1000);
+  return () => clearInterval(myInterval);
+})
+.map((val, idx) => val + ' #' + idx)
+.subscribe(val => console.log(val));
+
+// This will clean everything up
+subscription.unsubscribe();</code></pre>
+  <aside class="notes">We see unsubscribe in action. The Observable cleans up after itself (unlike many other forms of async).
+    <br>
+    <br> Enough silly examples - let's see some real stuff!</aside>
+</section>
+ -->
+<section class="typeahead">
+  <div class="typeahead-center">
+    <input id="myInput" type="text" placeholder="Search StackOverflow" class="sosearch">
+  </div>
+  <div class="typeahead-svg-container"></div>
+  <div class="typeahead-results"></div>
+  <aside class="notes">
+    <br>Big problem with typeahead:
+    <br>abc, then abcd, what could go wrong?
+    <br>Show off search ON MAIN SCREEN
+    <br> Explain each item in the chain
+    <br> Who has most SO rep?  Give sticker
+  </aside>
+</section>
+
+<section><pre><code data-trim class="javascript">
+Rx.Observable.fromEvent(document.querySelector('#myInput'), 'keyup')
+  .map(e => e.target.value)
+  .filter(val => val.length > 3)
+  .debounceTime(333)
+  .distinctUntilChanged()</code></pre>
+  <aside class="notes">Look at code in sections
+    <br>Operations
+    <br> - map &amp; filter (simple)
+    <br> - debounceTime (also debounce is cool)
+    <br> - distinctUntilChanged (wat?)
+  </aside>
+</section>
+
+<section>
+  <pre><code data-trim class="javascript">// Search results
+.mergeMap(e => {
+  d.innerHTML = '';
+  return fetch(stackOverflowApiUrl + e)
+  .then(resp => resp.json());
+})
+.catch(e => ({items:[]}))
+.mergeMap(val => val.items)
+.map(item => item.title.link(item.link))
+.subscribe(
+  val => d.innerHTML = val + '<br />' + d.innerHTML,
+  err => alert(err.message),
+  () => console.log('done')
+);</code></pre>
+  <aside class="notes">More methods
+    <br> - catch (just passes on empty array)
+    <br> - mergeMap (unwraps everything one layer)
+    <br>Subscribe
+    <br> - three params
+  </aside>
+</section>
+
+<section>
+  <h1></h1><pre><code data-trim class="javascript">import {Http} from 'angular2/http';
+
+let ticks$ = Observable.interval(5000);
+
+let responses$ =
+  ticks$
+    .flatMapLatest(() => http.get('carStatus.json').retry(3))
+    .map(res => res.json());
+
+let carStatus = responses$.subscribe(res => updateMap(res));
+
+// When the driver arrives
+carStatus.unsubscribe();</code></pre>
+  <aside class="notes">
+    Now we're talking Angular 2!
+    <br>(and pretending we're Uber)
+    <br>don't spend too long, just do a quick review of:
+    <br> - .interval
+    <br> - http is so fetch
+    <br>
+    <br>Enough of those stuck-up frontend things, let's go to the backend where the real data is!</aside>
+</section>
+
+<section>
+  Let's build a data processing pipeline
+</section>
+
+<section data-state="wiki">
+  <div id="chartContainer"></div>
+  <div id="chart2Container"></div>
+  <aside class="notes">What's going on here?
+    <br>
+    <br>Wikipedia has a live stream of edits (yey).
+    <br>
+    <br>We tap into that stream via observables!
+    <br>
+    <br>Pipe between wiki stream and our stream
+    <br>Parses out irrelevant data
+    <br>Adds data into stats processing library
+    <br>updates graph
+  </aside>
+</section>
+
+<section>
+  <h3>Top Editors</h3>
+  <table class="editors" width="100%">
+    <thead>
+      <tr>
+        <td>Edits</td>
+        <td>Editor name/IP</td>
+      </tr>
+    </thead>
+    <tbody class="editor-body"></tbody>
+  </table>
+  <aside class="notes">
+    Stats processing allows us to find those who are editing the most.
+    <br>Find potential abuse, servers that are down, whatever you want.
+  </aside>
+</section>
+
+<section>
+  <h3>Top Pages</h3>
+  <table class="pages">
+    <thead>
+      <tr>
+        <td>Edits</td>
+        <td>Page name</td>
+      </tr>
+    </thead>
+    <tbody class="page-body"></tbody>
+  </table>
+  <aside class="notes">
+    We can also see if an edit war is going on - if any of these pages goes out of standard deviation, we can have a sequence that emits and fires off an email.
+  </aside>
+</section>
+
+<!-- Codez for backend-->
+<section>
+  <pre><code data-trim>let wikiStream$ = new Rx.Observable(o => {
+  let socket = ioClient.connect('stream.wikimedia.org/rc');
+  socket.on('connect_error', (objData) => o.error(objData));
+  socket.on('connect', () => socket.emit('subscribe', '*'));
+
+  socket.on('change', (objData) => o.next(objData);
+})
+.map(edit => ({
+  id: edit.id,
+  type: edit.type,
+  source: edit.server_name,
+  users: [edit.user],
+  urls: [edit.server_url + '/wiki/' + edit.title.replace(/\s/g, '_')]
+}))
+.publish().connect();
+
+$wikiStream.subscribe(edit => objStats.qData(edit));
+$wikiStream
+.bufferTime(updateInterval)
+.subscribe(updateGraphs);</code></pre>
+  <aside class="notes">
+    <br> - What's this publish/connect thing?
+    <br> (publish => makes it a multicasting stream, connect means 'start')
+    <br> - Don't want new subscription every time it's called
+    <br> - pub means that we can control subs
+    <br> - Have a single stream of data for everything
+    <br> - Needed here because socket connection
+    <br> - immediately loads the sockets
+    <br> - Talk about bufferTime and how different than throttle/debounce
+
+    <br>There's actually a websocket constructor in RxJS but that doesn't work with SocketIO
+  </aside>
+</section>
+
 <section>
   <h3>Who's using Observables?</h3>
   <ul>
@@ -107,187 +668,19 @@ css:
       <li>WebWorker Message bus</li>
       <li>async pipe</li>
     </ul>
-    <li>You!</li>
+    <li>You?</li>
   </ul>
-  <aside class="notes">Remember when MS was the big bad? Now Edge is the most ES6 compliant browser.
+  <aside class="notes">
+    Remember when MS was the big bad? Now Edge is the most ES6 compliant browser.
     <br> Tell any webdev in 2006 that MS would have the most spec-compliant browser and the'd punch you.
-    <br> Talk a bit about rx v4 vs v5 vs "observable" in general</aside>
-</section>
-<section>Enough already! Get to the codez!</section>
-<section data-state="basic">
-  <div class="left"><pre><code data-trim>let subscription = Rx.Observable.create(o => {
-  setInterval(() => o.onNext('hello'), 1000);
-})
-.map(val => val + '!')
-.subscribe(val => console.log(val));</code></pre></div>
-  <div class="right"><pre class="basic-result"><code data-trim></code></pre></div>
-  <aside class="notes">- creating observable
-    <br> - onNext
-    <br> - map
-    <br> - subscribe
-    <br>
-    <br> - What is the use of subscription (unsubscribe)
-    <br> - Where's the bug (never clearing interval, give away hat)
-    <br>
+    <br> Talk a bit about rx v4 vs v5 vs "observable" in general
   </aside>
 </section>
-<section><pre><code data-trim>let subscription = Rx.Observable.create(o => {
-  let myInterval = setInterval(() => o.onNext('hello'), 1000);
-  return () => clearInterval(myInterval);
-})
-.map(val => val + '!')
-.subscribe(val => console.log(val));
 
-// This will clean everything up
-subscription.unsubscribe();</code></pre>
-  <aside class="notes">We see unsubscribe in action. The Observable cleans up after itself (unlike many other forms of async).
-    <br>
-    <br> Enough silly examples - let's see some real stuff!</aside>
-</section>
-<section class="typeahead">
-  <div class="typeahead-center">
-    <input id="myInput" type="text" placeholder="Search StackOverflow" class="sosearch">
-  </div>
-  <div class="typeahead-svg-container"></div>
-  <div class="typeahead-results"></div>
-  <aside class="notes">Show off search ON MAIN SCREEN
-    <br> Explain each item in the chain</aside>
-</section>
-<section><pre><code data-trim>// Keyup
-Rx.Observable.fromEvent(document.getElementById('myInput'), 'keyup')
-  .map(e => e.target.value)
-  // Filter
-  .filter(Boolean)
-  // Throttle
-  .throttle(500)
-  // Distinct
-  .distinctUntilChanged()</code></pre>
-  <aside class="notes">Look at code in sections
-    <br>Observable
-    <br> - We didn't need to call Observable.create!
-    <br>Operations
-    <br> - filter (simple)
-    <br> - throttle (makes a bit more sense)
-    <br> - distinctUntilChanged (wat?)</aside>
-</section>
-<section><pre><code data-trim>// Search results
-.flatMapLatest(e => {
-  d.innerHTML = '';
-  return fetch(soApiUrl + e)
-  .then(resp => resp.json());
-})
-.catch(e => ({items:[]}))
-.flatMap(val => val.items)
-.map(item => item.title.link(item.link))
-.subscribe(
-  val => d.innerHTML = val + '<br />' + d.innerHTML,
-  err => alert(err.message),
-  () => console.log('done')</code></pre>
-  <aside class="notes">More methods
-    <br> - catch
-    <br> - flatMap
-    <br>Subscribe
-    <br> - three params</aside>
-</section>
 <section>
-  <h1></h1><pre><code data-trim>import {Http} from 'angular2/http';
+  <h1>Questions?</h1>
+</section>
 
-let ticks$ = Observable.interval(5000);
-
-let responses$ =
-  ticks$
-    .flatMapLatest(() => http.get('carStatus.json'))
-    .map(res => res.json());
-
-let carStatus = responses$.subscribe(res => updateMap(res));
-
-// When the driver arrives
-carStatus.unsubscribe();</code></pre>
-  <aside class="notes">Now we're talking Angular 2!
-    <br>
-    <br>don't spend too long, just do a quick review of:
-    <br> - .interval
-    <br> - http is fetch
-    <br>
-    <br>Enough of those stuck-up frontend things, let's go to the backend where the real data is!</aside>
-</section>
-<section data-state="wiki">
-  <div id="chartContainer"></div>
-  <div id="chart2Container"></div>
-  <aside class="notes">What's going on here?
-    <br>
-    <br>Wikipedia has a live stream of edits (yey).
-    <br>
-    <br>We tap into that stream via observables!
-    <br>
-    <br>Pipe between wiki stream and our stream
-    <br>Parses out irrelevant data
-    <br>Passes data into a stats processing library
-    <br>Adds data into stats processing library
-    <br>updates graph</aside>
-</section>
-<section>
-  <h3>Top Editors</h3>
-  <table>
-    <thead>
-      <tr>
-        <td>Editor name/IP</td>
-        <td># of edits in last minute</td>
-      </tr>
-    </thead>
-    <tbody class="editor-body"></tbody>
-  </table>
-  <aside class="notes">Stats processing allows us to find those who are editing the most.
-    <br>Find potential abuse, servers that are down, whatever you want.</aside>
-</section>
-<section>
-  <h3>Top Pages</h3>
-  <table>
-    <thead>
-      <tr>
-        <td>Page name</td>
-        <td>Edits</td>
-      </tr>
-    </thead>
-    <tbody class="page-body"></tbody>
-  </table>
-  <aside class="notes">We can also see if an edit war is going on - if any of these pages goes out of standard deviation, we can have a sequence that emits and fires off an email.</aside>
-</section>
-<!-- Codez for backend-->
-<section><pre><code data-trim>let fromWiki$ = new Rx.Observable(o => {
-  let socket = ioClient.connect('stream.wikimedia.org/rc');
-  socket.on('connect_error', (objData) => o.error(objData));
-  socket.on('connect', () => socket.emit('subscribe', '*'));
-
-  socket.on('change', (objData) => o.next(objData);
-}).map(edit => ({
-  id: edit.id,
-  type: edit.type,
-  source: edit.server_name,
-  users: [edit.user],
-  urls: [edit.server_url + '/wiki/' + edit.title.replace(/\s/g, '_')]
-})).publish();</code></pre>
-  <aside class="notes">What's this funky publish thing?
-    <br> - New subscription every time it's called
-    <br> - pub means that we can control subs
-    <br> - Have a single stream of data for everything
-    <br> - Needed here because socket connection
-    <br> - "lazy loads" the sockets</aside>
-</section>
-<section><pre><code data-trim>let wikiEvents$ = Rx.Observable.create(o => {
-  socket.on('data', function(data) {
-    o.onNext(data);
-  });
-})
-.do(edit => objStats.qData(edit))
-.bufferWithTime(updateInterval);</code></pre>
-  <aside class="notes">Talk about .do & bufferWithTime
-    <br>And how bufferWithTime is different than throttle</aside>
-</section>
-<section>
-  <h2><a href="//github.com/somekittens/gustav">Gustav</a><p>Stream processing construction kit built on RxJS</p></h2></section>
-<section>
-  <h1>Questions?</h1></section>
 <section>
   <h1>Further Reading</h1>
   <ul>
@@ -297,19 +690,21 @@ carStatus.unsubscribe();</code></pre>
     <li><a href="https://github.com/ReactiveX/RxJS">RxJS version 5</a></li>
   </ul>
 </section>
+
 <section>
   <h1>Me</h1>
-  <p class="me">questions<span class="twit">@</span><span class="twit site">rkoutnik</span><span class="site">.com</span></p>
+  <p>@rkoutnik</p>
+  <p>rkoutnik.com</p>
+  <p>talks@rkoutnik.com</p>
   <p class="fragment">github.com/SomeKittens</p>
-  <aside class="notes">Full is email for contact after the talk
-    <br>underline is Twitter
-    <br>italic is my site
+  <aside class="notes">
+    Full is email for contact after the talk
     <br>anyone want to guess as to my GitHub?
-    <br>(tell story about interview)</aside>
+    <br>(tell story about interview)
+    <br>don't forget feedback via app!
+  </aside>
 </section>
-<section data-background="images/stream.jpg">
-  <div class="lyrics">
-    <h3>Stream on!</h3>
-    <h3>Stream on!</h3>
-    <h3>Stream until your dreams come true!</h3></div>
+
+<section>
+  <h1>STICKERS!</h1>
 </section>

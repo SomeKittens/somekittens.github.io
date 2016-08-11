@@ -55,8 +55,8 @@
 
     </div>
 
-    <script src="/js/head.min.js"></script>
-    <script src="/js/reveal.js"></script>
+    <script src="{{ site.url }}/js/head.min.js"></script>
+    <script src="{{ site.url }}/js/reveal.js"></script>
 
     <script>
 
@@ -72,31 +72,13 @@
 
         // Optional reveal.js plugins
         dependencies: [
-          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: '/talks/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-          { src: '/talks/plugin/zoom-js/zoom.js', async: true },
-          { src: '/talks/plugin/notes/notes.js', async: true },
-
+          { src: 'lib/js/classList.js', condition: () => !document.body.classList },
+          { src: '/plugin/highlight/highlight.js', async: true, callback: () => hljs.initHighlightingOnLoad() },
+          { src: '{{ site.url }}/talks/plugin/zoom-js/zoom.js', async: true },
 
           {% for jsFile in page.js %}
-            { src: '/js/{{page.keyword}}/{{jsFile}}.js' },
+            { src: '{{ site.url }}/js/{{page.keyword}}/{{jsFile}}.js' },
           {% endfor %}
-          // // Libs
-          // { src: 'js/rx.min.js' },  // Rx v4, to use 5 uncomment the following line, also change all the codez
-          // // { src: 'https://npmcdn.com/@reactivex/rxjs@5.0.0-alpha.14/dist/global/Rx.js' },
-          // { src: 'js/d3.min.js' },
-          // { src: 'js/canvasjs.min.js' },
-          // { src: 'js/socketio-client.js' },
-          // // Thanks, Afrny
-          // { src: 'js/util.js' },
-          // { src: 'js/SuddenStats.js' },
-
-          // // My stuff
-          // { src: 'js/simple.js' },
-          // { src: 'js/benji.js' },
-
-          // // Socket for Wiki things
-          // { src: 'js/socket.js' }
         ]
       });
       if (window.location.hostname === 'rkoutnik.com') {

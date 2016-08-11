@@ -14,11 +14,17 @@ description: > # this means to ignore newlines until "baseurl:"
   Stick around and enjoy yourself!
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://rkoutnik.com" # the base hostname & protocol for your site
+# url: "http://localhost:4000"
 twitter_username: rkoutnik
 github_username:  SomeKittens
 
 # Build settings
 markdown: kramdown
+
+webrick:
+  headers:
+    Access-Control-Allow-Origin: "*"
+    Access-Control-Allow-Methods: "GET,PUT,POST,DELETE,OPTIONS"
 
 collections:
   talks:
