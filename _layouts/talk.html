@@ -73,7 +73,7 @@
         // Optional reveal.js plugins
         dependencies: [
           { src: 'lib/js/classList.js', condition: () => !document.body.classList },
-          { src: '/plugin/highlight/highlight.js', async: true, callback: () => hljs.initHighlightingOnLoad() },
+          { src: '/talks/plugin/highlight/highlight.js', async: true, callback: () => hljs.initHighlightingOnLoad() },
           { src: '{{ site.url }}/talks/plugin/zoom-js/zoom.js', async: true },
 
           {% for jsFile in page.js %}
