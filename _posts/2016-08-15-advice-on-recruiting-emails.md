@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Advice on recruting emails
+title: Advice on recruiting emails
 ed: "(ed: This is a response to a pair of recruiting emails)"
 ---
 
