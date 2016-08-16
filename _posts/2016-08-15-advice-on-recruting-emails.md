@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Advice on recruting emails
-ed: "(ed: This is a response to a pair of recruiting emails I recieved.)"
+ed: "(ed: This is a response to a pair of recruiting emails)"
 ---
 
 Originally, I wasn't going to respond but I've got a soft spot in my heart for startup founders.  If you don't mind, here's some unsolicited advice on recruiting:
