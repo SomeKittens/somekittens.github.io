@@ -175,3 +175,6 @@ With this chain of tools, functions and hastily-typed blog post in place, I no l
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 NOOOOOOOOOOO!!!!!!
+
+
+You can check out Calculords for yourself [here](http://www.calculords.com/).
