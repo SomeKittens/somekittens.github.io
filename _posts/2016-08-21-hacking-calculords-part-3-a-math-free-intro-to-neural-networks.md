@@ -22,7 +22,7 @@ The simplest answer would be to take a screenshot and look at a few key pixels t
 
 ![Picture of a generic digital clock](http://i.imgur.com/MLKcfLd.jpg?1)
 
-We've gathered enough information to tell which pixels are significant just by looking at our sample data.  On the other hand "looking at pixels" doesn't get to the front page of Hacker News and we're _serious programmers_.  Why do the sensible thing when we can rediculously overcomplicate?
+We've gathered enough information to tell which pixels are significant just by looking at our sample data.  On the other hand "looking at pixels" doesn't get to the front page of Hacker News and we're _serious programmers_.  Why do the sensible thing when we can ridiculously overcomplicate?
 
 At this point I need to take a quick break from the grandstanding and actually talk about what a neural network is.  There are two building blocks you need to know about: the neuron and the link.  If you're at all familiar with graphs, this is a Weighted Directed Acyclic Graph (WDAG).  If you're not familiar, a graph is a bunch of nodes connected by links.  'Directed' means the connections only go one way, and 'acyclic' means that if you start at any given node and follow all the directed links, you'll never get back to the node you started at (there are no cycles).  Weighted means that each connection has a different value.  Pictures help, so here's one:
 
