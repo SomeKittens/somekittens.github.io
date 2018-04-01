@@ -154,6 +154,8 @@ These few lines of code reduce the search space - by _four orders of magnitude_.
 
 Tune in next time when I go completely overboard and build an OCR system in JS that can teach itself how to play the game so I'm not needed at all.
 
+[Read part 2 here](https://rkoutnik.com/2016/06/14/hacking-calculords-2-who-needs-fingers.html)
+
 You can find the solver here: [https://rkoutnik.com/calculords-solver/](https://rkoutnik.com/calculords-solver/)
 
 Source code: [https://github.com/SomeKittens/calculords-solver](https://github.com/SomeKittens/calculords-solver)

@@ -191,8 +191,10 @@ When we started, we had a neat algorithm.  Now there's a solid UI around it, pro
 
 On the other hand, I still have to type in the numbers.
 
-Stay tuned for the thrilling conclusion wherein we'll build a neural network to recognize digits to save us from all that tedious typing.
+Next up is the thrilling conclusion wherein we'll build a neural network to recognize digits to save us from all that tedious typing.
 
 I wish I were kidding....
+
+[Read Part 3 here](https://rkoutnik.com/2016/08/21/hacking-calculords-part-3-a-math-free-intro-to-neural-networks.html)
 
 You can check out Calculords for yourself [here](http://www.calculords.com/).
