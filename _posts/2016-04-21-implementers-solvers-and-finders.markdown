@@ -26,7 +26,7 @@ This was it!  I could capitalize on my previous work and _finally_ ...not progra
 
 ## Implementers, Solvers, and Finders
 
-Could it be that we've utterly mischaracterized how career development as a programmer should work?  The guiding trifecta of Junior, Regular, & Senior is [incredibly easy to game](http://inmailfail.com/article/The-Fed-needs-to-cut-down-on-title-inflation.html) (A misguided company offered me a senior level job just under a year into my career).  A word ceases to be useful when we can't agree on its purpose - title relativism means a given title can convey entirely separate messages to different companies.  Which is more impressive, a "Senior UI Engineer" or a "Javascript Architect"?
+Could it be that we've utterly mischaracterized how career development as a programmer should work?  The guiding trifecta of Junior, Regular, & Senior is [incredibly easy to game](https://inmailfail.com/posts/the-fed-needs-to-cut-down-on-title-inflation) (A misguided company offered me a senior level job just under a year into my career).  A word ceases to be useful when we can't agree on its purpose - title relativism means a given title can convey entirely separate messages to different companies.  Which is more impressive, a "Senior UI Engineer" or a "Javascript Architect"?
 
 If we're to escape this situation where fantastic fanatic programmers can't see themselves programming in three years, we need to couple our words to real world meaning.  Instead of Jr/Sr nonsense (which already reeks of the years-of-experience antipattern), why don't we talk about what the job will actually entail?  Let's define your job title by how much autonomy your day-to-day work gives you.
 
